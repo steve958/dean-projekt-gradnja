@@ -27,6 +27,7 @@
 
     .caption_container {
         height: 100px !important;
+        z-index: 2;
     }
 
     .caption_container h3 {
