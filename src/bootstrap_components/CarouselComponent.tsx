@@ -1,52 +1,50 @@
-import './CarouselComponent.css'
-import Carousel from 'react-bootstrap/Carousel';
-import slika1 from '../assets/house1.jpg'
-import slika2 from '../assets/renovation.jpg'
-import slika3 from '../assets/section3.jpg'
+import "./CarouselComponent.css";
+import Carousel from "react-bootstrap/Carousel";
+import slika1 from "../assets/realestate.jpg";
+import slika2 from "../assets/renovation.jpg";
+import slika3 from "../assets/construction.jpg";
 
 export default function CarouselComponent() {
     return (
-        <Carousel className='carousel'>
+        <Carousel className="carousel">
             {/* Slide 1 */}
-            <Carousel.Item className='carousel_item'>
-                <img
-                    className="d-block w-100"
-                    src={slika1}
-                    alt="First slide"
-                />
-                <Carousel.Caption className='caption_container'>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <Carousel.Item className="carousel_item">
+                <img className="d-block w-100" src={slika1} alt="First slide" />
+                <Carousel.Caption className="caption_container">
+                    <h3>REAL ESTATE SALE</h3>
+                    <p>
+                        We specialize in connecting you with the perfect property, whether
+                        it's your first home, an investment opportunity, or a luxurious
+                        retreat.
+                    </p>
                 </Carousel.Caption>
             </Carousel.Item>
 
             {/* Slide 2 */}
-            <Carousel.Item className='carousel_item'>
-                <img
-                    className="d-block w-100"
-                    src={slika2}
-                    alt="Second slide"
-                />
+            <Carousel.Item className="carousel_item">
+                <img className="d-block w-100" src={slika2} alt="Second slide" />
 
-                <Carousel.Caption className='caption_container'>
-                    <h3>Renovacija i adaptacija</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <Carousel.Caption className="caption_container">
+                    <h3>RENOVATION AND ADAPTATION</h3>
+                    <p>
+                        Our team of skilled workers is dedicated to
+                        surpassing your expectations, making your home an expression of your
+                        unique style.
+                    </p>
                 </Carousel.Caption>
             </Carousel.Item>
 
             {/* Slide 3 */}
-            <Carousel.Item className='carousel_item'>
-                <img
-                    className="d-block w-100"
-                    src={slika3}
-                    alt="Third slide"
-                />
+            <Carousel.Item className="carousel_item">
+                <img className="d-block w-100" src={slika3} alt="Third slide" />
 
-                <Carousel.Caption className='caption_container'>
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                <Carousel.Caption className="caption_container">
+                    <h3>RESIDENTIAL CONSTRUCTION</h3>
+                    <p>
+                        Build your future with Dean Projekt Gradnja, where quality meets innovation.
+                    </p>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
-    )
+    );
 }

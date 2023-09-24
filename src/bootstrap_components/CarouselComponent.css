@@ -10,12 +10,13 @@
 @media (max-width: 900px) {
     .caption_container {
         position: absolute;
-        left: 0;
+        left: 0 !important;
         top: 60%;
         width: 100%;
         font-size: smaller;
         height: fit-content;
     }
+
 }
 
 @media (max-width: 600px) {
@@ -27,8 +28,9 @@
 
     .caption_container {
         height: 100px !important;
-        z-index: 2;
+        width: 100% !important;
     }
+
 
     .caption_container h3 {
         font-size: 18px;
