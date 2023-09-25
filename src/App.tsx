@@ -1,8 +1,9 @@
 import { Outlet } from "react-router-dom";
 import "./App.css";
-import CarouselComponent from "./bootstrap_components/CarouselComponent";
-import NavbarComponent from "./bootstrap_components/NavbarComponent";
-import CardComponents from "./bootstrap_components/CardComponents";
+import CarouselComponent from "./components/CarouselComponent";
+import NavbarComponent from "./components/NavbarComponent";
+import CardComponents from "./components/CardComponents";
+import SpecialOfferComponent from "./components/SpecialOfferComponent";
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <NavbarComponent />
       <CarouselComponent />
       <CardComponents />
+      <SpecialOfferComponent />
       <Outlet />
     </div>
   );

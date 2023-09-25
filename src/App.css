@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .app_container {
     width: 100vw;
     height: fit-content;
