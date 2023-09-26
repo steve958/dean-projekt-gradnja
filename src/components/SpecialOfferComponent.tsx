@@ -2,8 +2,8 @@ import './SpecialOfferComponent.css';
 
 export default function SpecialOfferComponent() {
     return (
-        <div className="container" style={{ marginTop: '50px' }} >
-            <h3 style={{ textAlign: 'center', marginBottom: '50px' }}>SPECIAL OFFER</h3>
+        <div className="container" style={{ marginTop: '2%' }} >
+            <h3 style={{ textAlign: 'center', marginBottom: '2%' }}>SPECIAL OFFER</h3>
             <div className="card-group vgr-cards">
                 <div className="card">
                     <div className="card-img-body">

@@ -1,0 +1,22 @@
+.quote_container {
+    margin-top: 2%;
+    width: 70vw;
+    margin-left: 15vw;
+    height: 130px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #C99B11;
+}
+
+.quote_container p {
+    font-style: italic;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+}

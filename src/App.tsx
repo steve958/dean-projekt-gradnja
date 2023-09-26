@@ -2,8 +2,8 @@ import { Outlet } from "react-router-dom";
 import "./App.css";
 import CarouselComponent from "./components/CarouselComponent";
 import NavbarComponent from "./components/NavbarComponent";
-import CardComponents from "./components/CardComponents";
 import SpecialOfferComponent from "./components/SpecialOfferComponent";
+import QuoteComponent from "./components/QuoteComponent";
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
     <div className="app_container">
       <NavbarComponent />
       <CarouselComponent />
-      <CardComponents />
+      <QuoteComponent />
       <SpecialOfferComponent />
       <Outlet />
     </div>
