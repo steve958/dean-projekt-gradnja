@@ -3,14 +3,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-interface Props {
-    selectedLanguage: string
-}
 
-function CardComponents(props: Props) {
-
-    const { selectedLanguage } = props
-
+function CardComponents() {
     return (
         <Container style={{ marginTop: "2%", width: "100%" }}>
             <Row className="justify-content-center">
