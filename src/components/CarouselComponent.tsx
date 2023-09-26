@@ -4,7 +4,13 @@ import slika1 from "../assets/realestate1.jpg";
 import slika2 from "../assets/renovation1.jpg";
 import slika3 from "../assets/construction1.jpg";
 
-export default function CarouselComponent() {
+interface Props {
+    selectedLanguage: string;
+}
+
+export default function CarouselComponent(props: Props) {
+    const { selectedLanguage } = props;
+
     return (
         <Carousel className="carousel">
             {/* Slide 1 */}
@@ -12,10 +18,15 @@ export default function CarouselComponent() {
                 <img className="d-block w-100" src={slika2} alt="Second slide" />
 
                 <Carousel.Caption className="caption_container">
-                    <h3>RENOVATION AND ADAPTATION</h3>
+                    <h3>
+                        {selectedLanguage === "English"
+                            ? "RENOVATION AND ADAPTATION"
+                            : "RENOVIRANJE I ADAPTACIJA"}
+                    </h3>
                     <p>
-                        Our team of skilled workers is dedicated to surpassing your
-                        expectations, making your home an expression of your unique style.
+                        {selectedLanguage === "English"
+                            ? "Our team of skilled workers is dedicated to surpassing your expectations, making your home an expression of your unique style."
+                            : "Naš tim kvalificiranih radnika posvećen je prevazilaženju vaših očekivanja, čineći vaš dom izrazom vašeg jedinstvenog stila."}
                     </p>
                 </Carousel.Caption>
                 {/* Slide 2 */}
@@ -23,11 +34,15 @@ export default function CarouselComponent() {
             <Carousel.Item className="carousel_item">
                 <img className="d-block w-100" src={slika1} alt="First slide" />
                 <Carousel.Caption className="caption_container">
-                    <h3>REAL ESTATE SALE</h3>
+                    <h3>
+                        {selectedLanguage === "English"
+                            ? "REAL ESTATE SALE"
+                            : "PRODAJA NEKRETNINA"}
+                    </h3>
                     <p>
-                        We specialize in connecting you with the perfect property, whether
-                        it's your first home, an investment opportunity, or a luxurious
-                        retreat.
+                        {selectedLanguage === "English"
+                            ? "We specialize in connecting you with the perfect property, whether it's your first home, an investment opportunity, or a luxurious retreat."
+                            : "Specijalizirani smo za povezivanje vas sa savršenom nekretninom, bilo da to je vaš prvi dom, prilika za ulaganje ili luksuzna vikendica"}
                     </p>
                 </Carousel.Caption>
             </Carousel.Item>
@@ -37,10 +52,15 @@ export default function CarouselComponent() {
                 <img className="d-block w-100" src={slika3} alt="Third slide" />
 
                 <Carousel.Caption className="caption_container">
-                    <h3>RESIDENTIAL CONSTRUCTION</h3>
+                    <h3>
+                        {selectedLanguage === "English"
+                            ? "RESIDENTIAL CONSTRUCTION"
+                            : "IZGRADNJA OBJEKATA"}
+                    </h3>
                     <p>
-                        Build your future with Dean Projekt Gradnja, where quality meets
-                        innovation.
+                        {selectedLanguage === "English"
+                            ? "Build your future with Dean Projekt Gradnja, where quality meets innovation."
+                            : "Gradite svoju budućnost uz Dean Projekt Gradnju, gdje se susreću kvaliteta i inovacija."}
                     </p>
                 </Carousel.Caption>
             </Carousel.Item>

@@ -3,30 +3,54 @@ import slika1 from "../assets/specialoffer/srebrnaplaza.jpg";
 import slika2 from "../assets/specialoffer/splitriva.jpg";
 import slika3 from "../assets/specialoffer/kucakut.jpg";
 
-export default function SpecialOfferComponent() {
+interface Props {
+    selectedLanguage: string;
+}
+
+export default function SpecialOfferComponent(props: Props) {
+    const { selectedLanguage } = props;
+
     return (
         <div className="container" style={{ marginTop: "2%" }}>
-            <div className="divider">SPECIAL OFFER</div>
+            <div className="divider">
+                {selectedLanguage === "English"
+                    ? "SPECIAL OFFER"
+                    : "IZDVAJAMO IZ PONUDE"}
+            </div>
             <div className="card-group vgr-cards">
                 <div className="card" style={{ padding: "10px" }}>
                     <div className="card-img-body" style={{ height: "370px" }}>
                         <img className="card-img" src={slika1} alt="Card image cap" />
                     </div>
                     <div className="card-body">
-                        <h4 className="card-title">NEW HOUSE - VIS RUKAVAC</h4>
+                        <h4 className="card-title">
+                            {selectedLanguage === "English"
+                                ? "NEW HOUSE - VIS RUKAVAC"
+                                : "NOVOGRADNJA - VIS RUKAVAC"}
+                        </h4>
                         <p className="card-text">
-                            Newly built 3-room house with move-in deadline Summer 2023.
+                            {selectedLanguage === "English"
+                                ? "Newly built 3-room house with move-in deadline Summer 2023."
+                                : "Novogradnja 3-sobna kuca sa rokom useljenja Ljeto 2023"}
                         </p>
-                        <p>View of the sea and nature.</p>
-                        <p>A quiet neighborhood full of greenery.</p>
+                        <p>
+                            {selectedLanguage === "English"
+                                ? "View of the sea and nature."
+                                : "Pogled na more i prirodu"}
+                        </p>
+                        <p>
+                            {selectedLanguage === "English"
+                                ? "A quiet neighborhood full of greenery."
+                                : "Miran kraj prepun zelenila"}
+                        </p>
                         <a href="#" className="btn btn-outline-secondary">
                             More details
                         </a>
                         <div className="icon_container_right">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                width="80"
-                                height="80"
+                                width="50"
+                                height="50"
                                 fill="#C99B11"
                                 className="bi bi-house-door"
                                 viewBox="0 0 16 16"
@@ -54,8 +78,8 @@ export default function SpecialOfferComponent() {
                         <div className="icon_container_left">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                width="80"
-                                height="80"
+                                width="50"
+                                height="50"
                                 fill="#C99B11"
                                 className="bi bi-buildings"
                                 viewBox="0 0 16 16"
@@ -82,8 +106,8 @@ export default function SpecialOfferComponent() {
                         <div className="icon_container_right">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                width="80"
-                                height="80"
+                                width="50"
+                                height="50"
                                 fill="#C99B11"
                                 className="bi bi-house-door"
                                 viewBox="0 0 16 16"
