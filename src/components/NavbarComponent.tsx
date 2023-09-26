@@ -5,7 +5,7 @@ export default function NavbarComponent() {
     return (
         <Navbar bg="light" expand="lg">
             <Container>
-                <Navbar.Brand href="/">Dean Projekt Gradnja</Navbar.Brand>
+                <Navbar.Brand href="/" style={{ fontWeight: '700' }}>Dean Projekt Gradnja</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarNav" />
                 <Navbar.Collapse id="navbarNav">
                     <Nav className="ml-auto">
