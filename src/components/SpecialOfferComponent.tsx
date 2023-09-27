@@ -20,29 +20,14 @@ export default function SpecialOfferComponent(props: Props) {
             <div className="card-group vgr-cards">
                 <div className="card" style={{ padding: "10px" }}>
                     <div className="card-img-body" style={{ height: "370px" }}>
-                        <img className="card-img" src={slika1} alt="Card image cap" />
+                        <img className="card-img" src={slika3} alt="Card image cap" />
                     </div>
                     <div className="card-body">
-                        <h4 className="card-title">
-                            {selectedLanguage === "English"
-                                ? "NEW HOUSE - VIS RUKAVAC"
-                                : "NOVOGRADNJA - VIS RUKAVAC"}
-                        </h4>
+                        <h4 className="card-title">NEW HOUSE - KUT RUKAVAC</h4>
                         <p className="card-text">
-                            {selectedLanguage === "English"
-                                ? "Newly built 3-room house with move-in deadline Summer 2023."
-                                : "Novogradnja 3-sobna kuca sa rokom useljenja Ljeto 2023"}
+                            Four-room house witouth previous owners.
                         </p>
-                        <p>
-                            {selectedLanguage === "English"
-                                ? "View of the sea and nature."
-                                : "Pogled na more i prirodu"}
-                        </p>
-                        <p>
-                            {selectedLanguage === "English"
-                                ? "A quiet neighborhood full of greenery."
-                                : "Miran kraj prepun zelenila"}
-                        </p>
+                        <p>Square footage 130m². The possibility of a swimming pool.</p>
                         <a href="#" className="btn btn-outline-secondary">
                             More details
                         </a>
@@ -92,14 +77,29 @@ export default function SpecialOfferComponent(props: Props) {
                 </div>
                 <div className="card" style={{ padding: "10px" }}>
                     <div className="card-img-body" style={{ height: "370px" }}>
-                        <img className="card-img" src={slika3} alt="Card image cap" />
+                        <img className="card-img" src={slika1} alt="Card image cap" />
                     </div>
                     <div className="card-body">
-                        <h4 className="card-title">NEW HOUSE - KUT RUKAVAC</h4>
+                        <h4 className="card-title">
+                            {selectedLanguage === "English"
+                                ? "NEW HOUSE - VIS RUKAVAC"
+                                : "NOVOGRADNJA - VIS RUKAVAC"}
+                        </h4>
                         <p className="card-text">
-                            Four-room house witouth previous owners.
+                            {selectedLanguage === "English"
+                                ? "Newly built 3-room house with move-in deadline Summer 2023."
+                                : "Novogradnja 3-sobna kuca sa rokom useljenja Ljeto 2023"}
                         </p>
-                        <p>Square footage 130m². The possibility of a swimming pool.</p>
+                        <p>
+                            {selectedLanguage === "English"
+                                ? "View of the sea and nature."
+                                : "Pogled na more i prirodu"}
+                        </p>
+                        <p>
+                            {selectedLanguage === "English"
+                                ? "A quiet neighborhood full of greenery."
+                                : "Miran kraj prepun zelenila"}
+                        </p>
                         <a href="#" className="btn btn-outline-secondary">
                             More details
                         </a>

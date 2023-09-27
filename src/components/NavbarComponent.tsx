@@ -15,10 +15,10 @@ export default function NavbarComponent(props: Props) {
     };
 
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg" sticky="top">
             <Container>
                 <Navbar.Brand href="/" style={{ fontWeight: "700" }}>
-                    Dean Projekt Gradnja
+                    DEAN PROJEKT GRADNJA
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarNav" />
                 <Navbar.Collapse id="navbarNav">
