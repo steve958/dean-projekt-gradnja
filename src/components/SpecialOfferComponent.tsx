@@ -23,13 +23,23 @@ export default function SpecialOfferComponent(props: Props) {
                         <img className="card-img" src={slika3} alt="Card image cap" />
                     </div>
                     <div className="card-body">
-                        <h4 className="card-title">NEW HOUSE - KUT RUKAVAC</h4>
+                        <h4 className="card-title">
+                            {selectedLanguage === "English"
+                                ? "NEW HOUSE - KUT RUKAVAC"
+                                : "NOVOGRADNJA - KUT RUKAVAC"}
+                        </h4>
                         <p className="card-text">
-                            Four-room house witouth previous owners.
+                            {selectedLanguage === "English"
+                                ? "Four-room house witouth previous owners."
+                                : "Neuseljavana Četvorosobna kuća."}
                         </p>
-                        <p>Square footage 130m². The possibility of a swimming pool.</p>
+                        <p>
+                            {selectedLanguage === "English"
+                                ? "Square footage 130m². The possibility of a swimming pool."
+                                : "Površina 130m². Mogućnost bazena."}
+                        </p>
                         <a href="#" className="btn btn-outline-secondary">
-                            More details
+                            {selectedLanguage === "English" ? "More details" : "Detaljnije"}
                         </a>
                         <div className="icon_container_right">
                             <svg
@@ -52,13 +62,22 @@ export default function SpecialOfferComponent(props: Props) {
                     <div className="card-body">
                         <h4 className="card-title">APARTMENT - SPLIT</h4>
                         <p className="card-text">
-                            Completely arranged and renovated apartment in the very core of
-                            the city of Split.
+                            {selectedLanguage === "English"
+                                ? " Completely arranged and renovated apartment in the very core of the city of Split."
+                                : "Kompletno sređen i renoviran stan u samom jezgru grada Splita."}
                         </p>
-                        <p>Every room and room has windows and natural ventilation.</p>
-                        <p>A perfect apartment as well as an investment!</p>
+                        <p>
+                            {selectedLanguage === "English"
+                                ? "Every room and room has windows and natural ventilation."
+                                : "Svaka prostorija i soba imaju prozore i prirodnu ventilaciju."}
+                        </p>
+                        <p>
+                            {selectedLanguage === "English"
+                                ? "A perfect apartment as well as an investment!"
+                                : "Savršen stan kao i investicija!"}
+                        </p>
                         <a href="#" className="btn btn-outline-secondary">
-                            More details
+                            {selectedLanguage === "English" ? "More details" : "Detaljnije"}
                         </a>
                         <div className="icon_container_left">
                             <svg
@@ -101,7 +120,7 @@ export default function SpecialOfferComponent(props: Props) {
                                 : "Miran kraj prepun zelenila"}
                         </p>
                         <a href="#" className="btn btn-outline-secondary">
-                            More details
+                            {selectedLanguage === "English" ? "More details" : "Detaljnije"}
                         </a>
                         <div className="icon_container_right">
                             <svg
