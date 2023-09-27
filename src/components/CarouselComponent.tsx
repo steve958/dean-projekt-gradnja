@@ -59,8 +59,8 @@ export default function CarouselComponent(props: Props) {
                     </h3>
                     <p>
                         {selectedLanguage === "English"
-                            ? "Build your future with Dean Projekt Gradnja, where quality meets innovation."
-                            : "Gradite svoju budućnost uz Dean Projekt Gradnju, gdje se susreću kvaliteta i inovacija."}
+                            ? "Build your future with DEAN PROJEKT GRADNJA, where quality meets innovation."
+                            : "Gradite svoju budućnost uz DEAN PROJEKT GRADNJU, gdje se susreću kvaliteta i inovacija."}
                     </p>
                 </Carousel.Caption>
             </Carousel.Item>

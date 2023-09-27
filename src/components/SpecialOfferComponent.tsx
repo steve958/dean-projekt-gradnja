@@ -60,7 +60,11 @@ export default function SpecialOfferComponent(props: Props) {
                         <img className="card-img" src={slika2} alt="Card image cap" />
                     </div>
                     <div className="card-body">
-                        <h4 className="card-title">APARTMENT - SPLIT</h4>
+                        <h4 className="card-title">
+                            {selectedLanguage === "English"
+                                ? "APARTMENT - SPLIT"
+                                : "APARTMAN - SPLIT"}
+                        </h4>
                         <p className="card-text">
                             {selectedLanguage === "English"
                                 ? " Completely arranged and renovated apartment in the very core of the city of Split."
