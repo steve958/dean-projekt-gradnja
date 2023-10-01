@@ -3,13 +3,11 @@ import Carousel from "react-bootstrap/Carousel";
 import slika1 from "../assets/realestate1.jpg";
 import slika2 from "../assets/renovation1.jpg";
 import slika3 from "../assets/construction1.jpg";
+import { useAppSelector } from "../app/hooks";
 
-interface Props {
-    selectedLanguage: string;
-}
-
-export default function CarouselComponent(props: Props) {
-    const { selectedLanguage } = props;
+export default function CarouselComponent() {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const selectedLanguage = useAppSelector((state: any) => state.language) as string
 
     return (
         <Carousel className="carousel">

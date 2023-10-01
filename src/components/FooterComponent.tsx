@@ -1,10 +1,8 @@
+import { useAppSelector } from "../app/hooks";
+import { RootState } from "../app/store";
 
-interface Props {
-    selectedLanguage: string;
-}
-
-export default function Footer(props: Props) {
-    const { selectedLanguage } = props;
+export default function Footer() {
+    const selectedLanguage = useAppSelector((state: RootState) => state.language.value)
 
     return (
         <footer

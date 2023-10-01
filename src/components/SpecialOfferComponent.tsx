@@ -2,13 +2,12 @@ import "./SpecialOfferComponent.css";
 import slika1 from "../assets/specialoffer/srebrnaplaza.jpg";
 import slika2 from "../assets/specialoffer/splitriva.jpg";
 import slika3 from "../assets/specialoffer/kucakut.jpg";
+import { useAppSelector } from "../app/hooks";
+import { RootState } from "../app/store";
 
-interface Props {
-    selectedLanguage: string;
-}
 
-export default function SpecialOfferComponent(props: Props) {
-    const { selectedLanguage } = props;
+export default function SpecialOfferComponent() {
+    const selectedLanguage = useAppSelector((state: RootState) => state.language.value)
 
     return (
         <div className="container" style={{ marginTop: "2%" }}>

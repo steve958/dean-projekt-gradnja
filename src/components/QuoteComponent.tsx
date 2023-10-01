@@ -1,11 +1,9 @@
+import { useAppSelector } from "../app/hooks";
+import { RootState } from "../app/store";
 import "./QuoteComponent.css";
 
-interface Props {
-    selectedLanguage: string;
-}
-
-export default function QuoteComponent(props: Props) {
-    const { selectedLanguage } = props;
+export default function QuoteComponent() {
+    const selectedLanguage = useAppSelector((state: RootState) => state.language.value)
 
     return (
         <div className="quote_container">
