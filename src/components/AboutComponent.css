@@ -2,4 +2,9 @@
     display: flex;
     align-items: flex-start;
     margin-bottom: 50px;
+    width: 100%;
+}
+
+.about_logo {
+    max-width: 70vw;
 }

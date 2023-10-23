@@ -33,7 +33,7 @@ const AboutComponent = () => {
                             : "U našoj tvrtki znamo da izgradnja može biti složen i izazovan proces. Zato smo posvijećeni tome da ostanemo organizirani iučinkoviti te da se prilagođavamo promjenjivim uvjetima kako se pojavljuju. Također stavljamo snažan naglasak na sigurnost, poštujući sve potrebne propise kako bismo osigurali dobrobit našegtima i onih oko nas. Općenito, naš je cilj pridonijeti rastu irazvoju zajednica u kojima radimo te igrati ključnu ulogu u gospodarstvu."}
                     </p>
                 </Col>
-                <Col>
+                <Col style={{ display: 'flex', justifyContent: 'center' }}>
                     <Image src={logo} className="about_logo" />
                 </Col>
             </Row>

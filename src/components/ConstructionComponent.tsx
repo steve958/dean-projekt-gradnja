@@ -67,8 +67,8 @@ const ConstructionComponent = () => {
             <Row>
                 {array.map((image: string) => {
                     return (
-                        <Col key={Math.random()} xs={6} md={4} lg={3} className="mb-4">
-                            <Image src={image} thumbnail style={{ width: '350px', height: '350px' }} />
+                        <Col key={Math.random()} xs={6} md={4} lg={3} className="mb-4 img-fluid">
+                            <Image src={image} thumbnail style={{ width: '100%', height: '100%' }} />
                         </Col>
                     );
                 })}
