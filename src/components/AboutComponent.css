@@ -1,0 +1,5 @@
+.about_row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 50px;
+}

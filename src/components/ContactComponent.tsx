@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./ContactComponent.css";
+import { useAppSelector } from "../app/hooks";
+import { RootState } from "../app/store";
 
 interface Info {
     home: boolean;
@@ -8,6 +10,10 @@ interface Info {
 }
 
 export default function ContactComponent() {
+    const selectedLanguage = useAppSelector(
+        (state: RootState) => state.language.value
+    );
+
     const [infoClicked, setInfoClicked] = useState<Info>({
         home: false,
         mail: false,
@@ -31,8 +37,16 @@ export default function ContactComponent() {
                                     className="text-white text-center p-4"
                                     style={{ backgroundColor: "#45526E" }}
                                 >
-                                    <h3>Contact Us</h3>
-                                    <p className="m-0">We will be glad to assist you</p>
+                                    <h3>
+                                        {selectedLanguage === "English"
+                                            ? "Contact Us"
+                                            : "Kontaktirajte nas"}
+                                    </h3>
+                                    <p className="m-0">
+                                        {selectedLanguage === "English"
+                                            ? "We will be glad to assist you"
+                                            : "Rado ćemo vam pomoći"}
+                                    </p>
                                 </div>
                             </div>
                             <div className="card-body p-5">
@@ -57,7 +71,11 @@ export default function ContactComponent() {
                                             className="form-control"
                                             id="nombre"
                                             name="nombre"
-                                            placeholder="Name and Surname"
+                                            placeholder={
+                                                selectedLanguage === "English"
+                                                    ? "Name and surname"
+                                                    : "Ime i prezime"
+                                            }
                                             required
                                         />
                                     </div>
@@ -106,7 +124,11 @@ export default function ContactComponent() {
                                         </div>
                                         <textarea
                                             className="form-control"
-                                            placeholder="Your message"
+                                            placeholder={
+                                                selectedLanguage === "English"
+                                                    ? "Your message"
+                                                    : "Vaša poruka"
+                                            }
                                             rows={1}
                                             required
                                         ></textarea>
@@ -115,7 +137,7 @@ export default function ContactComponent() {
                                 <div className="text-center">
                                     <input
                                         type="submit"
-                                        value="Send"
+                                        value={selectedLanguage === "English" ? "Send" : "Pošalji"}
                                         className="btn btn-block rounded-2 py-2 text-white"
                                         style={{ backgroundColor: "#45526E" }}
                                     />

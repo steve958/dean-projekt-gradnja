@@ -41,12 +41,12 @@ export default function NavbarComponent() {
                                     ? "Real Estate sale"
                                     : "Prodaja nekretnina"}
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/2">
+                            <NavDropdown.Item onClick={() => navigate("/renovation")}>
                                 {selectedLanguage === "English"
                                     ? "Renovation and adaptation"
                                     : "Renoviranje i adaptacija"}
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3">
+                            <NavDropdown.Item onClick={() => navigate("/construction")}>
                                 {selectedLanguage === "English"
                                     ? "Residential construction"
                                     : "Izgradnja objekata"}
