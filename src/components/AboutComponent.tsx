@@ -22,7 +22,7 @@ const AboutComponent = () => {
             </div>
             <Row className="about_row">
                 <Col>
-                    <p style={{ marginTop: "30px" }}>
+                    <p>
                         {selectedLanguage === "English"
                             ? "We are a company with 10 years of work experience in the field of construction and execution of all construction works. For the last 10 years, we have been successfully performing work on facilities in the north of Germany, having built a large number of schools, hospitals, housing facilities... The highest level of construction quality according to German and EU standards. From now on in Croatia and throughout Dalmatia. Regardless of the scope of the project, we are committed to delivering high quality work that meets the needs and expectations of our clients."
                             : "Mi smo tvrtka sa 10 godina radnog iskustva u području građenja i izvođenja svih građevinskih radova. Posljednjih 10 godina uspješno izvodimo radove na objektima na sjeveru Njemačke izgradivši velikibroj škola, bolnica, stambenih objekata... Najviša razina kvalitete gradnje po njemačkim i EU standardima. Od sada i u Hrvatskoj širom Dalmacije. Bez obzira na opseg projekta, predani smo isporuci visokokvalitetnog rada koji zadovoljava potrebe i očekivanja naših klijenata."}

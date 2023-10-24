@@ -36,7 +36,7 @@ export default function NavbarComponent() {
                             }
                             id="basic-nav-dropdown"
                         >
-                            <NavDropdown.Item href="#action/1">
+                            <NavDropdown.Item onClick={() => navigate('/realestate')}>
                                 {selectedLanguage === "English"
                                     ? "Real Estate sale"
                                     : "Prodaja nekretnina"}

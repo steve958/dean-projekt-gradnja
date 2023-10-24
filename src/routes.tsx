@@ -5,6 +5,7 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Renovation from "./pages/Renovation";
 import Construction from "./pages/Construction";
+import Realestate from "./pages/Realestate";
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
             {
                 path: '/construction',
                 element: <Construction />
+            },
+            {
+                path: '/realestate',
+                element: <Realestate />
             }
 
         ],
