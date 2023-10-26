@@ -1,0 +1,29 @@
+.property_card-container {
+    width: 50vw;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.property_card-image {
+    width: 50%;
+}
+
+.property_card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+@media (max-width: 1400px) {
+    .property_card-container {
+        flex-direction: column;
+
+    }
+
+    .property_card-image {
+        width: 100%;
+    }
+
+}

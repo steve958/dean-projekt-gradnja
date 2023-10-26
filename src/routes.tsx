@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Renovation from "./pages/Renovation";
 import Construction from "./pages/Construction";
 import Realestate from "./pages/Realestate";
+import SingleRealestate from "./pages/SingleRealestate";
 
 export const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
             {
                 path: '/realestate',
                 element: <Realestate />
+            },
+            {
+                path: '/realestate/:id',
+                element: <SingleRealestate />
             }
 
         ],

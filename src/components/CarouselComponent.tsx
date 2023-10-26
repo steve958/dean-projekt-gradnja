@@ -4,10 +4,13 @@ import slika1 from "../assets/realestate1.jpg";
 import slika2 from "../assets/renovation1.jpg";
 import slika3 from "../assets/construction1.jpg";
 import { useAppSelector } from "../app/hooks";
+import { useNavigate } from "react-router-dom";
 
 export default function CarouselComponent() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const selectedLanguage = useAppSelector((state: any) => state.language) as string
+
+    const navigate = useNavigate()
 
     return (
         <Carousel className="carousel">
@@ -15,7 +18,7 @@ export default function CarouselComponent() {
             <Carousel.Item className="carousel_item">
                 <img className="d-block w-100" src={slika2} alt="Second slide" />
 
-                <Carousel.Caption className="caption_container">
+                <Carousel.Caption className="caption_container" onClick={() => navigate("/renovation")}>
                     <h3>
                         {selectedLanguage === "English"
                             ? "RENOVATION AND ADAPTATION"
@@ -31,7 +34,7 @@ export default function CarouselComponent() {
             </Carousel.Item>
             <Carousel.Item className="carousel_item">
                 <img className="d-block w-100" src={slika1} alt="First slide" />
-                <Carousel.Caption className="caption_container">
+                <Carousel.Caption className="caption_container" onClick={() => navigate("/realestate")}>
                     <h3>
                         {selectedLanguage === "English"
                             ? "REAL ESTATE SALE"
@@ -39,8 +42,8 @@ export default function CarouselComponent() {
                     </h3>
                     <p>
                         {selectedLanguage === "English"
-                            ? "We specialize in connecting you with the perfect property, whether it's your first home, an investment opportunity, or a luxurious retreat."
-                            : "Specijalizirani smo za povezivanje vas sa savršenom nekretninom, bilo da to je vaš prvi dom, prilika za ulaganje ili luksuzna vikendica"}
+                            ? "We specialize in connecting you with the perfect vacation property, whether it's your first home, an investment opportunity, or a luxurious retreat."
+                            : "Specijalizirani smo za povezivanje vas sa savršenim mjestom za odmor, bilo da to je vaš prvi dom, prilika za ulaganje ili luksuzna vikendica"}
                     </p>
                 </Carousel.Caption>
             </Carousel.Item>
@@ -49,7 +52,7 @@ export default function CarouselComponent() {
             <Carousel.Item className="carousel_item">
                 <img className="d-block w-100" src={slika3} alt="Third slide" />
 
-                <Carousel.Caption className="caption_container">
+                <Carousel.Caption className="caption_container" onClick={() => navigate("/construction")}>
                     <h3>
                         {selectedLanguage === "English"
                             ? "RESIDENTIAL CONSTRUCTION"

@@ -30,7 +30,7 @@ const AboutComponent = () => {
                     <p>
                         {selectedLanguage === "English"
                             ? "At our company, we know that construction can be a complex and challenging process. That's why we're committed to staying organized and efficient and adapting to changing conditions as they arise. We also place a strong emphasis on safety, following all necessary regulations to ensure the well-being of our team and those around us. Overall, our goal is to contribute to the growth and development of the communities in which we work and to play a key role in the economy."
-                            : "U našoj tvrtki znamo da izgradnja može biti složen i izazovan proces. Zato smo posvijećeni tome da ostanemo organizirani iučinkoviti te da se prilagođavamo promjenjivim uvjetima kako se pojavljuju. Također stavljamo snažan naglasak na sigurnost, poštujući sve potrebne propise kako bismo osigurali dobrobit našegtima i onih oko nas. Općenito, naš je cilj pridonijeti rastu irazvoju zajednica u kojima radimo te igrati ključnu ulogu u gospodarstvu."}
+                            : "U našoj tvrtki znamo da izgradnja može biti složen i izazovan proces. Zato smo posvijećeni tome da ostanemo organizirani i učinkoviti te da se prilagođavamo promjenjivim uvjetima kako se pojavljuju. Također stavljamo snažan naglasak na sigurnost, poštujući sve potrebne propise kako bismo osigurali dobrobit našeg tima i onih oko nas. Općenito, naš je cilj pridonijeti rastu i razvoju zajednica u kojima radimo te igrati ključnu ulogu u gospodarstvu."}
                     </p>
                 </Col>
                 <Col style={{ display: 'flex', justifyContent: 'center' }}>
