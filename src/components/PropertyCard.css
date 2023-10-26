@@ -19,11 +19,16 @@
 @media (max-width: 1400px) {
     .property_card-container {
         flex-direction: column;
-
     }
 
     .property_card-image {
         width: 100%;
     }
 
+}
+
+@media (max-width: 1400px) {
+    .property_card-container {
+        width: 100vw;
+    }
 }
