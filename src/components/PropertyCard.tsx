@@ -14,6 +14,8 @@ const PropertyCard = () => {
     const { id } = useParams();
 
     useEffect(() => {
+        const element = document.getElementsByClassName("property_card-container");
+        element[0]?.scrollIntoView({ behavior: "smooth", block: "start" });
         const find = realestate?.find((realestate: Realestate) => realestate.id.toString() === id);
         if (find) setProperty(find);
     }, [id]);
@@ -35,7 +37,7 @@ const PropertyCard = () => {
                             <img
                                 src={image}
                                 alt={`Slide ${index}`}
-                                style={{ width: "auto", minWidth: '550px', height: "565px", objectFit: "cover" }}
+                                style={{ height: "565px", objectFit: "contain" }}
                             />
                         </Carousel.Item>
                     ))}
