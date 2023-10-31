@@ -62,7 +62,7 @@ const PropertyCard = () => {
                                         ? `Price: ${property?.price && priceConverter(property?.price)}€`
                                         : `Cijena: ${property?.price && priceConverter(property?.price)}€`}
                                 </p>
-                                <span style={{ position: "absolute", right: "10px", bottom: "30px" }}>
+                                <span className='button_send-message'>
                                     <a
                                         className="btn btn-outline-secondary"
                                         onClick={handleSendMessage}
