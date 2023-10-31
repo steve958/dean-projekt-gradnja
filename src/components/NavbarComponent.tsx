@@ -18,7 +18,7 @@ export default function NavbarComponent() {
     return (
         <Navbar bg="light" expand="lg" sticky="top">
             <Container>
-                <Navbar.Brand onClick={() => navigate('/')} style={{ fontWeight: "700" }}>
+                <Navbar.Brand onClick={() => navigate('/')} style={{ fontWeight: "700", cursor: 'pointer' }}>
                     DEAN PROJEKT GRADNJA
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarNav" />

@@ -4,11 +4,12 @@
 
 .sold_stamp {
     position: absolute;
+    color: #45526E;
+    font-weight: 600;
     letter-spacing: 20px;
     font-size: 55px;
-    top: 30%;
-    right: 5%;
-    transform: rotate(45deg);
+    top: 25%;
+    left: 5%;
 }
 
 @media (max-width: 1400px) {
@@ -33,5 +34,12 @@
     .sold_stamp {
         right: 0;
         font-size: 6vh;
+    }
+}
+
+@media (max-width: 340px) {
+    .sold_stamp {
+        right: 0;
+        font-size: 4vh;
     }
 }
