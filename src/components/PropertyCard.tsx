@@ -14,12 +14,11 @@ const PropertyCard = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        const element = document.getElementsByClassName("container");
+        const element = document.getElementsByClassName("card-body");
         element[0]?.scrollIntoView({ behavior: "smooth", block: "start" });
         const find = realestate?.find((realestate: Realestate) => realestate.id.toString() === id);
         if (find) setProperty(find);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [id]);
 
     const handleSendMessage = () => {
         setShowModal(true);
