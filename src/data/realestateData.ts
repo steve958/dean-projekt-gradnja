@@ -56,8 +56,19 @@ import nineimg4 from "../assets/realestate/9-Kuca-Osijek/img4.jpg";
 import nineimg5 from "../assets/realestate/9-Kuca-Osijek/img5.jpg";
 import nineimg6 from "../assets/realestate/9-Kuca-Osijek/img6.jpg";
 import nineimg7 from "../assets/realestate/9-Kuca-Osijek/img7.jpg";
-//obejct 10
-import tenmain from "../assets/realestate/10-Kuca-Plisko-Polje/main.jpg"
+//object 10
+import tenmain from "../assets/realestate/10-Kuca-Plisko-Polje/main.jpg";
+//object 11
+import elevenmain from "../assets/realestate/11-Apartman-Vis-Dudo/main.jpg";
+import elevenimg1 from "../assets/realestate/11-Apartman-Vis-Dudo/img1.jpg";
+import elevenimg2 from "../assets/realestate/11-Apartman-Vis-Dudo/img2.jpg";
+import elevenimg3 from "../assets/realestate/11-Apartman-Vis-Dudo/img3.jpg";
+import elevenimg4 from "../assets/realestate/11-Apartman-Vis-Dudo/img4.jpg";
+import elevenimg5 from "../assets/realestate/11-Apartman-Vis-Dudo/img5.jpg";
+import elevenimg6 from "../assets/realestate/11-Apartman-Vis-Dudo/img6.jpg";
+import elevenimg7 from "../assets/realestate/11-Apartman-Vis-Dudo/img7.jpg";
+import elevenimg8 from "../assets/realestate/11-Apartman-Vis-Dudo/img8.jpg";
+import elevenimg9 from "../assets/realestate/11-Apartman-Vis-Dudo/img9.jpg";
 
 
 export interface Realestate {
@@ -229,7 +240,7 @@ export const realestate = [
     descriptionEng:
       "Excellent house for sale with proper papers in the heart of Slavonia. House on one floor, has 6 rooms and 2 bathrooms. A couple of rooms require certain investments, i.e. they need to be completed. The yard, set back from the main road and most importantly, a beautiful view of the Slavonian plain. 3000m² of land",
   },
-   {
+  {
     id: 10,
     mainImage: tenmain,
     titleCro: "Vis - Plisko Polje",
@@ -238,7 +249,33 @@ export const realestate = [
     images: [tenmain],
     status: "active",
     type: "house",
-    descriptionCro: "Na prodaju kamena kuća 65m² podne površine, zahtjeva ulaganje. Ima pripadajuću gustirnu, i mali vrt. Skrivena od gužve i buke. Sa predivnim pogledom na vinograde i otočke vrtove. Plac 3000m²",
-    descriptionEng: "Stone house for sale, 65 m² floor area, investment required. It has an adjoining well and a small garden. Hidden away from the crowd and noise. With a wonderful view of vineyards and island gardens. 3000m² of land",
+    descriptionCro:
+      "Na prodaju kamena kuća 65m² podne površine, zahtjeva ulaganje. Ima pripadajuću gustirnu, i mali vrt. Skrivena od gužve i buke. Sa predivnim pogledom na vinograde i otočke vrtove. Plac 3000m²",
+    descriptionEng:
+      "Stone house for sale, 65 m² floor area, investment required. It has an adjoining well and a small garden. Hidden away from the crowd and noise. With a wonderful view of vineyards and island gardens. 3000m² of land",
+  },
+  {
+    id: 11,
+    mainImage: elevenmain,
+    titleCro: "Apartman - Vis, odmah kod konobe Dudo",
+    titleEng: "Apartment - Vis, near Konoba Dudo ",
+    price: 130000,
+    images: [
+      elevenimg1,
+      elevenimg2,
+      elevenimg3,
+      elevenimg4,
+      elevenimg5,
+      elevenimg6,
+      elevenimg7,
+      elevenimg8,
+      elevenimg9,
+    ],
+    status: "active",
+    type: "house",
+    descriptionCro:
+      "Kompletno sredjen i uredjen sa predivnim okolišem. Površina 42m². Na samom apartmanu nema ulaganja,osim malo ga osvježiti. Blizina bolnice,ljekarne,supermarketa. Terasa, mir i tišina a u samom centru dešavanja. Papiri uredni.",
+    descriptionEng:
+      "Completely arranged and arranged with beautiful surroundings. Square footage 42m². There is no investment in the apartment itself, except to freshen it up a bit. Close to hospital, pharmacy, supermarket. Terrace, peace and quiet in the very center of the action.",
   },
 ];
