@@ -18,7 +18,8 @@ const PropertyCard = () => {
         element[0]?.scrollIntoView({ behavior: "smooth", block: "start" });
         const find = realestate?.find((realestate: Realestate) => realestate.id.toString() === id);
         if (find) setProperty(find);
-    }, [id]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const handleSendMessage = () => {
         setShowModal(true);

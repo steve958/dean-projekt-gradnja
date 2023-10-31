@@ -19,7 +19,7 @@ import twoimg8 from "../assets/realestate/2-Kuca-Kut-Valica/img8.jpg";
 import twoimg9 from "../assets/realestate/2-Kuca-Kut-Valica/img9.jpg";
 //object 3
 import threemain from "../assets/realestate/3-Stan-Hvar/main.jpg";
-import threeimg1 from "../assets/realestate/3-Stan-Hvar/img1.jfif";
+import threeimg1 from "../assets/realestate/3-Stan-Hvar/img1.jpg";
 import threeimg2 from "../assets/realestate/3-Stan-Hvar/img2.jpg";
 import threeimg3 from "../assets/realestate/3-Stan-Hvar/img3.jpg";
 import threeimg4 from "../assets/realestate/3-Stan-Hvar/img4.jpg";
