@@ -1,17 +1,22 @@
 import { Carousel, Modal, Form } from 'react-bootstrap';
 import { useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { priceConverter } from "../helpers/priceconverter";
 import { useParams } from "react-router-dom";
 import "./PropertyCard.css"
+import emailjs from "@emailjs/browser";
 import { Realestate, realestate } from "../data/realestateData";
 
 const PropertyCard = () => {
     const language = useAppSelector((state: RootState) => state.language.value);
     const [property, setProperty] = useState<Realestate | null>(null);
     const [showModal, setShowModal] = useState(false);
+    const [messageSent, setMessageSent] = useState<boolean>(false);
+    const [messageError, setMessageError] = useState<boolean>(false);
     const { id } = useParams();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const form = useRef<any>(null);
 
     useEffect(() => {
         const element = document.getElementsByClassName("card-body");
@@ -20,6 +25,22 @@ const PropertyCard = () => {
         if (find) setProperty(find);
     }, [id]);
 
+    useEffect(() => {
+        if (messageSent) {
+            setTimeout(() => {
+                setMessageSent(false);
+            }, 3000);
+        }
+    }, [messageSent]);
+
+    useEffect(() => {
+        if (messageError) {
+            setTimeout(() => {
+                setMessageError(false);
+            }, 3000);
+        }
+    }, [messageError]);
+
     const handleSendMessage = () => {
         setShowModal(true);
     };
@@ -27,6 +48,30 @@ const PropertyCard = () => {
     const handleCloseModal = () => {
         setShowModal(false);
     };
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    function sendEmail(e: any) {
+        e.preventDefault();
+        emailjs
+            .sendForm(
+                "service_5k3args",
+                "template_gtvfrs3",
+                form.current,
+                "pDjSDgSb5GhFbV37I"
+            )
+            .then(
+                (result) => {
+                    setMessageSent(true);
+                    console.log(result.text);
+                },
+                (error) => {
+                    setMessageError(true);
+                    console.log(error.text);
+                }
+            );
+        e.target.reset();
+    }
+
 
     return (
         <>
@@ -86,7 +131,9 @@ const PropertyCard = () => {
                     <Modal.Title>{language === "English" ? "Send Message" : "Pošaljite upit"}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form>
+                    <Form className="contact-form-container"
+                        onSubmit={sendEmail}
+                        ref={form}>
                         <Form.Group className="mb-3">
                             <Form.Label>Nekretnina: {property?.titleCro}</Form.Label>
                         </Form.Group>
@@ -98,7 +145,6 @@ const PropertyCard = () => {
                             <Form.Label>Message</Form.Label>
                             <Form.Control as="textarea" rows={3} placeholder="Enter your message" />
                         </Form.Group>
-
                         <a className='btn btn-outline-secondary' type="submit">
                             Send
                         </a>
