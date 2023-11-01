@@ -4,6 +4,8 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { changeLanguage } from "../features/languageSlice";
 import { RootState } from "../app/store";
 import { useNavigate } from "react-router-dom";
+import croFlag from "../assets/croatia.jpg"
+import engFlag from "../assets/english.png"
 
 export default function NavbarComponent() {
     const selectedLanguage = useAppSelector((state: RootState) => state?.language.value)
@@ -52,25 +54,14 @@ export default function NavbarComponent() {
                                     : "Izgradnja objekata"}
                             </NavDropdown.Item>
                         </NavDropdown>
-                        <NavDropdown
-                            title={selectedLanguage === "English" ? "Language" : "Jezik"}
-                            id="language-dropdown"
-                        >
-                            <NavDropdown.Item
-                                onClick={() => handleLanguageChange("English")}
-                                active={selectedLanguage === "English"}
-                            >
-                                {selectedLanguage === "English" ? "English" : "Engleski"}
-                            </NavDropdown.Item>
-                            <NavDropdown.Item
-                                onClick={() => handleLanguageChange("Croatian")}
-                                active={selectedLanguage === "Croatian"}
-                            >
-                                {selectedLanguage === "English" ? "Croatian" : "Hrvatski"}
-                            </NavDropdown.Item>
-                        </NavDropdown>
                         <Nav.Link onClick={() => navigate('/contact')}>
                             {selectedLanguage === "English" ? "Contact" : "Kontakt"}
+                        </Nav.Link>
+                        <Nav.Link onClick={() => handleLanguageChange("English")}>
+                            <img src={engFlag} alt="English Flag" style={{ width: '35px' }} className={selectedLanguage === "English" ? "flag_active" : ''} />
+                        </Nav.Link>
+                        <Nav.Link onClick={() => handleLanguageChange("Croatian")}>
+                            <img src={croFlag} alt="Croatian Flag" style={{ width: '30px' }} className={selectedLanguage !== "English" ? "flag_active" : ''} />
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

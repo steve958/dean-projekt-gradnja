@@ -23,3 +23,7 @@
 .btn-outline-secondary:hover {
     background-color: #45526E !important;
 }
+
+.flag_active {
+    border: 2px solid #45526E;
+}
