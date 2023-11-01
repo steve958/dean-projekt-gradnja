@@ -57,6 +57,12 @@ const PropertyCard = () => {
                                         ? property?.descriptionEng
                                         : property?.descriptionCro}
                                 </p>
+                                {language !== "English" && property?.summaryCro.map(((summary: string) => {
+                                    return (<p>{summary}</p>)
+                                }))}
+                                {language === "English" && property?.summaryEng.map(((summary: string) => {
+                                    return (<p>{summary}</p>)
+                                }))}
                                 <p style={{ fontSize: "25px", fontWeight: "600" }}>
                                     {language === "English"
                                         ? `Price: ${property?.price && priceConverter(property?.price)}€`
