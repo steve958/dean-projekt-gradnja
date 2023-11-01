@@ -49,7 +49,7 @@ const RealestateComponent = () => {
                         return (
                             <div className="col-md-4" key={realestate.id} style={{ position: 'relative' }} >
                                 {realestate.status === 'sold' && <p className="sold_stamp text-large">{selectedLanguage === "English" ? 'SOLD' : 'PRODANO'}</p>}
-                                <div className="card mb-4 box-shadow" id={realestate.status}>
+                                <div className="card card_realestate mb-4 box-shadow" id={realestate.status}>
                                     <img
                                         src={realestate.mainImage}
                                         alt="Album cover"

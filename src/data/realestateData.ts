@@ -72,8 +72,6 @@ import elevenimg9 from "../assets/realestate/11-Apartman-Vis-Dudo/img9.jpg";
 //object 12
 import twelvemain from "../assets/realestate/12-Plac-Dobra-Luka/main.jpg";
 import twelveimg1 from "../assets/realestate/12-Plac-Dobra-Luka/img1.jpg";
-import twelveimg2 from "../assets/realestate/12-Plac-Dobra-Luka/img2.jpg";
-import twelveimg3 from "../assets/realestate/12-Plac-Dobra-Luka/img3.jpg";
 //object 13
 import thirteenmain from "../assets/realestate/13-Plac-Vis/main.jpg";
 import thirteenimg1 from "../assets/realestate/13-Plac-Vis/img1.jpg";
@@ -81,7 +79,6 @@ import thirteenimg2 from "../assets/realestate/13-Plac-Vis/img2.jpg";
 import thirteenimg3 from "../assets/realestate/13-Plac-Vis/img3.jpg";
 import thirteenimg4 from "../assets/realestate/13-Plac-Vis/img4.jpg";
 import thirteenimg5 from "../assets/realestate/13-Plac-Vis/img5.jpg";
-import thirteenimg6 from "../assets/realestate/13-Plac-Vis/img6.jpg";
 
 export interface Realestate {
   id: number;
@@ -135,9 +132,9 @@ export const realestate = [
     status: "active",
     type: "house",
     descriptionCro:
-      "Neuseljavana Četvorosobna kuća. Površina 130m². Mogućnost bazena. Pogled na more i luku, na grad Vis. Miran dio Visa u kom nema prometa.",
+      "Kad može Hollywood, možete i Vi!!! Ostvarite svoj san o sopstvenoj nekretnini na moru, po još uvijek dobrim cijenama odaberite za sebe stan ili kuću na Otoku Visu, u oazi netaknute prirode sa mnogobrojnim plažama, sa jedni.  Od najljepših na svijetu. Plaža Srebrna je 2006. godine izabrana za najljepšu plažu u Europi. Kada je filmska industrija prepoznala potencijal,što ne biste i Vi?  Na Otoku su se snimali razni filmovi medju kojima je i 'Mamma mia'. Neuseljavana Četvorosobna kuća. Površina 130m². Mogućnost bazena. Pogled na more i luku, na grad Vis. Miran dio Visa u kom nema prometa.",
     descriptionEng:
-      "Four-room house witouth previous owners. Square footage 130m². The possibility of a swimming pool. View of the sea and the port, of the town of Vis. A quiet part of Vis where there is no traffic.",
+      "When Hollywood can do it, so you can so it too !!! Realize your dream of your own property by the sea, choose an apartment or a house on the island of Vis, in an oasis of untouched nature with numerous beaches, at still good prices. One of the most beautiful places in the world.  In 2006, Srebrna beach was chosen as the most beautiful beach in Europe.  When the film industry recognized the potential, why wouldn't you? Various films were shot on the island, including 'Mamma Mia'. Four-room house witouth previous owners. Square footage 130m². The possibility of a swimming pool. View of the sea and the port, of the town of Vis. A quiet part of Vis where there is no traffic.",
     summaryCro: ["-4 sobe", "-130m²"],
     summaryEng: ["-4 rooms", "-130m²"],
   },
@@ -320,15 +317,35 @@ export const realestate = [
     titleCro: "Plac - Vis, Dobra Luka",
     titleEng: "Peace of land - Island of Vis, Dobra Luka",
     price: 93000,
-    images: [twelveimg1, twelveimg2, twelveimg3],
+    images: [twelveimg1, twelvemain],
     status: "active",
     type: "land",
     descriptionCro:
       "Prodaje se 26767m² poljoprivrednog zemljišta sa urednim papirima. Sastoji se iz više parcela. Savrsena dugorocna investicija! Javni putevi su ucrtani ali nisu probijeni.",
     descriptionEng:
       "26767m² of agricultural land for sale with proper papers. It consists of several plots. Perfect long-term investment! Public roads are marked but not constructed.",
-    summaryCro: ["-26000m²"],
-    summaryEng: ["-26000m²"],
+    summaryCro: [
+      "-26767m²",
+      "-Javni putevi su ucrtani ali nisu probijeni",
+      "12231 k.o. Vis",
+      "12229/1 k.o. Vis",
+      "5294/3  k.o. Vis",
+      "5294/2  k.o. Vis",
+      "5295  k.o. Vis",
+      "5296/1  k.o. Vis",
+      "5294/4  k.o. Vis",
+    ],
+    summaryEng: [
+      "-26767m²",
+      "-Public roads are marked but not broken",
+      "12231 k.o. Vis",
+      "12229/1 k.o. Vis",
+      "5294/3  k.o. Vis",
+      "5294/2  k.o. Vis",
+      "5295  k.o. Vis",
+      "5296/1  k.o. Vis",
+      "5294/4  k.o. Vis",
+    ],
   },
   {
     id: 13,
@@ -342,7 +359,6 @@ export const realestate = [
       thirteenimg3,
       thirteenimg4,
       thirteenimg5,
-      thirteenimg6,
     ],
     status: "active",
     type: "land",
@@ -350,7 +366,19 @@ export const realestate = [
       "Na prodaju poljoprivredni plac sa ucrtanom kućom od 100m², prije 1968. Nalazi se poviše i izmedju Konobe Dol i Đanijevog skladista na Visu, na sami plac vode 2 puta , POGLED NA CIJELU DOLINU! Sastoji se iz tri parcele koje su uredne sa papirima 1/1. Cijena nije strogo fiksna.",
     descriptionEng:
       "Agricultural plot for sale with a house of 100m², before 1968. It is located higher up and between Konoba Dol and Đani's warehouse on Vis, two roads lead to the plot, VIEW OF THE ENTIRE VALLEY! It consists of three parcels that are neat with papers 1/1. The price is not strictly fixed.",
-    summaryCro: [],
-    summaryEng: [],
+    summaryCro: [
+      "-Ucrtana kuća od 100m²",
+      "-12842m²",
+      "11739 k.o. Vis",
+      "11751/1 k.o. Vis",
+      "11751/2 k.o. Vis",
+    ],
+    summaryEng: [
+      "-Charted house of 100m²",
+      "-12842m²",
+      "11739 k.o. Vis",
+      "11751/1 k.o. Vis",
+      "11751/2 k.o. Vis",
+    ],
   },
 ];
