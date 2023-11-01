@@ -4,10 +4,12 @@ import slika2 from "../assets/specialoffer/splitriva.jpg";
 import slika3 from "../assets/specialoffer/kucakut.jpg";
 import { useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
+import { useNavigate } from "react-router-dom";
 
 
 export default function SpecialOfferComponent() {
     const selectedLanguage = useAppSelector((state: RootState) => state.language.value)
+    const navigate = useNavigate()
 
     return (
         <div className="container" style={{ marginTop: "2%" }}>
@@ -37,9 +39,9 @@ export default function SpecialOfferComponent() {
                                 ? "Square footage 130m². The possibility of a swimming pool."
                                 : "Površina 130m². Mogućnost bazena."}
                         </p>
-                        <a href="#" className="btn btn-outline-secondary">
+                        <div className="btn btn-outline-secondary" onClick={() => navigate('/realestate/2')}>
                             {selectedLanguage === "English" ? "More details" : "Detaljnije"}
-                        </a>
+                        </div>
                         <div className="icon_container_right">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -79,9 +81,9 @@ export default function SpecialOfferComponent() {
                                 ? "A perfect apartment as well as an investment!"
                                 : "Savršen stan kao i investicija!"}
                         </p>
-                        <a href="#" className="btn btn-outline-secondary">
+                        <div className="btn btn-outline-secondary" onClick={() => navigate('/realestate/4')}>
                             {selectedLanguage === "English" ? "More details" : "Detaljnije"}
-                        </a>
+                        </div>
                         <div className="icon_container_left">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -122,9 +124,9 @@ export default function SpecialOfferComponent() {
                                 ? "A quiet neighborhood full of greenery."
                                 : "Miran kraj prepun zelenila"}
                         </p>
-                        <a href="#" className="btn btn-outline-secondary">
+                        <div className="btn btn-outline-secondary" onClick={() => navigate('/realestate/1')}>
                             {selectedLanguage === "English" ? "More details" : "Detaljnije"}
-                        </a>
+                        </div>
                         <div className="icon_container_right">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

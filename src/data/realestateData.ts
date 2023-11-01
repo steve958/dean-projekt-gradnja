@@ -69,7 +69,19 @@ import elevenimg6 from "../assets/realestate/11-Apartman-Vis-Dudo/img6.jpg";
 import elevenimg7 from "../assets/realestate/11-Apartman-Vis-Dudo/img7.jpg";
 import elevenimg8 from "../assets/realestate/11-Apartman-Vis-Dudo/img8.jpg";
 import elevenimg9 from "../assets/realestate/11-Apartman-Vis-Dudo/img9.jpg";
-
+//object 12
+import twelvemain from "../assets/realestate/12-Plac-Dobra-Luka/main.jpg"
+import twelveimg1 from "../assets/realestate/12-Plac-Dobra-Luka/img1.jpg"
+import twelveimg2 from "../assets/realestate/12-Plac-Dobra-Luka/img2.jpg"
+import twelveimg3 from "../assets/realestate/12-Plac-Dobra-Luka/img3.jpg"
+//object 13
+import thirteenmain from "../assets/realestate/13-Plac-Vis/main.jpg"
+import thirteenimg1 from "../assets/realestate/13-Plac-Vis/img1.jpg"
+import thirteenimg2 from "../assets/realestate/13-Plac-Vis/img2.jpg"
+import thirteenimg3 from "../assets/realestate/13-Plac-Vis/img3.jpg"
+import thirteenimg4 from "../assets/realestate/13-Plac-Vis/img4.jpg"
+import thirteenimg5 from "../assets/realestate/13-Plac-Vis/img5.jpg"
+import thirteenimg6 from "../assets/realestate/13-Plac-Vis/img6.jpg"
 
 export interface Realestate {
   id: number;
@@ -277,5 +289,33 @@ export const realestate = [
       "Kompletno sredjen i uredjen sa predivnim okolišem. Površina 42m². Na samom apartmanu nema ulaganja,osim malo ga osvježiti. Blizina bolnice,ljekarne,supermarketa. Terasa, mir i tišina a u samom centru dešavanja. Papiri uredni.",
     descriptionEng:
       "Completely arranged and arranged with beautiful surroundings. Square footage 42m². There is no investment in the apartment itself, except to freshen it up a bit. Close to hospital, pharmacy, supermarket. Terrace, peace and quiet in the very center of the action.",
+  },
+  {
+    id: 12,
+    mainImage: twelvemain,
+    titleCro: "Plac - Vis, Dobra Luka",
+    titleEng: "Peace of land - Island of Vis, Dobra Luka",
+    price: 93000,
+    images: [twelveimg1, twelveimg2,twelveimg3],
+    status: "active",
+    type: "land",
+    descriptionCro:
+      "Prodaje se 26,767m² poljoprivrednog zemljišta sa urednim papirima. Sastoji se iz više parcela. Savrsena dugorocna investicija! Javni putevi su ucrtani ali nisu probijeni.",
+    descriptionEng:
+      "26,767m² of agricultural land for sale with proper papers. It consists of several plots. Perfect long-term investment! Public roads are marked but not constructed.",
+  },
+  {
+    id: 13,
+    mainImage: thirteenmain,
+    titleCro: "Plac - Vis",
+    titleEng: "Peace of land - Island of Vis",
+    price: 64000,
+    images: [thirteenimg1, thirteenimg2,thirteenimg3, thirteenimg4, thirteenimg5, thirteenimg6],
+    status: "active",
+    type: "land",
+    descriptionCro:
+      "Na prodaju poljoprivredni plac sa ucrtanom kućom od 100m², prije 1968. Nalazi se poviše i izmedju Konobe Dol i Đanijevog skladista na Visu, na sami plac vode 2 puta , POGLED NA CIJELU DOLINU! Sastoji se iz tri parcele koje su uredne sa papirima 1/1. Cijena nije strogo fiksna.",
+    descriptionEng:
+      "Agricultural plot for sale with a house of 100m², before 1968. It is located higher up and between Konoba Dol and Đani's warehouse on Vis, two roads lead to the plot, VIEW OF THE ENTIRE VALLEY! It consists of three parcels that are neat with papers 1/1. The price is not strictly fixed.",
   },
 ];

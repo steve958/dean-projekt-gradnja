@@ -19,3 +19,7 @@
 .carousel_container {
     height: 50vh;
 }
+
+.btn-outline-secondary:hover {
+    background-color: #45526E !important;
+}
