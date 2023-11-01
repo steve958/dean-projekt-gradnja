@@ -12,6 +12,10 @@
     left: 5%;
 }
 
+.card {
+    border: 2px solid #C99B11 !important;
+}
+
 @media (max-width: 1400px) {
     .sold_stamp {
         font-size: 40px;

@@ -187,8 +187,8 @@ export const realestate = [
       "Kompletno sređen i renoviran stan u samom jezgru grada Splita. Nove instalacije, nova stolarija, apsolutno sve novo. Svaka prostorija i soba imaju prozore i prirodnu ventilaciju. Ulica Kovačića 18. Dvoiposoban stan od 50m². Dobro uhodan na Booking-u. Savršen stan kao i investicija!",
     descriptionEng:
       "Completely arranged and renovated apartment in the very core of the city of Split. New installations, new carpentry, absolutely everything new. Every room and room has windows and natural ventilation. Street Kovačića 18. Two and a half room apartment of 50m². Excellent attendance at Booking. A perfect apartment as well as an investment!",
-    summaryCro: ["-2,5 sobe", "-50m²", "-Sve novo"],
-    summaryEng: ["-2,5 sobe", "-50m²", "-Everything new"],
+    summaryCro: ["-2,5 sobe", "-50m²", "-Kompletno renoviran", "-Prvi kat"],
+    summaryEng: ["-2,5 sobe", "-50m²", "-Completely renovated", "First floor"],
   },
   {
     id: 5,
@@ -277,7 +277,7 @@ export const realestate = [
     mainImage: tenmain,
     titleCro: "Vis - Plisko Polje",
     titleEng: "Island of Vis - Plisko Polje",
-    price: 100000,
+    price: 96000,
     images: [tenmain],
     status: "active",
     type: "house",
@@ -333,8 +333,8 @@ export const realestate = [
   {
     id: 13,
     mainImage: thirteenmain,
-    titleCro: "Plac - Vis",
-    titleEng: "Peace of land - Island of Vis",
+    titleCro: "Plac - Vis, Dol",
+    titleEng: "Peace of land - Island of Vis, Dol",
     price: 64000,
     images: [
       thirteenimg1,

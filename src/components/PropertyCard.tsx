@@ -1,10 +1,10 @@
-import { Carousel, Modal, Form } from 'react-bootstrap';
+import { Carousel, Modal, Form } from "react-bootstrap";
 import { useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
 import { useEffect, useRef, useState } from "react";
 import { priceConverter } from "../helpers/priceconverter";
 import { useParams } from "react-router-dom";
-import "./PropertyCard.css"
+import "./PropertyCard.css";
 import emailjs from "@emailjs/browser";
 import { Realestate, realestate } from "../data/realestateData";
 
@@ -21,7 +21,9 @@ const PropertyCard = () => {
     useEffect(() => {
         const element = document.getElementsByClassName("card-body");
         element[0]?.scrollIntoView({ behavior: "smooth", block: "start" });
-        const find = realestate?.find((realestate: Realestate) => realestate.id.toString() === id);
+        const find = realestate?.find(
+            (realestate: Realestate) => realestate.id.toString() === id
+        );
         if (find) setProperty(find);
     }, [id]);
 
@@ -54,10 +56,10 @@ const PropertyCard = () => {
         e.preventDefault();
         emailjs
             .sendForm(
-                "service_5k3args",
-                "template_gtvfrs3",
+                "service_9fb2576",
+                "template_swiqmsz",
                 form.current,
-                "pDjSDgSb5GhFbV37I"
+                "YzjcisuTMf4N1ViWq"
             )
             .then(
                 (result) => {
@@ -72,14 +74,16 @@ const PropertyCard = () => {
         e.target.reset();
     }
 
-
     return (
         <>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="card property-card-container">
-                            <div className="property-card-image" style={{ backgroundColor: '#45526E' }}>
+                            <div
+                                className="property-card-image"
+                                style={{ backgroundColor: "#45526E" }}
+                            >
                                 <Carousel>
                                     {property?.images?.map((image, index) => (
                                         <Carousel.Item key={index}>
@@ -95,25 +99,31 @@ const PropertyCard = () => {
                             </div>
                             <div className="card-body property-card-body">
                                 <h5 className="card-title" style={{ fontSize: "25px" }}>
-                                    {language === "English" ? property?.titleEng : property?.titleCro}
+                                    {language === "English"
+                                        ? property?.titleEng
+                                        : property?.titleCro}
                                 </h5>
                                 <p className="card-text">
                                     {language === "English"
                                         ? property?.descriptionEng
                                         : property?.descriptionCro}
                                 </p>
-                                {language !== "English" && property?.summaryCro.map(((summary: string) => {
-                                    return (<p>{summary}</p>)
-                                }))}
-                                {language === "English" && property?.summaryEng.map(((summary: string) => {
-                                    return (<p>{summary}</p>)
-                                }))}
+                                {language !== "English" &&
+                                    property?.summaryCro.map((summary: string) => {
+                                        return <p key={Math.random()}>{summary}</p>;
+                                    })}
+                                {language === "English" &&
+                                    property?.summaryEng.map((summary: string) => {
+                                        return <p key={Math.random()}>{summary}</p>;
+                                    })}
                                 <p style={{ fontSize: "25px", fontWeight: "600" }}>
                                     {language === "English"
-                                        ? `Price: ${property?.price && priceConverter(property?.price)}€`
-                                        : `Cijena: ${property?.price && priceConverter(property?.price)}€`}
+                                        ? `Price: ${property?.price && priceConverter(property?.price)
+                                        }€`
+                                        : `Cijena: ${property?.price && priceConverter(property?.price)
+                                        }€`}
                                 </p>
-                                <span className='button_send-message'>
+                                <span className="button_send-message">
                                     <a
                                         className="btn btn-outline-secondary"
                                         onClick={handleSendMessage}
@@ -126,28 +136,70 @@ const PropertyCard = () => {
                     </div>
                 </div>
             </div>
+            {messageError && (
+                <div className="message-error">
+                    <p>
+                        {language
+                            ? "Desila se greška pri slanju vaše poruke."
+                            : "There was an error sending your message."}
+                    </p>
+                </div>
+            )}
             <Modal show={showModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton>
-                    <Modal.Title>{language === "English" ? "Send Message" : "Pošaljite upit"}</Modal.Title>
+                    <Modal.Title>
+                        {language === "English" ? "Send Message" : "Pošaljite upit"}
+                    </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form className="contact-form-container"
+                    <Form
+                        className="contact-form-container"
                         onSubmit={sendEmail}
-                        ref={form}>
+                        ref={form}
+                    >
                         <Form.Group className="mb-3">
-                            <Form.Label>Nekretnina: {property?.titleCro}</Form.Label>
+                            <Form.Label name="property" value={property?.titleCro}>
+                                Nekretnina: {property?.titleCro}
+                            </Form.Label>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Enter name"
+                                name="user_name"
+                            />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
+                            <Form.Control
+                                type="email"
+                                placeholder="Enter email"
+                                name="user_email"
+                                required
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Phone number</Form.Label>
+                            <Form.Control
+                                type="phone"
+                                placeholder="Enter phone number"
+                                name="user_number"
+                            />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicMessage">
                             <Form.Label>Message</Form.Label>
-                            <Form.Control as="textarea" rows={3} placeholder="Enter your message" />
+                            <Form.Control
+                                as="textarea"
+                                name="message"
+                                required
+                                rows={3}
+                                placeholder="Enter your message"
+                            />
                         </Form.Group>
-                        <a className='btn btn-outline-secondary' type="submit">
+                        <button className="btn btn-outline-secondary" type="submit">
                             Send
-                        </a>
+                        </button>
                     </Form>
                 </Modal.Body>
             </Modal>
