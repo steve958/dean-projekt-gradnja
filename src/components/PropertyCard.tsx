@@ -10,6 +10,8 @@ import emailjs from "@emailjs/browser";
 import { realestate } from "../data/realestateData";
 import "leaflet/dist/leaflet.css";
 import { LatLngTuple } from "leaflet";
+import L from 'leaflet'
+import icon from "../assets/Map-Pin.svg"
 
 
 export interface Realestate {
@@ -64,6 +66,12 @@ const PropertyCard = () => {
     const handleCloseModal = () => {
         setShowModal(false);
     };
+
+
+    const myIcon = new L.Icon({
+        iconUrl: icon,
+        iconSize: [30, 30]
+    })
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function sendEmail(e: any) {
@@ -153,7 +161,7 @@ const PropertyCard = () => {
                                             scrollWheelZoom={false}
                                         >
                                             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                                            <Marker position={property!.coordinates}></Marker>
+                                            <Marker position={property!.coordinates} icon={myIcon}></Marker>
                                         </MapContainer>
                                         <span
                                             onClick={() => setShowMap(false)}
