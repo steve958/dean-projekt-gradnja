@@ -15,7 +15,7 @@ const RealestateComponent = () => {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
-        const element = document.getElementsByClassName("card_realestate");
+        const element = document.getElementsByClassName("card-header");
         element[0]?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, [])
 
