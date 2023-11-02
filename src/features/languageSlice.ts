@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { Realestate } from "../data/realestateData";
+import { Realestate } from "../components/PropertyCard";
+
 
 export interface LanguageState {
   value: string;
