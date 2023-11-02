@@ -6,12 +6,18 @@ import { priceConverter } from "../helpers/priceconverter";
 import "./RealestateComponent.css"
 import { setSelectedProperty } from "../features/languageSlice";
 import { Realestate } from "./PropertyCard";
+import { useEffect } from "react";
 
 const RealestateComponent = () => {
 
     const selectedLanguage = useAppSelector((state: RootState) => state.language.value)
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        const element = document.getElementsByClassName("card_realestate");
+        element[0]?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, [])
 
     function handleSelectProperty(property: Realestate) {
         dispatch(setSelectedProperty(property))
