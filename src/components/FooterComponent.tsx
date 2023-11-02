@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
 
 export default function Footer() {
     const selectedLanguage = useAppSelector((state: RootState) => state.language.value)
+
+    const navigate = useNavigate()
 
     return (
         <footer
@@ -29,21 +32,21 @@ export default function Footer() {
                             {selectedLanguage === "English" ? "Our services" : "Naše usluge"}
                         </h6>
                         <p>
-                            <span className="text-white">
+                            <span className="footer_navigation realestate_footer" onClick={() => navigate("/realestate")}>
                                 {selectedLanguage === "English"
                                     ? "Real Estate sale"
                                     : "Prodaja nekretnina"}
                             </span>
                         </p>
                         <p>
-                            <span className="text-white">
+                            <span className="footer_navigation" onClick={() => navigate("/renovation")}>
                                 {selectedLanguage === "English"
                                     ? "Renovation and adaptation"
                                     : "Renoviranje i adaptacija"}
                             </span>
                         </p>
                         <p>
-                            <span className="text-white">
+                            <span className="footer_navigation" onClick={() => navigate("/construction")}>
                                 {selectedLanguage === "English"
                                     ? "Residential construction"
                                     : "Izgradnja objekata"}

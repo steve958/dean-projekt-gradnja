@@ -38,3 +38,20 @@
 .flag_active {
     border: 3px solid #C99B11;
 }
+
+.footer_navigation {
+    cursor: pointer;
+}
+
+.footer_navigation:hover {
+    filter: drop-shadow(0 0 0.75rem #C99B11);
+}
+
+.realestate_footer {
+    color: #C99B11;
+    font-weight: 600;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-left: 1px dotted #C99B11;
+    border-right: 1px dotted #C99B11;
+}
