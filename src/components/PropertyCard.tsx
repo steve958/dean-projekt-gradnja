@@ -65,6 +65,7 @@ const PropertyCard = () => {
                 (result) => {
                     setMessageSent(true);
                     console.log(result.text);
+                    setShowModal(false)
                 },
                 (error) => {
                     setMessageError(true);
@@ -136,15 +137,6 @@ const PropertyCard = () => {
                     </div>
                 </div>
             </div>
-            {messageError && (
-                <div className="message-error">
-                    <p>
-                        {language
-                            ? "Desila se greška pri slanju vaše poruke."
-                            : "There was an error sending your message."}
-                    </p>
-                </div>
-            )}
             <Modal show={showModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>
@@ -158,9 +150,10 @@ const PropertyCard = () => {
                         ref={form}
                     >
                         <Form.Group className="mb-3">
-                            <Form.Label name="property" value={property?.titleCro}>
-                                Nekretnina: {property?.titleCro}
+                            <Form.Label name="property">
+                                Nekretnina
                             </Form.Label>
+                            <Form.Control type='text' value={property?.titleCro} readOnly />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Name</Form.Label>
@@ -168,6 +161,7 @@ const PropertyCard = () => {
                                 type="text"
                                 placeholder="Enter name"
                                 name="user_name"
+                                required
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicEmail">

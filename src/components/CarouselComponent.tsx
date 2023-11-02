@@ -5,10 +5,10 @@ import slika2 from "../assets/renovation1.jpg";
 import slika3 from "../assets/construction1.jpg";
 import { useAppSelector } from "../app/hooks";
 import { useNavigate } from "react-router-dom";
+import { RootState } from "../app/store";
 
 export default function CarouselComponent() {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const selectedLanguage = useAppSelector((state: any) => state.language) as string
+    const selectedLanguage = useAppSelector((state: RootState) => state.language.value)
 
     const navigate = useNavigate()
 

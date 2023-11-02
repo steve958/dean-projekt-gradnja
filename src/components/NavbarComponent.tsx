@@ -5,7 +5,7 @@ import { changeLanguage } from "../features/languageSlice";
 import { RootState } from "../app/store";
 import { useNavigate } from "react-router-dom";
 import croFlag from "../assets/croatia.jpg"
-import engFlag from "../assets/english.png"
+import engFlag from "../assets/english.jpg"
 
 export default function NavbarComponent() {
     const selectedLanguage = useAppSelector((state: RootState) => state?.language.value)
@@ -57,12 +57,14 @@ export default function NavbarComponent() {
                         <Nav.Link onClick={() => navigate('/contact')}>
                             {selectedLanguage === "English" ? "Contact" : "Kontakt"}
                         </Nav.Link>
-                        <Nav.Link onClick={() => handleLanguageChange("English")}>
-                            <img src={engFlag} alt="English Flag" style={{ width: '35px' }} className={selectedLanguage === "English" ? "flag_active" : ''} />
-                        </Nav.Link>
-                        <Nav.Link onClick={() => handleLanguageChange("Croatian")}>
-                            <img src={croFlag} alt="Croatian Flag" style={{ width: '30px' }} className={selectedLanguage !== "English" ? "flag_active" : ''} />
-                        </Nav.Link>
+                        <span className="flag_wrapper">
+                            <Nav.Link onClick={() => handleLanguageChange("English")}>
+                                <img src={engFlag} alt="English Flag" style={{ width: '35px' }} className={selectedLanguage === "English" ? "flag_active" : ''} />
+                            </Nav.Link>
+                            <Nav.Link onClick={() => handleLanguageChange("Croatian")}>
+                                <img src={croFlag} alt="Croatian Flag" style={{ width: '35px' }} className={selectedLanguage !== "English" ? "flag_active" : ''} />
+                            </Nav.Link>
+                        </span>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
