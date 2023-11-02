@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
-import { Realestate, realestate } from '../data/realestateData'
+import { realestate } from '../data/realestateData'
 import { priceConverter } from "../helpers/priceconverter";
 import "./RealestateComponent.css"
 import { setSelectedProperty } from "../features/languageSlice";
+import { Realestate } from "./PropertyCard";
 
 const RealestateComponent = () => {
 
