@@ -10,9 +10,8 @@ import emailjs from "@emailjs/browser";
 import { realestate } from "../data/realestateData";
 import "leaflet/dist/leaflet.css";
 import { LatLngTuple } from "leaflet";
-import L from 'leaflet'
-import icon from "../assets/Map-Pin.svg"
-
+import L from "leaflet";
+import icon from "../assets/Map-Pin.svg";
 
 export interface Realestate {
     id: number;
@@ -67,11 +66,10 @@ const PropertyCard = () => {
         setShowModal(false);
     };
 
-
     const myIcon = new L.Icon({
         iconUrl: icon,
-        iconSize: [30, 30]
-    })
+        iconSize: [30, 30],
+    });
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function sendEmail(e: any) {
@@ -137,10 +135,15 @@ const PropertyCard = () => {
                                     property?.summaryEng.map((summary: string) => {
                                         return <p key={Math.random()}>{summary}</p>;
                                     })}
-                                <p>Kontakt: +385 95 3466323</p>
+                                <p>
+                                    {language === "English" ? "Contact:" : "Kontakt:"} +385 95
+                                    3466323
+                                </p>
                                 {!showMap && (
                                     <span style={{ display: "flex", cursor: "pointer" }}>
-                                        <p onClick={() => setShowMap(true)}>Prikaži na mapi</p>
+                                        <p onClick={() => setShowMap(true)}>
+                                            {language === "English" ? "Show map" : "Prikaži na mapi"}
+                                        </p>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             width="16"
@@ -161,7 +164,10 @@ const PropertyCard = () => {
                                             scrollWheelZoom={false}
                                         >
                                             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                                            <Marker position={property!.coordinates} icon={myIcon}></Marker>
+                                            <Marker
+                                                position={property!.coordinates}
+                                                icon={myIcon}
+                                            ></Marker>
                                         </MapContainer>
                                         <span
                                             onClick={() => setShowMap(false)}
@@ -204,7 +210,9 @@ const PropertyCard = () => {
                         ref={form}
                     >
                         <Form.Group className="mb-3">
-                            <Form.Label>Nekretnina</Form.Label>
+                            <Form.Label>
+                                {language === "English" ? "Realestate" : "Nekretnina"}
+                            </Form.Label>
                             <Form.Control
                                 type="text"
                                 name="property"
@@ -213,43 +221,57 @@ const PropertyCard = () => {
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Name</Form.Label>
+                            <Form.Label>{language === "English" ? "Name" : "Ime"}</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Enter name"
+                                placeholder={language === "English" ? "Your name" : "Vaše ime"}
                                 name="user_name"
                                 required
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
+                            <Form.Label>Email</Form.Label>
                             <Form.Control
                                 type="email"
-                                placeholder="Enter email"
+                                placeholder={
+                                    language === "English" ? " Enter email" : "Vaš mail"
+                                }
                                 name="user_email"
                                 required
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Phone number</Form.Label>
+                            <Form.Label>
+                                {language === "English" ? "Phone number" : "Broj telefona"}
+                            </Form.Label>
                             <Form.Control
                                 type="phone"
-                                placeholder="Enter phone number"
+                                placeholder={
+                                    language === "English"
+                                        ? "Enter phone number"
+                                        : "Vaš broj telefona"
+                                }
                                 name="user_number"
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicMessage">
-                            <Form.Label>Message</Form.Label>
+                            <Form.Label>
+                                {language === "English" ? "Message" : "Poruka"}
+                            </Form.Label>
                             <Form.Control
                                 as="textarea"
                                 name="message"
                                 required
                                 rows={3}
-                                placeholder="Enter your message"
+                                placeholder={
+                                    language === "English"
+                                        ? "Enter your message"
+                                        : "Unesite vašu poruku"
+                                }
                             />
                         </Form.Group>
                         <button className="btn btn-outline-secondary" type="submit">
-                            Send
+                            {language === "English" ? "Send" : "Pošalji"}
                         </button>
                     </Form>
                 </Modal.Body>

@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./ContactComponent.css";
 import { useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
+import emailjs from "@emailjs/browser";
 
 interface Info {
     home: boolean;
@@ -10,6 +11,10 @@ interface Info {
 }
 
 export default function ContactComponent() {
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const form = useRef<any>(null);
+
     const selectedLanguage = useAppSelector(
         (state: RootState) => state.language.value
     );
@@ -23,14 +28,30 @@ export default function ContactComponent() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        // Add your form submission logic here
+        emailjs
+            .sendForm(
+                "service_9fb2576",
+                "template_swiqmsz",
+                form.current,
+                "YzjcisuTMf4N1ViWq"
+            )
+            .then(
+                (result) => {
+                    console.log(result.text);
+                },
+                (error) => {
+                    console.log(error.text);
+                }
+            );
+        e.target.reset();
     };
+
 
     return (
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-12 col-md-8 col-lg-12 pb-1">
-                    <form method="post" onSubmit={handleSubmit}>
+                    <form method="post" onSubmit={handleSubmit} ref={form}>
                         <div className="card border-none rounded-2">
                             <div className="card-header p-0">
                                 <div
@@ -69,8 +90,8 @@ export default function ContactComponent() {
                                         <input
                                             type="text"
                                             className="form-control"
-                                            id="nombre"
-                                            name="nombre"
+                                            id="user_name"
+                                            name="user_name"
                                             placeholder={
                                                 selectedLanguage === "English"
                                                     ? "Name and surname"
@@ -100,8 +121,10 @@ export default function ContactComponent() {
                                             type="email"
                                             className="form-control"
                                             id="email"
-                                            name="email"
-                                            placeholder="example@gmail.com"
+                                            name="user_email"
+                                            placeholder={
+                                                selectedLanguage === "English" ? " Enter email" : "Vaš mail"
+                                            }
                                             required
                                         />
                                     </div>
@@ -124,6 +147,7 @@ export default function ContactComponent() {
                                         </div>
                                         <textarea
                                             className="form-control"
+                                            name="message"
                                             placeholder={
                                                 selectedLanguage === "English"
                                                     ? "Your message"
