@@ -26,6 +26,12 @@ import threeimg4 from "../assets/realestate/3-Stan-Hvar/img4.jpg";
 import threeimg5 from "../assets/realestate/3-Stan-Hvar/img5.jpg";
 import threeimg6 from "../assets/realestate/3-Stan-Hvar/img6.jpg";
 import threeimg7 from "../assets/realestate/3-Stan-Hvar/img7.jpg";
+import threeimg8 from "../assets/realestate/3-Stan-Hvar/img8.jpg";
+import threeimg9 from "../assets/realestate/3-Stan-Hvar/img9.jpg";
+import threeimg10 from "../assets/realestate/3-Stan-Hvar/img10.jpg";
+import threeimg11 from "../assets/realestate/3-Stan-Hvar/img11.jpg";
+import threeimg12 from "../assets/realestate/3-Stan-Hvar/img12.jpg";
+import threeimg13 from "../assets/realestate/3-Stan-Hvar/img13.jpg";
 //object 4
 import fourmain from "../assets/realestate/4-Stan-Split-Riva/main.jpg";
 import fourimg1 from "../assets/realestate/4-Stan-Split-Riva/img1.jpg";
@@ -140,6 +146,12 @@ export const realestate = [
       threeimg5,
       threeimg6,
       threeimg7,
+      threeimg8,
+      threeimg9,
+      threeimg10,
+      threeimg11,
+      threeimg12,
+      threeimg13
     ],
     status: "active",
     type: "apartment",
