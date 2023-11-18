@@ -15,8 +15,8 @@ const RealestateComponent = () => {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
-        const element = document.getElementsByClassName("card-header");
-        element[0]?.scrollIntoView({ behavior: "smooth", block: "start" });
+        const element = document.getElementsByClassName("headings");
+        element[0]?.scrollIntoView({ behavior: "smooth", block: "end" });
     }, [])
 
     function handleSelectProperty(property: Realestate) {
@@ -29,7 +29,7 @@ const RealestateComponent = () => {
             <div className="container">
                 <div className="row">
                     <div className="card-header p-0">
-                        <div className="text-center p-4">
+                        <div className="text-center p-4 headings">
                             <h3>
                                 {selectedLanguage === "English"
                                     ? "Real Estate sale"

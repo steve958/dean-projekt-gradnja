@@ -13,11 +13,17 @@ import renovation9 from "../assets/renovation/renovation9.jpg";
 import renovation10 from "../assets/renovation/renovation10.jpg";
 import renovation11 from "../assets/renovation/renovation11.jpg";
 import renovation12 from "../assets/renovation/renovation12.jpg";
+import { useEffect } from "react";
 
 const RenovationComponent = () => {
     const selectedLanguage = useAppSelector(
         (state: RootState) => state.language.value
     );
+
+    useEffect(() => {
+        const element = document.getElementsByClassName("headings");
+        element[0]?.scrollIntoView({ behavior: "smooth", block: "end" });
+    }, [])
 
     const array = [
         renovation1,
@@ -39,7 +45,7 @@ const RenovationComponent = () => {
             <Row>
                 <Col>
                     <div className="card-header p-0">
-                        <div className="text-center p-4">
+                        <div className="text-center p-4 headings">
                             <h3>
                                 {selectedLanguage === "English"
                                     ? "Renovation and Adaptation"

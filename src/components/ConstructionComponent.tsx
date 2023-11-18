@@ -13,11 +13,17 @@ import construction9 from "../assets/construction/construction9.jpg";
 import construction10 from "../assets/construction/construction10.jpg";
 import construction11 from "../assets/construction/construction11.jpg";
 import construction12 from "../assets/construction/construction12.jpg";
+import { useEffect } from "react";
 
 const ConstructionComponent = () => {
     const selectedLanguage = useAppSelector(
         (state: RootState) => state.language.value
     );
+
+    useEffect(() => {
+        const element = document.getElementsByClassName("headings");
+        element[0]?.scrollIntoView({ behavior: "smooth", block: "end" });
+    }, [])
 
     const array = [
         construction1,
@@ -39,7 +45,7 @@ const ConstructionComponent = () => {
             <Row>
                 <Col>
                     <div className="card-header p-0">
-                        <div className="text-center p-4">
+                        <div className="text-center p-4 headings">
                             <h3>
                                 {selectedLanguage === "English"
                                     ? "Residential construction"
