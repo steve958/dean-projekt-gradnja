@@ -1,27 +1,30 @@
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
-import { realestate } from '../data/realestateData'
+import { realestate } from "../data/realestateData";
 import { priceConverter } from "../helpers/priceconverter";
-import "./RealestateComponent.css"
+import "./RealestateComponent.css";
 import { setSelectedProperty } from "../features/languageSlice";
 import { Realestate } from "./PropertyCard";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const RealestateComponent = () => {
+    const selectedLanguage = useAppSelector(
+        (state: RootState) => state.language.value
+    );
+    const navigate = useNavigate();
+    const dispatch = useAppDispatch();
 
-    const selectedLanguage = useAppSelector((state: RootState) => state.language.value)
-    const navigate = useNavigate()
-    const dispatch = useAppDispatch()
+    const [selectedType, setSelectedType] = useState<string>("");
 
     useEffect(() => {
         const element = document.getElementsByClassName("headings");
         element[0]?.scrollIntoView({ behavior: "smooth", block: "end" });
-    }, [])
+    }, []);
 
     function handleSelectProperty(property: Realestate) {
-        dispatch(setSelectedProperty(property))
-        navigate(`/realestate/${property.id}`)
+        dispatch(setSelectedProperty(property));
+        navigate(`/realestate/${property.id}`);
     }
 
     return (
@@ -52,33 +55,104 @@ const RealestateComponent = () => {
                             ? "We understand that real estate is not just about transactions, it's about fulfilling dreams and securing the future. That's why we strive to provide our clients with personalized guidance and support throughout the buying or selling process."
                             : "Vodimo se time da nekretnine nisu samo trgovina negose radi o ispunjenju snova i osiguravanju budućnosti. Zato nastojimo našim klijentima pružiti personalizirano vodstvo i podršku tijekom cijelog procesa kupnje ili prodaje."}
                     </p>
-                    {realestate.map((realestate: Realestate) => {
-                        return (
-                            <div className="col-md-4" key={realestate.id} style={{ position: 'relative' }} >
-                                {realestate.status === 'sold' && <p className="sold_stamp text-large">{selectedLanguage === "English" ? 'SOLD' : 'PRODANO'}</p>}
-                                <div className="card card_realestate mb-4 box-shadow" id={realestate.status}>
-                                    <img
-                                        src={realestate.mainImage}
-                                        alt="Album cover"
-                                        className="card-img-top"
-                                    />
-                                    <div className="card-body">
-                                        <h5 className="card-text">{selectedLanguage === 'English' ? realestate.titleEng : realestate.titleCro}</h5>
-                                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                            <a className={`btn btn-outline-secondary ${realestate.status !== 'active' ? 'disabled' : ''}`} onClick={() => handleSelectProperty(realestate)}>
-                                                {selectedLanguage === "English" ? "More details" : "Detaljnije"}
-                                            </a>
-                                            <h2 className="card-text">
-                                                {priceConverter(realestate.price)}€
-                                            </h2>
+                    <div
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                        }}
+                    >
+                        <p className="m-3">Odaberite tip:</p>
+                        <div className="dropdown show">
+                            <select
+                                className="form-select"
+                                style={{ cursor: "pointer" }}
+                                value={selectedType}
+                                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                onChange={(e: any) => {
+                                    setSelectedType(e?.target?.value);
+                                }}
+                            >
+                                <option value="" className="select_option">
+                                    {selectedLanguage === "English"
+                                        ? "All items"
+                                        : "Cjelokupna ponuda"}
+                                </option>
+                                <option value="house" className="select_option">
+                                    {selectedLanguage === "English" ? "Houses" : "Ponuda kuća"}
+                                </option>
+                                <option value="apartment" className="select_option">
+                                    {selectedLanguage === "English"
+                                        ? "Apartments"
+                                        : "Ponuda stanova"}
+                                </option>
+                                <option value="land" className="select_option">
+                                    {selectedLanguage === "English"
+                                        ? "Pieces of land"
+                                        : "Ponuda placeva"}
+                                </option>
+                                {/* Add more options for different property types */}
+                            </select>
+                        </div>
+                    </div>
+                    {realestate
+                        .filter((realestate: Realestate) =>
+                            selectedType ? realestate.type === selectedType : realestate
+                        )
+                        .map((realestate: Realestate) => {
+                            return (
+                                <div
+                                    className="col-md-4"
+                                    key={realestate.id}
+                                    style={{ position: "relative" }}
+                                >
+                                    {realestate.status === "sold" && (
+                                        <p className="sold_stamp text-large">
+                                            {selectedLanguage === "English" ? "SOLD" : "PRODANO"}
+                                        </p>
+                                    )}
+                                    <div
+                                        className="card card_realestate mb-4 box-shadow"
+                                        id={realestate.status}
+                                    >
+                                        <img
+                                            src={realestate.mainImage}
+                                            alt="Album cover"
+                                            className="card-img-top"
+                                        />
+                                        <div className="card-body">
+                                            <h5 className="card-text">
+                                                {selectedLanguage === "English"
+                                                    ? realestate.titleEng
+                                                    : realestate.titleCro}
+                                            </h5>
+                                            <div
+                                                style={{
+                                                    display: "flex",
+                                                    justifyContent: "space-between",
+                                                }}
+                                            >
+                                                <a
+                                                    className={`btn btn-outline-secondary ${realestate.status !== "active" ? "disabled" : ""
+                                                        }`}
+                                                    onClick={() => handleSelectProperty(realestate)}
+                                                >
+                                                    {selectedLanguage === "English"
+                                                        ? "More details"
+                                                        : "Detaljnije"}
+                                                </a>
+                                                <h2 className="card-text">
+                                                    {priceConverter(realestate.price)}€
+                                                </h2>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>)
-                    })}
+                            );
+                        })}
                 </div>
             </div>
-        </div >
+        </div>
     );
 };
 
