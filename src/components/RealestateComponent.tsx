@@ -56,13 +56,9 @@ const RealestateComponent = () => {
                             : "Vodimo se time da nekretnine nisu samo trgovina negose radi o ispunjenju snova i osiguravanju budućnosti. Zato nastojimo našim klijentima pružiti personalizirano vodstvo i podršku tijekom cijelog procesa kupnje ili prodaje."}
                     </p>
                     <div
-                        style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                        }}
+                        className="select_type_wrapper"
                     >
-                        <p className="m-3">Odaberite tip:</p>
+                        <p style={{ margin: '10px', marginLeft: '0', fontSize: '18px', fontWeight: '600' }}>Odaberite tip:</p>
                         <div className="dropdown show">
                             <select
                                 className="form-select"

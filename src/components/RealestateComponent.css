@@ -46,8 +46,14 @@
         right: 0;
         font-size: 4vh;
     }
+
+    .select_type_wrapper {
+        display: inline !important;
+    }
 }
 
-.select_option:hover {
-    background-color: gainsboro !important;
+.select_type_wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
