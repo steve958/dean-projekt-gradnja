@@ -86,6 +86,17 @@ import thirteenimg3 from "../assets/realestate/13-Plac-Vis/img3.jpg";
 import thirteenimg4 from "../assets/realestate/13-Plac-Vis/img4.jpg";
 import thirteenimg5 from "../assets/realestate/13-Plac-Vis/img5.jpg";
 import { Realestate } from "../components/PropertyCard";
+//object 14
+import fourteenmain from "../assets/realestate/14-Plac-Podhumlje/main.jpg";
+import fourteenimg1 from "../assets/realestate/14-Plac-Podhumlje/img1.jpg";
+import fourteenimg2 from "../assets/realestate/14-Plac-Podhumlje/img2.jpg";
+import fourteenimg3 from "../assets/realestate/14-Plac-Podhumlje/img3.jpg";
+import fourteenimg4 from "../assets/realestate/14-Plac-Podhumlje/img4.jpg";
+import fourteenimg5 from "../assets/realestate/14-Plac-Podhumlje/img5.jpg";
+import fourteenimg6 from "../assets/realestate/14-Plac-Podhumlje/img6.jpg";
+import fourteenimg7 from "../assets/realestate/14-Plac-Podhumlje/img7.jpg";
+import fourteenimg8 from "../assets/realestate/14-Plac-Podhumlje/img8.jpg";
+import fourteenimg9 from "../assets/realestate/14-Plac-Podhumlje/img9.jpg";
 
 export const realestate = [
   {
@@ -103,7 +114,7 @@ export const realestate = [
       "Newly built 3-room house with move-in deadline Summer 2023, with possible one more apartment of 36m² on the ground floor. Pool / Jacuzzi. View of the sea and nature. A quiet neighborhood full of greenery.The price is flexible.",
     summaryCro: ["-3 sobe", "-Bazen / Đakuzi"],
     summaryEng: ["-3 rooms", "-Pool / Jacuzzi"],
-    coordinates: [43.028779, 16.206663]
+    coordinates: [43.028779, 16.206663],
   },
   {
     id: 2,
@@ -130,7 +141,7 @@ export const realestate = [
       "When Hollywood can do it, so you can so it too !!! Realize your dream of your own property by the sea, choose an apartment or a house on the island of Vis, in an oasis of untouched nature with numerous beaches, at still good prices. One of the most beautiful places in the world.  In 2006, Srebrna beach was chosen as the most beautiful beach in Europe.  When the film industry recognized the potential, why wouldn't you? Various films were shot on the island, including 'Mamma Mia'. Four-room house witouth previous owners. Square footage 130m². The possibility of a swimming pool. View of the sea and the port, of the town of Vis. A quiet part of Vis where there is no traffic.",
     summaryCro: ["-4 sobe", "-130m²"],
     summaryEng: ["-4 rooms", "-130m²"],
-    coordinates: [43.0553687, 16.1984158]
+    coordinates: [43.0553687, 16.1984158],
   },
   {
     id: 3,
@@ -151,7 +162,7 @@ export const realestate = [
       threeimg10,
       threeimg11,
       threeimg12,
-      threeimg13
+      threeimg13,
     ],
     status: "active",
     type: "apartment",
@@ -161,7 +172,7 @@ export const realestate = [
       "Apartment on Hvar in the street Marina Blagajića 11. Square footage 37m² + 7,5m² terrace. The apartment is surrounded by a large garden",
     summaryCro: ["-37m²"],
     summaryEng: ["-37m²"],
-    coordinates: [43.0553687, 16.1984158]
+    coordinates: [43.0553687, 16.1984158],
   },
   {
     id: 4,
@@ -187,7 +198,7 @@ export const realestate = [
       "Completely arranged and renovated apartment in the very core of the city of Split. New installations, new carpentry, absolutely everything new. Every room and room has windows and natural ventilation. Street Kovačića 18. Two and a half room apartment of 50m². Excellent attendance at Booking. A perfect apartment as well as an investment!",
     summaryCro: ["-2,5 sobe", "-50m²", "-Kompletno renoviran", "-Prvi kat"],
     summaryEng: ["-2,5 sobe", "-50m²", "-Completely renovated", "-First floor"],
-    coordinates: [43.5108942, 16.435227]
+    coordinates: [43.5108942, 16.435227],
   },
   {
     id: 5,
@@ -202,7 +213,7 @@ export const realestate = [
     descriptionEng: "",
     summaryCro: [],
     summaryEng: [],
-    coordinates: [43.0553687, 16.1984158]
+    coordinates: [43.0553687, 16.1984158],
   },
   {
     id: 6,
@@ -217,7 +228,7 @@ export const realestate = [
     descriptionEng: "",
     summaryCro: [],
     summaryEng: [],
-    coordinates: [43.1699256, 16.4446506]
+    coordinates: [43.1699256, 16.4446506],
   },
   // {
   //   id: 7,
@@ -248,7 +259,7 @@ export const realestate = [
       "KOMIŽA - The oldest house on the island of Vis, 800 years old. A house that tells us about the very history of the city of Komiža. In the 9th month, the complete restoration will begin, which should be finished in the 3rd month of 2024. The house will be done in the old Dalmatian style, but certainly with a few modern details. As a future buyer, you have the option of changing the project, details and style of the renovation.",
     summaryCro: ["-105m²", "-Dalmatinski stil", "-Povijesni značaj"],
     summaryEng: ["-105m²", "-Dalmatian style", "-Historical value"],
-    coordinates: [43.043632, 16.092583]
+    coordinates: [43.043632, 16.092583],
   },
   {
     id: 9,
@@ -273,7 +284,7 @@ export const realestate = [
       "Excellent house for sale with proper papers in the heart of Slavonia. House on one floor, has 6 rooms and 2 bathrooms. A couple of rooms require certain investments, i.e. they need to be completed. The yard, set back from the main road and most importantly, a beautiful view of the Slavonian plain. 3000m² of land",
     summaryCro: ["-6 soba", "-Dvorište", "-Plac 3000m²"],
     summaryEng: ["-6 rooms", "-Yard", "-Land 3000m²"],
-    coordinates: [45.493979, 18.748843]
+    coordinates: [45.493979, 18.748843],
   },
   {
     id: 10,
@@ -290,7 +301,7 @@ export const realestate = [
       "Stone house for sale, 65 m² floor area, investment required. It has an adjoining well and a small garden. Hidden away from the crowd and noise. With a wonderful view of vineyards and island gardens.",
     summaryCro: ["-65m²", "-Predivan pogled"],
     summaryEng: ["-65m²", "-Wonderful view"],
-    coordinates: [43.03415, 16.183572]
+    coordinates: [43.03415, 16.183572],
   },
   {
     id: 11,
@@ -317,7 +328,7 @@ export const realestate = [
       "Completely arranged and arranged with beautiful surroundings. Square footage 42m². There is no investment in the apartment itself, except to freshen it up a bit. Close to hospital, pharmacy, supermarket. Terrace, peace and quiet in the very center of the action.",
     summaryCro: ["-42m²", "-Terasa", "-Mir i tišina"],
     summaryEng: ["-42m²", "-Teracce", "-Peace and quiet"],
-    coordinates: [43.061029, 16.182373]
+    coordinates: [43.061029, 16.182373],
   },
   {
     id: 12,
@@ -354,7 +365,7 @@ export const realestate = [
       "5296/1  k.o. Vis",
       "5294/4  k.o. Vis",
     ],
-    coordinates: [43.0701667, 16.2285556]
+    coordinates: [43.0701667, 16.2285556],
   },
   {
     id: 13,
@@ -389,6 +400,65 @@ export const realestate = [
       "11751/1 k.o. Vis",
       "11751/2 k.o. Vis",
     ],
-    coordinates: [43.059047, 16.164817]
+    coordinates: [43.059047, 16.164817],
+  },
+  {
+    id: 14,
+    mainImage: fourteenmain,
+    titleCro: "Plac - Podhumlje",
+    titleEng: "Land plot - Podhumlje",
+    price: 78000,
+    images: [
+      fourteenimg1,
+      fourteenimg2,
+      fourteenimg3,
+      fourteenimg4,
+      fourteenimg5,
+      fourteenimg6,
+      fourteenimg7,
+      fourteenimg8,
+      fourteenimg9,
+    ],
+    status: "active",
+    type: "land",
+    descriptionCro:
+      "Na prodaju poljoprivredno zemljište veličini 5035 m² u Podhumlju.Ulaz na zemljište je odmah uz glavnu cestu te ima pogled na more. Na zemljištu je moguća izgradnja dva objekta do 30 m². Zemljište je u potpunosti ograđeno i kultivizirano te je prije pola godine posađeno:",
+    descriptionEng:
+      "Agricultural land for sale, size 5035 m² in Podhumlje. The entrance to the land is right next to the main road and has a view of the sea. It is possible to build two buildings up to 30 m² on the land. The land is completely fenced and cultivated and planted half a year ago:",
+    summaryCro: [
+      "-26 stabala maslina starih 3 godine te se prvi plodovi očekuju kroz 2-3 godine.",
+      "-10 stabala jabuka",
+      "-8 stabala šljivi",
+      "-8 stabala višnji",
+      "-7 stabala krušaka",
+      "-6 stabala šipka",
+      "-4 stabla badema",
+      "-3 stabla smokvi",
+      "-2 stabla trešnji",
+      "-2 stabla dunje",
+      "-mediteransko bilje (lavanda, ružmarin, lovorika)",
+      "-navodnjavanje po cijelom terenu sa 5 programatora",
+      "4013 k.o. Komiža",
+      "4034/1 k.o. Komiža",
+      "4034/3 k.o. Komiža"
+    ],
+    summaryEng: [
+      -"-26 3-year-old olive trees, and the first fruits are expected in 2-3 years.",
+      "-10 apple trees",
+      "-8 plum trees",
+      "-8 cherry trees",
+      "-7 pear trees",
+      "-6 rosehip trees",
+      "-4 almond trees",
+      "-3 fig trees",
+      "-2 cherry trees",
+      "-2 quince trees",
+      "-Mediterranean herbs (lavender, rosemary, laurel)",
+      "-irrigation of the entire field with 5 programmers",
+      "4013 k.o. Komiža",
+      "4034/1 k.o. Komiža",
+      "4034/3 k.o. Komiža"
+    ],
+    coordinates: [],
   },
 ] as Realestate[];
