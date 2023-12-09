@@ -443,7 +443,7 @@ export const realestate = [
       "4034/3 k.o. Komiža"
     ],
     summaryEng: [
-      -"-26 3-year-old olive trees, and the first fruits are expected in 2-3 years.",
+      -"-26 3 year old olive trees, and the first fruits are expected in 2-3 years.",
       "-10 apple trees",
       "-8 plum trees",
       "-8 cherry trees",
