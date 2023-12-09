@@ -459,6 +459,6 @@ export const realestate = [
       "4034/1 k.o. Komiža",
       "4034/3 k.o. Komiža"
     ],
-    coordinates: [],
+    coordinates: [43.059047, 16.164817],
   },
 ] as Realestate[];
