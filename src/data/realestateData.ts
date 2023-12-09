@@ -440,10 +440,10 @@ export const realestate = [
       "-navodnjavanje po cijelom terenu sa 5 programatora",
       "4013 k.o. Komiža",
       "4034/1 k.o. Komiža",
-      "4034/3 k.o. Komiža"
+      "4034/3 k.o. Komiža",
     ],
     summaryEng: [
-      -"-26 3 year old olive trees, and the first fruits are expected in 2-3 years.",
+      "-26 olive trees (3 years old), and the first fruits are expected in 2-3 years.",
       "-10 apple trees",
       "-8 plum trees",
       "-8 cherry trees",
@@ -457,7 +457,7 @@ export const realestate = [
       "-irrigation of the entire field with 5 programmers",
       "4013 k.o. Komiža",
       "4034/1 k.o. Komiža",
-      "4034/3 k.o. Komiža"
+      "4034/3 k.o. Komiža",
     ],
     coordinates: [43.059047, 16.164817],
   },
