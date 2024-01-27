@@ -29,9 +29,6 @@ export default function CarouselComponent() {
                             ? "Our team of skilled workers is dedicated to surpassing your expectations, making your home an expression of your unique style."
                             : "Naš tim kvalificiranih radnika posvećen je prevazilaženju vaših očekivanja, čineći vaš dom izrazom vašeg jedinstvenog stila."}
                     </p>
-                    <button className="carousel-button">
-                        {selectedLanguage === "English" ? "More details" : "Detaljnije"}
-                    </button>
                 </Carousel.Caption>
                 {/* Slide 2 */}
             </Carousel.Item>
@@ -48,9 +45,6 @@ export default function CarouselComponent() {
                             ? "We specialize in connecting you with the perfect vacation property, whether it's your first home, an investment opportunity, or a luxurious retreat."
                             : "Specijalizirani smo za povezivanje vas sa savršenim mjestom za odmor, bilo da to je vaš prvi dom, prilika za ulaganje ili luksuzna vikendica"}
                     </p>
-                    <button className="carousel-button">
-                        {selectedLanguage === "English" ? "More details" : "Detaljnije"}
-                    </button>
                 </Carousel.Caption>
             </Carousel.Item>
 
@@ -69,9 +63,6 @@ export default function CarouselComponent() {
                             ? "Build your future with DEAN PROJEKT GRADNJA, where quality meets innovation."
                             : "Gradite svoju budućnost uz DEAN PROJEKT GRADNJU, gdje se susreću kvaliteta i inovacija."}
                     </p>
-                    <button className="carousel-button">
-                        {selectedLanguage === "English" ? "More details" : "Detaljnije"}
-                    </button>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
