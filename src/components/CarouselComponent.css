@@ -43,3 +43,12 @@
         margin: 0;
     }
 }
+
+.carousel-button {
+    background-color: #C99B11;
+    color: white;
+    border: 1px solid white;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+}
