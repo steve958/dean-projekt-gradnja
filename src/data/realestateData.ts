@@ -17,6 +17,13 @@ import twoimg6 from "../assets/realestate/2-Kuca-Kut-Valica/img6.jpg";
 import twoimg7 from "../assets/realestate/2-Kuca-Kut-Valica/img7.jpg";
 import twoimg8 from "../assets/realestate/2-Kuca-Kut-Valica/img8.jpg";
 import twoimg9 from "../assets/realestate/2-Kuca-Kut-Valica/img9.jpg";
+import twoimg10 from "../assets/realestate/2-Kuca-Kut-Valica/img10.jpg";
+import twoimg11 from "../assets/realestate/2-Kuca-Kut-Valica/img11.jpg";
+import twoimg12 from "../assets/realestate/2-Kuca-Kut-Valica/img12.jpg";
+import twoimg13 from "../assets/realestate/2-Kuca-Kut-Valica/img13.jpg";
+import twoimg14 from "../assets/realestate/2-Kuca-Kut-Valica/img14.jpg";
+import twoimg15 from "../assets/realestate/2-Kuca-Kut-Valica/img15.jpg";
+import twoimg16 from "../assets/realestate/2-Kuca-Kut-Valica/img16.jpg";
 //object 3
 import threemain from "../assets/realestate/3-Stan-Hvar/main.jpg";
 import threeimg1 from "../assets/realestate/3-Stan-Hvar/img1.jpg";
@@ -132,6 +139,13 @@ export const realestate = [
       twoimg7,
       twoimg8,
       twoimg9,
+      twoimg10,
+      twoimg11,
+      twoimg12,
+      twoimg13,
+      twoimg14,
+      twoimg15,
+      twoimg16
     ],
     status: "active",
     type: "house",
