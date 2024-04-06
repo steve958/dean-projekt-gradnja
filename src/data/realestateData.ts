@@ -504,9 +504,9 @@ export const realestate = [
     status: 'active',
     type: 'land',
     descriptionCro:
-      'U samoj blizini uvale Stončica prodaje se poljoprivredno zemljište uz sami asfaltni put, određeni dijelovi imaju direktan pogled na more i uvalu. Papirološki sve uredno i sređeno. Zemljište je moguće pogledati svaki dan uz prethodnu najavu.',
+      'U samoj blizini uvale Stončica prodaje se poljoprivredno zemljište uz sami asfaltni put, određeni dijelovi imaju direktan pogled na more i uvalu. Papirološki sve uredno i sređeno. Zemljište je moguće pogledati svaki dan uz prethodnu najavu.Ukupno 7127m².',
     descriptionEng:
-      'In the immediate vicinity of the Stončica ravine, agricultural land is for sale along the asphalt road itself, certain parts have a direct view of the sea and the ravine. Paperologically, everything is neat and tidy. The land can be viewed every day with prior notice.',
+      'In the immediate vicinity of the Stončica ravine, agricultural land is for sale along the asphalt road itself, certain parts have a direct view of the sea and the ravine. Paperologically, everything is neat and tidy. The land can be viewed every day with prior notice.Total 7127m².',
     summaryCro: [
       '4385',
       '4386/1',
