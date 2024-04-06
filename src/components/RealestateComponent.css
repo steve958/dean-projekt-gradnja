@@ -1,59 +1,72 @@
 #sold {
-    opacity: 0.3;
+  opacity: 0.3;
+}
+
+.card-img-top {
+  animation: appear 0.5s 1;
 }
 
 .sold_stamp {
-    position: absolute;
-    color: #45526E;
-    font-weight: 600;
-    letter-spacing: 20px;
-    font-size: 55px;
-    top: 25%;
-    left: 5%;
+  position: absolute;
+  color: #45526e;
+  font-weight: 600;
+  letter-spacing: 20px;
+  font-size: 55px;
+  top: 25%;
+  left: 5%;
 }
 
 .card_realestate {
-    border: 2px solid #C99B11 !important;
+  border: 2px solid #c99b11 !important;
 }
 
 @media (max-width: 1400px) {
-    .sold_stamp {
-        font-size: 40px;
-    }
+  .sold_stamp {
+    font-size: 40px;
+  }
 }
 
 @media (max-width: 1200px) {
-    .sold_stamp {
-        font-size: 30px;
-    }
+  .sold_stamp {
+    font-size: 30px;
+  }
 }
 
 @media (max-width: 1000px) {
-    .sold_stamp {
-        font-size: 20px;
-    }
+  .sold_stamp {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 770px) {
-    .sold_stamp {
-        right: 0;
-        font-size: 6vh;
-    }
+  .sold_stamp {
+    right: 0;
+    font-size: 6vh;
+  }
 }
 
 @media (max-width: 340px) {
-    .sold_stamp {
-        right: 0;
-        font-size: 4vh;
-    }
+  .sold_stamp {
+    right: 0;
+    font-size: 4vh;
+  }
 
-    .select_type_wrapper {
-        display: inline !important;
-    }
+  .select_type_wrapper {
+    display: inline !important;
+  }
 }
 
 .select_type_wrapper {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
