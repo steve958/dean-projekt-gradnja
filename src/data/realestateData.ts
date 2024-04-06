@@ -104,7 +104,7 @@ import fourteenimg6 from '../assets/realestate/14-Plac-Podhumlje/img6.jpg';
 import fourteenimg7 from '../assets/realestate/14-Plac-Podhumlje/img7.jpg';
 import fourteenimg8 from '../assets/realestate/14-Plac-Podhumlje/img8.jpg';
 import fourteenimg9 from '../assets/realestate/14-Plac-Podhumlje/img9.jpg';
-//object 1
+//object 15
 import fiftteenmain from '../assets/realestate/15-Plac-Uvala-Stoncica/main.jpg';
 import fiftteenimg1 from '../assets/realestate/15-Plac-Uvala-Stoncica/img1.jpg';
 import fiftteenimg2 from '../assets/realestate/15-Plac-Uvala-Stoncica/img2.jpg';
@@ -529,6 +529,6 @@ export const realestate = [
       '4419/2',
       '4419/1',
     ],
-    coordinates: [43.021899, 16.12151],
+    coordinates: [43.0645834, 16.2415789],
   },
 ] as Realestate[];
