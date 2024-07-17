@@ -38,6 +38,7 @@ export default function ContactComponent() {
             .then(
                 (result) => {
                     console.log(result.text);
+                    alert('Poruka poslata')
                 },
                 (error) => {
                     console.log(error.text);
