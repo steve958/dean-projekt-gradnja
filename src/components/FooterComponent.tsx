@@ -105,7 +105,7 @@ export default function Footer() {
             </p>
             <p>
               <i className="fas fa-envelope mr-3"></i>{' '}
-              info@deanprojektgradnja.com
+              info@deanprojektgradnja.org
             </p>
             <p>
               <i className="fas fa-phone mr-3"></i> +385 95 3466323
