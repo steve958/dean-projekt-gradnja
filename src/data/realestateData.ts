@@ -40,15 +40,15 @@ import threeimg11 from '../assets/realestate/3-Stan-Hvar/img11.jpg';
 import threeimg12 from '../assets/realestate/3-Stan-Hvar/img12.jpg';
 import threeimg13 from '../assets/realestate/3-Stan-Hvar/img13.jpg';
 //object 4
-import fourmain from '../assets/realestate/4-Stan-Split-Riva/main.jpg';
-import fourimg1 from '../assets/realestate/4-Stan-Split-Riva/img1.jpg';
-import fourimg2 from '../assets/realestate/4-Stan-Split-Riva/img2.jpg';
-import fourimg3 from '../assets/realestate/4-Stan-Split-Riva/img3.jpg';
-import fourimg4 from '../assets/realestate/4-Stan-Split-Riva/img4.jpg';
-import fourimg5 from '../assets/realestate/4-Stan-Split-Riva/img5.jpg';
-import fourimg6 from '../assets/realestate/4-Stan-Split-Riva/img6.jpg';
-import fourimg7 from '../assets/realestate/4-Stan-Split-Riva/img7.jpg';
-import fourimg8 from '../assets/realestate/4-Stan-Split-Riva/img8.jpg';
+// import fourmain from '../assets/realestate/4-Stan-Split-Riva/main.jpg';
+// import fourimg1 from '../assets/realestate/4-Stan-Split-Riva/img1.jpg';
+// import fourimg2 from '../assets/realestate/4-Stan-Split-Riva/img2.jpg';
+// import fourimg3 from '../assets/realestate/4-Stan-Split-Riva/img3.jpg';
+// import fourimg4 from '../assets/realestate/4-Stan-Split-Riva/img4.jpg';
+// import fourimg5 from '../assets/realestate/4-Stan-Split-Riva/img5.jpg';
+// import fourimg6 from '../assets/realestate/4-Stan-Split-Riva/img6.jpg';
+// import fourimg7 from '../assets/realestate/4-Stan-Split-Riva/img7.jpg';
+// import fourimg8 from '../assets/realestate/4-Stan-Split-Riva/img8.jpg';
 //object 5
 import fivemain from '../assets/realestate/5-Stan-Vis/main.jpg';
 //object 6
@@ -198,32 +198,32 @@ export const realestate = [
     summaryEng: ['-37m²'],
     coordinates: [43.0553687, 16.1984158],
   },
-  {
-    id: 4,
-    mainImage: fourmain,
-    titleCro: 'Split - Riva, Varoš 50m²',
-    titleEng: 'Split - Riva, Varoš 50m²',
-    price: 310000,
-    images: [
-      fourimg1,
-      fourimg2,
-      fourimg3,
-      fourimg4,
-      fourimg5,
-      fourimg6,
-      fourimg7,
-      fourimg8,
-    ],
-    status: 'active',
-    type: 'apartment',
-    descriptionCro:
-      'Kompletno sređen i renoviran stan u samom jezgru grada Splita. Nove instalacije, nova stolarija, apsolutno sve novo. Svaka prostorija i soba imaju prozore i prirodnu ventilaciju. Ulica Kovačića 18. Dvoiposoban stan od 50m². Dobro uhodan na Booking-u. Savršen stan kao i investicija!',
-    descriptionEng:
-      'Completely arranged and renovated apartment in the very core of the city of Split. New installations, new carpentry, absolutely everything new. Every room and room has windows and natural ventilation. Street Kovačića 18. Two and a half room apartment of 50m². Excellent attendance at Booking. A perfect apartment as well as an investment!',
-    summaryCro: ['-2,5 sobe', '-50m²', '-Kompletno renoviran', '-Prvi kat'],
-    summaryEng: ['-2,5 sobe', '-50m²', '-Completely renovated', '-First floor'],
-    coordinates: [43.5108942, 16.435227],
-  },
+  // {
+  //   id: 4,
+  //   mainImage: fourmain,
+  //   titleCro: 'Split - Riva, Varoš 50m²',
+  //   titleEng: 'Split - Riva, Varoš 50m²',
+  //   price: 310000,
+  //   images: [
+  //     fourimg1,
+  //     fourimg2,
+  //     fourimg3,
+  //     fourimg4,
+  //     fourimg5,
+  //     fourimg6,
+  //     fourimg7,
+  //     fourimg8,
+  //   ],
+  //   status: 'active',
+  //   type: 'apartment',
+  //   descriptionCro:
+  //     'Kompletno sređen i renoviran stan u samom jezgru grada Splita. Nove instalacije, nova stolarija, apsolutno sve novo. Svaka prostorija i soba imaju prozore i prirodnu ventilaciju. Ulica Kovačića 18. Dvoiposoban stan od 50m². Dobro uhodan na Booking-u. Savršen stan kao i investicija!',
+  //   descriptionEng:
+  //     'Completely arranged and renovated apartment in the very core of the city of Split. New installations, new carpentry, absolutely everything new. Every room and room has windows and natural ventilation. Street Kovačića 18. Two and a half room apartment of 50m². Excellent attendance at Booking. A perfect apartment as well as an investment!',
+  //   summaryCro: ['-2,5 sobe', '-50m²', '-Kompletno renoviran', '-Prvi kat'],
+  //   summaryEng: ['-2,5 sobe', '-50m²', '-Completely renovated', '-First floor'],
+  //   coordinates: [43.5108942, 16.435227],
+  // },
   {
     id: 5,
     mainImage: fivemain,
@@ -300,7 +300,7 @@ export const realestate = [
       nineimg2,
       nineimg3,
     ],
-    status: 'active',
+    status: 'sold',
     type: 'house',
     descriptionCro:
       'Prodaje se odlična kuća sa urednim papirima u srcu Slavonije. Kuća na kat, ima 6 soba 2 kupaone. Par soba zahtjeva određena ulaganja tj treba ih dovršiti. Dvorište, uvučeno od glavne ceste i ono najvažnije predivan pogled u slavonsku ravnicu. Plac 3000m²',
