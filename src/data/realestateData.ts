@@ -574,12 +574,14 @@ export const realestate = [
       'Site for sale with existing walls, finished project approved by conservator.',
     summaryCro: [
       'Predato za gradjevinsku dozvolu',
-      'Lokacija savršena',
+      'Lokacija savršena / Centar Otoka Visa',
+      'Blizina mora',
       'Hitna prodaja !!!',
     ],
     summaryEng: [
       'Submitted for building permit',
-      'Perfect location',
+      'Perfect location / Center of Vis island',
+      'Near the sea',
       'Urgent sale !!!',
     ],
     coordinates: [43.0609516, 16.1821207],
