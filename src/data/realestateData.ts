@@ -114,6 +114,28 @@ import fiftteenimg5 from '../assets/realestate/15-Plac-Uvala-Stoncica/img5.jpg';
 import fiftteenimg6 from '../assets/realestate/15-Plac-Uvala-Stoncica/img6.jpg';
 import fiftteenimg7 from '../assets/realestate/15-Plac-Uvala-Stoncica/img7.jpg';
 import fiftteenimg8 from '../assets/realestate/15-Plac-Uvala-Stoncica/img8.jpg';
+//object 16
+import sixteenmain from '../assets/realestate/16-Plac-Vis-Poljicka/main.jpg';
+import sixteenimg1 from '../assets/realestate/16-Plac-Vis-Poljicka/img1.jpg';
+import sixteenimg2 from '../assets/realestate/16-Plac-Vis-Poljicka/img2.jpg';
+import sixteenimg3 from '../assets/realestate/16-Plac-Vis-Poljicka/img3.jpg';
+import sixteenimg4 from '../assets/realestate/16-Plac-Vis-Poljicka/img4.jpg';
+import sixteenimg5 from '../assets/realestate/16-Plac-Vis-Poljicka/img5.jpg';
+//object 17
+import seventeenmain from '../assets/realestate/17-Plac-Podspilje/main.jpg';
+import seventeenimg1 from '../assets/realestate/17-Plac-Podspilje/img1.jpg';
+import seventeenimg2 from '../assets/realestate/17-Plac-Podspilje/img2.jpg';
+import seventeenimg3 from '../assets/realestate/17-Plac-Podspilje/img3.jpg';
+import seventeenimg4 from '../assets/realestate/17-Plac-Podspilje/img4.jpg';
+import seventeenimg5 from '../assets/realestate/17-Plac-Podspilje/img5.jpg';
+import seventeenimg6 from '../assets/realestate/17-Plac-Podspilje/img6.jpg';
+import seventeenimg7 from '../assets/realestate/17-Plac-Podspilje/img7.jpg';
+import seventeenimg8 from '../assets/realestate/17-Plac-Podspilje/img8.jpg';
+import seventeenimg9 from '../assets/realestate/17-Plac-Podspilje/img9.jpg';
+import seventeenimg10 from '../assets/realestate/17-Plac-Podspilje/img10.jpg';
+import seventeenimg11 from '../assets/realestate/17-Plac-Podspilje/img11.jpg';
+import seventeenimg12 from '../assets/realestate/17-Plac-Podspilje/img12.jpg';
+import seventeenimg13 from '../assets/realestate/17-Plac-Podspilje/img13.jpg';
 
 export const realestate = [
   {
@@ -530,5 +552,67 @@ export const realestate = [
       '4419/1',
     ],
     coordinates: [43.0645834, 16.2415789],
+  },
+  {
+    id: 16,
+    mainImage: sixteenmain,
+    titleCro: 'Plac - Vis - Poljička ulica',
+    titleEng: 'Land plot - Vis - street Poljička',
+    price: 175000,
+    images: [
+      sixteenimg1,
+      sixteenimg2,
+      sixteenimg3,
+      sixteenimg4,
+      sixteenimg5,
+    ],
+    status: 'active',
+    type: 'land',
+    descriptionCro:
+      'Na prodaju lokacija sa postojećim zidovima, gotovim projektom odobrenim od strane konzervatora.',
+    descriptionEng:
+      'Site for sale with existing walls, finished project approved by conservator.',
+    summaryCro: [
+      'Predato za gradjevinsku dozvolu',
+      'Lokacija savršena',
+      'Hitna prodaja !!!',
+    ],
+    summaryEng: [
+      'Submitted for building permit',
+      'Perfect location',
+      'Urgent sale !!!',
+    ],
+    coordinates: [43.0609516, 16.1821207],
+  },
+  {
+    id: 17,
+    mainImage: seventeenmain,
+    titleCro: 'Plac - Otok Vis - Podšpilje',
+    titleEng: 'Land plot - Vis - Podšpilje',
+    price: 119350,
+    images: [
+      seventeenimg1,
+      seventeenimg2,
+      seventeenimg3,
+      seventeenimg4,
+      seventeenimg5,
+      seventeenimg6,
+      seventeenimg7,
+      seventeenimg8,
+      seventeenimg9,
+      seventeenimg10,
+      seventeenimg11,
+      seventeenimg12,
+      seventeenimg13,
+    ],
+    status: 'active',
+    type: 'land',
+    descriptionCro:
+      'Na prodaju su dvije atraktivne građevinske parcele koje se mogu kupiti i u cijelini smještene u mirnom mjestu Podšpilje na prekrasnom otoku Visu.Ove parcele, površine 1229m² i 1085m², nalaze se u građevinskoj zoni, što pruža idealnu priliku za izgradnju obiteljske kuće, vikendice ili objekta za turistički najam. Okružena netaknutom prirodom, parcela nudi izvanredan mir i privatnost, a istovremeno je dobro povezana s glavnim cestama i udaljena je samo par kilometara od Komiže, kao i uvala Pritišćina, Travna, Stiniva i centra grada Visa.S obzirom na svoju poziciju, s ove lokacije pruža se pogled na Hum, što je čini savršenim mjestom za odmor. Vis je poznat po svojim kristalno čistim plažama, bogatoj kulturnoj baštini i autentičnom dalmatinskom načinu života.Ovo je jedinstvena prilika za investiciju na jednom od najmirnijih dijelova otoka. Sva infrastruktura(struja, voda, kanalizacija) nalazi se ispred parcele. Neposredna blizina restorana Gušti poja Za više informacija i dogovor za obilazak parcele, slobodno nas kontaktirajte!',
+    descriptionEng:
+      'For Sale: Two Attractive Building Plots in Podspilje, Island of Vis Two attractive building plots are for sale, with the option to purchase them together, located in the peaceful village of Podspilje on the stunning island of Vis.These plots, with areas of 1229m² and 1085m², are situated within a building zone, offering a perfect opportunity to build a family home, vacation villa, or a property for tourist rental. Surrounded by untouched nature, the plots provide exceptional peace and privacy, while also being well connected to main roads and only a few kilometers from Komiža, as well as the beautiful bays of Pritišćina, Travna, Stiniva, and the town of Vis.Due to their location, the plots offer a view of Hum, making them an ideal spot for relaxation. Vis is known for its crystal - clear beaches, rich cultural heritage, and authentic Dalmatian lifestyle.This is a unique investment opportunity in one of the quietest parts of the island. All necessary infrastructure(electricity, water, sewage) is located right in front of the plots. In close proximity to the restaurant Gušti Poja. For more information and to schedule a viewing, feel free to contact us!',
+    summaryCro: ['110€ / m², Građevinsko', '1+1 ili sve zajedno', 'Građevinska zona', 'Pogled na prirodu', 'Blizina infrastrukture', 'Idealno za gradnju kuće ili investiciju u turizam', 'Ova nekretnina pruža savršenu ravnotežu između mira, privatnosti i svih pogodnosti koje otok Vis nudi.Ne propustite ovu priliku!'],
+    summaryEng: ['110€ / m², Construction land', '1+1 or all together', 'Scenic nature views', 'Proximity to infrastructure', 'Ideal for building a house or investment in tourism', "This property offers the perfect balance between tranquility, privacy, and all the amenities that the island of Vis has to offer. Don't miss out on this opportunity!"],
+    coordinates: [43.029007, 16.136838],
   },
 ] as Realestate[];
