@@ -1,6 +1,5 @@
 import "./SpecialOfferComponent.css";
-// import slika1 from "../assets/specialoffer/srebrnaplaza.jpg";
-import slika2 from "../assets/specialoffer/splitriva.jpg";
+import slika1 from "../assets/specialoffer/srebrnaplaza.jpg";
 import slika3 from "../assets/specialoffer/kucakut.jpg";
 import { useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
@@ -58,7 +57,7 @@ export default function SpecialOfferComponent() {
                 </div>
                 <div className="card" style={{ padding: "10px" }}>
                     <div className="card-img-body" style={{ height: "370px" }}>
-                        <img className="card-img" src={slika2} alt="Card image cap" />
+                        <img className="card-img" src={slika1} alt="Card image cap" />
                     </div>
                     {/* <div className="card-body">
                         <h4 className="card-title">
