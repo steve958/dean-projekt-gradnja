@@ -136,6 +136,11 @@ import seventeenimg10 from "../assets/realestate/17-Plac-Podspilje/img10.jpg";
 import seventeenimg11 from "../assets/realestate/17-Plac-Podspilje/img11.jpg";
 import seventeenimg12 from "../assets/realestate/17-Plac-Podspilje/img12.jpg";
 import seventeenimg13 from "../assets/realestate/17-Plac-Podspilje/img13.jpg";
+//object 18
+import eightteenmain from "../assets/realestate/18-Plac-Poljoprivredno/main.jpg";
+import eightteenimg1 from "../assets/realestate/18-Plac-Poljoprivredno/img1.jpg";
+import eightteenimg2 from "../assets/realestate/18-Plac-Poljoprivredno/img2.jpg";
+import eightteenimg3 from "../assets/realestate/18-Plac-Poljoprivredno/img3.jpg";
 
 export const realestate = [
   {
@@ -623,6 +628,33 @@ export const realestate = [
       "-Proximity to infrastructure",
       "-Ideal for building a house or investment in tourism",
       "-This property offers the perfect balance between tranquility, privacy, and all the amenities that the island of Vis has to offer. Don't miss out on this opportunity!",
+    ],
+    coordinates: [43.029007, 16.136838],
+  },
+  {
+    id: 18,
+    mainImage: eightteenmain,
+    titleCro: "Plac - Otok Vis - Poljoprivredna parcela",
+    titleEng: "Land plot - Vis - Agricultural plot",
+    price: 11835,
+    images: [
+      eightteenimg1,
+      eightteenimg2,
+      eightteenimg3,
+    ],
+    status: "active",
+    type: "land",
+    descriptionCro:
+      "Prodaje se poljoprivredna parcela na otoku Visu, površine 2.630 m². Parcela je jugozapadno orijentirana, smještena uz cestu, s pristupnim putem ucrtanom u katastar (potrebno ga je očistiti).",
+    descriptionEng:
+      "For Sale: Agricultural Land, Island of Vis Agricultural land for sale on the island of Vis, covering an area of 2, 630 m².The plot is southwest- oriented, located next to a road, with an access path recorded in the cadastral map(requires clearing with a chainsaw).",
+    summaryCro: [
+      "4,5€ / m²",
+      "Papiri: Vlasništvo uredno, 1/1",
+    ],
+    summaryEng: [
+      "4,5€ / m²",
+      "Documents: Ownership clear, 1/1.",
     ],
     coordinates: [43.029007, 16.136838],
   },
