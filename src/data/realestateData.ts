@@ -148,7 +148,7 @@ export const realestate = [
     mainImage: onemain,
     titleCro: "Novogradnja - Vis Rukavac, Srebrna Plaža",
     titleEng: "New house - Vis Rukavac, Srebrna Plaža",
-    price: 340000,
+    price: 330000,
     images: [oneimg1, oneimg2, oneimg3, oneimg4, oneimg5, oneimg6],
     status: "active",
     type: "house",
@@ -165,7 +165,7 @@ export const realestate = [
     mainImage: twomain,
     titleCro: "Kuća - Kut Valica, Neuseljavana",
     titleEng: "House - Kut Valica, No previous owners ",
-    price: 330000,
+    price: 290000,
     images: [
       twoimg1,
       twoimg2,
