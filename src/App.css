@@ -78,3 +78,28 @@
     border-left: 1px dotted var(--brand-gold);
     border-right: 1px dotted var(--brand-gold);
 }
+
+.divider {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--brand-gold);
+    display: flex;
+    align-items: center;
+}
+
+.divider::before,
+.divider::after {
+    flex: 1;
+    content: '';
+    padding: 3px;
+    background-color: var(--brand-gold);
+    margin: 5px;
+}
+
+@media (max-width: 600px) {
+    .divider {
+        font-size: 22px;
+    }
+}

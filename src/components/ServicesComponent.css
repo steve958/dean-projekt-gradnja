@@ -3,25 +3,6 @@
     margin-bottom: var(--space-xl);
 }
 
-.divider {
-    text-align: center;
-    margin-bottom: var(--space-lg);
-    font-size: 30px;
-    font-weight: 600;
-    color: var(--brand-gold);
-    display: flex;
-    align-items: center;
-}
-
-.divider::before,
-.divider::after {
-    flex: 1;
-    content: '';
-    padding: 3px;
-    background-color: var(--brand-gold);
-    margin: 5px;
-}
-
 .services_row {
     align-items: stretch;
 }
@@ -85,10 +66,6 @@
 }
 
 @media (max-width: 600px) {
-    .divider {
-        font-size: 22px;
-    }
-
     .service_card_title {
         min-height: 0;
     }

@@ -1,6 +1,7 @@
 import BannerComponent from "../components/BannerComponent";
 import QuoteComponent from "../components/QuoteComponent";
 import ServicesComponent from "../components/ServicesComponent";
+import CardComponents from "../components/CardComponents";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { useLang } from "../i18n";
 
@@ -19,6 +20,7 @@ export default function HomePage() {
             <BannerComponent />
             <QuoteComponent />
             <ServicesComponent />
+            <CardComponents />
         </>
     );
 }
