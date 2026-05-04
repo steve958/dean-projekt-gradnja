@@ -8,167 +8,287 @@ import { Realestate } from "./PropertyCard";
 import { useEffect, useMemo, useState } from "react";
 import { useLang } from "../i18n";
 
+type SortMode = "default" | "price_asc" | "price_desc";
+
 const RealestateComponent = () => {
     const { isEng, t } = useLang();
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
 
-    const [selectedType, setSelectedType] = useState<string>("");
+    const [search, setSearch] = useState("");
+    const [type, setType] = useState("");
+    const [status, setStatus] = useState("");
+    const [minPrice, setMinPrice] = useState("");
+    const [maxPrice, setMaxPrice] = useState("");
+    const [sort, setSort] = useState<SortMode>("default");
 
     useEffect(() => {
-        const element = document.getElementsByClassName("headings");
+        const element = document.getElementsByClassName("realestate_header");
         element[0]?.scrollIntoView({ behavior: "smooth", block: "end" });
     }, []);
 
-    const filtered = useMemo(
-        () =>
-            realestate.filter((entry: Realestate) =>
-                selectedType ? entry.type === selectedType : true
-            ),
-        [selectedType]
+    const dataMin = useMemo(
+        () => Math.min(...realestate.map((r) => r.price)),
+        []
+    );
+    const dataMax = useMemo(
+        () => Math.max(...realestate.map((r) => r.price)),
+        []
     );
 
-    function handleSelectProperty(property: Realestate) {
+    const filtered = useMemo(() => {
+        let list = realestate.filter((entry: Realestate) => {
+            if (type && entry.type !== type) return false;
+            if (status && entry.status !== status) return false;
+
+            const min = minPrice ? Number(minPrice) : null;
+            const max = maxPrice ? Number(maxPrice) : null;
+            if (min !== null && entry.price < min) return false;
+            if (max !== null && entry.price > max) return false;
+
+            if (search) {
+                const q = search.trim().toLowerCase();
+                const title = (isEng
+                    ? entry.titleEng
+                    : entry.titleCro
+                ).toLowerCase();
+                if (!title.includes(q)) return false;
+            }
+
+            return true;
+        });
+
+        if (sort === "price_asc") {
+            list = [...list].sort((a, b) => a.price - b.price);
+        } else if (sort === "price_desc") {
+            list = [...list].sort((a, b) => b.price - a.price);
+        }
+
+        return list;
+    }, [type, status, minPrice, maxPrice, search, sort, isEng]);
+
+    const handleSelectProperty = (property: Realestate) => {
         dispatch(setSelectedProperty(property));
         navigate(`/realestate/${property.id}`);
-    }
+    };
+
+    const clearFilters = () => {
+        setSearch("");
+        setType("");
+        setStatus("");
+        setMinPrice("");
+        setMaxPrice("");
+        setSort("default");
+    };
+
+    const hasFilters = Boolean(
+        search || type || status || minPrice || maxPrice || sort !== "default"
+    );
+
+    const typeLabel = (entryType: string) => {
+        switch (entryType) {
+            case "house":
+                return t("House", "Kuća");
+            case "apartment":
+                return t("Apartment", "Stan");
+            case "land":
+                return t("Land", "Plac");
+            default:
+                return entryType;
+        }
+    };
 
     return (
-        <div className="album bg-light">
-            <div className="container">
-                <div className="row">
-                    <div className="card-header p-0">
-                        <div className="text-center p-4 headings">
-                            <h3>{t("Real Estate sale", "Prodaja nekretnina")}</h3>
-                        </div>
-                    </div>
-                    <p>
-                        {t(
-                            "Our portfolio spans a wide range of properties, from luxurious estates to cozy family homes, and from prime commercial spaces to exclusive investment opportunities. Whether you're in search of a dream home, an office space that suits your business needs, or an investment that promises long-term growth, you'll find it within our carefully curated collection.",
-                            "Naš portfelj obuhvaća širok raspon nekretnina, od luksuznih imanja do udobnih obiteljskih kuća, od vrhunskih poslovnih prostora do ekskluzivnih prilika za ulaganje. Bilo da ste u potrazi za kućom iz snova, uredskim prostorom koji odgovara vašim poslovnim potrebama ili investicijom koja obećava dugoročni rast, pronaći ćete to u našoj pažljivo odabranoj kolekciji."
-                        )}
-                    </p>
-                    <p>
-                        {t(
-                            "Each property in our portfolio is meticulously selected for its exceptional quality, desirable location, and unique character. Our team of experienced real estate professionals works tirelessly to source properties that offer the perfect blend of aesthetics, functionality, and value.",
-                            "Svaka nekretnina u našem portfelju pomno je odabrana zbog svoje iznimne kvalitete, poželjnog položaja i jedinstvenog karaktera. Naš tim iskusnih stručnjaka za nekretnine neumorno radi na pronalaženju nekretnina koje nude savršenu mješavinu estetike, funkcionalnosti i vrijednosti."
-                        )}
-                    </p>
-                    <p>
-                        {t(
-                            "We understand that real estate is not just about transactions, it's about fulfilling dreams and securing the future. That's why we strive to provide our clients with personalized guidance and support throughout the buying or selling process.",
-                            "Vodimo se time da nekretnine nisu samo trgovina nego se radi o ispunjenju snova i osiguravanju budućnosti. Zato nastojimo našim klijentima pružiti personalizirano vodstvo i podršku tijekom cijelog procesa kupnje ili prodaje."
-                        )}
-                    </p>
-                    <div className="select_type_wrapper">
-                        <p
-                            style={{
-                                margin: "10px",
-                                marginLeft: "0",
-                                fontSize: "18px",
-                                fontWeight: "600",
-                            }}
-                        >
-                            {t("Choose type:", "Odaberite tip:")}
-                        </p>
-                        <div className="dropdown show">
-                            <select
-                                className="form-select"
-                                style={{ cursor: "pointer" }}
-                                value={selectedType}
-                                onChange={(e) => setSelectedType(e.target.value)}
-                            >
-                                <option value="" className="select_option">
-                                    {t("All items", "Cjelokupna ponuda")}
-                                </option>
-                                <option value="house" className="select_option">
-                                    {t("Houses", "Ponuda kuća")}
-                                </option>
-                                <option value="apartment" className="select_option">
-                                    {t("Apartments", "Ponuda stanova")}
-                                </option>
-                                <option value="land" className="select_option">
-                                    {t("Pieces of land", "Ponuda placeva")}
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-
-                    {filtered.length === 0 && (
-                        <div className="empty_state">
-                            <p>
-                                {t(
-                                    "No properties in this category at the moment.",
-                                    "Trenutno nema nekretnina u ovoj kategoriji."
-                                )}
-                            </p>
-                        </div>
+        <div className="container realestate_container">
+            <header className="realestate_header">
+                <h1 className="realestate_title">
+                    {t("Real Estate", "Prodaja nekretnina")}
+                </h1>
+                <p className="realestate_subtitle">
+                    {t(
+                        "Browse our hand-picked portfolio of houses, apartments and land across Croatia.",
+                        "Pregledajte našu pomno odabranu ponudu kuća, stanova i zemljišta diljem Hrvatske."
                     )}
+                </p>
+            </header>
 
+            <div className="filters_bar">
+                <div className="filter_field filter_field--search">
+                    <label htmlFor="re-search">{t("Search", "Pretraga")}</label>
+                    <input
+                        id="re-search"
+                        type="search"
+                        placeholder={t("By name…", "Po nazivu…")}
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
+                </div>
+                <div className="filter_field">
+                    <label htmlFor="re-type">{t("Type", "Tip")}</label>
+                    <select
+                        id="re-type"
+                        value={type}
+                        onChange={(e) => setType(e.target.value)}
+                    >
+                        <option value="">{t("All", "Sve")}</option>
+                        <option value="house">{t("Houses", "Kuće")}</option>
+                        <option value="apartment">
+                            {t("Apartments", "Stanovi")}
+                        </option>
+                        <option value="land">{t("Land", "Zemljište")}</option>
+                    </select>
+                </div>
+                <div className="filter_field">
+                    <label htmlFor="re-status">{t("Status", "Status")}</label>
+                    <select
+                        id="re-status"
+                        value={status}
+                        onChange={(e) => setStatus(e.target.value)}
+                    >
+                        <option value="">{t("All", "Sve")}</option>
+                        <option value="active">
+                            {t("Available", "Dostupno")}
+                        </option>
+                        <option value="sold">{t("Sold", "Prodano")}</option>
+                    </select>
+                </div>
+                <div className="filter_field">
+                    <label htmlFor="re-min">{t("Min €", "Min €")}</label>
+                    <input
+                        id="re-min"
+                        type="number"
+                        inputMode="numeric"
+                        min={0}
+                        step={1000}
+                        placeholder={priceConverter(dataMin)}
+                        value={minPrice}
+                        onChange={(e) => setMinPrice(e.target.value)}
+                    />
+                </div>
+                <div className="filter_field">
+                    <label htmlFor="re-max">{t("Max €", "Max €")}</label>
+                    <input
+                        id="re-max"
+                        type="number"
+                        inputMode="numeric"
+                        min={0}
+                        step={1000}
+                        placeholder={priceConverter(dataMax)}
+                        value={maxPrice}
+                        onChange={(e) => setMaxPrice(e.target.value)}
+                    />
+                </div>
+                <div className="filter_field">
+                    <label htmlFor="re-sort">{t("Sort", "Sortiraj")}</label>
+                    <select
+                        id="re-sort"
+                        value={sort}
+                        onChange={(e) => setSort(e.target.value as SortMode)}
+                    >
+                        <option value="default">{t("Default", "Zadano")}</option>
+                        <option value="price_asc">
+                            {t("Price: low → high", "Cijena: niža → viša")}
+                        </option>
+                        <option value="price_desc">
+                            {t("Price: high → low", "Cijena: viša → niža")}
+                        </option>
+                    </select>
+                </div>
+                {hasFilters && (
+                    <button
+                        type="button"
+                        className="filter_clear"
+                        onClick={clearFilters}
+                    >
+                        {t("Clear", "Poništi")}
+                    </button>
+                )}
+            </div>
+
+            <div className="results_count">
+                {t(
+                    `Showing ${filtered.length} of ${realestate.length} properties`,
+                    `Prikazano ${filtered.length} od ${realestate.length} nekretnina`
+                )}
+            </div>
+
+            {filtered.length === 0 ? (
+                <div className="empty_state">
+                    <p>
+                        {t(
+                            "No properties match your filters.",
+                            "Nijedna nekretnina ne odgovara filterima."
+                        )}
+                    </p>
+                    {hasFilters && (
+                        <button
+                            type="button"
+                            className="filter_clear"
+                            onClick={clearFilters}
+                        >
+                            {t("Clear filters", "Poništi filtere")}
+                        </button>
+                    )}
+                </div>
+            ) : (
+                <div className="row g-4">
                     {filtered.map((entry: Realestate) => {
+                        const title = isEng ? entry.titleEng : entry.titleCro;
                         const isSold = entry.status === "sold";
                         return (
                             <div
-                                className="col-md-4"
+                                className="col-12 col-sm-6 col-lg-4"
                                 key={entry.id}
-                                style={{ position: "relative" }}
                             >
-                                <div
-                                    className={`card card_realestate mb-4 box-shadow${isSold ? " card_realestate--sold" : ""
-                                        }`}
+                                <article
+                                    className={`re_card${isSold ? " re_card--sold" : ""}`}
                                     onClick={() =>
                                         !isSold && handleSelectProperty(entry)
                                     }
                                     role={isSold ? undefined : "button"}
                                     tabIndex={isSold ? -1 : 0}
                                     onKeyDown={(e) => {
-                                        if (!isSold && e.key === "Enter")
+                                        if (!isSold && e.key === "Enter") {
                                             handleSelectProperty(entry);
+                                        }
                                     }}
+                                    aria-label={title}
                                 >
-                                    {isSold && (
-                                        <span className="sold_ribbon">
-                                            {t("SOLD", "PRODANO")}
+                                    <div className="re_card_image_wrap">
+                                        <img
+                                            src={entry.mainImage}
+                                            alt={title}
+                                            className="re_card_image"
+                                            loading="lazy"
+                                        />
+                                        <span className="re_card_type_badge">
+                                            {typeLabel(entry.type)}
                                         </span>
-                                    )}
-                                    <img
-                                        src={entry.mainImage}
-                                        alt={isEng ? entry.titleEng : entry.titleCro}
-                                        className="card-img-top"
-                                        loading="lazy"
-                                    />
-                                    <div className="card-body">
-                                        <h5 className="card-text">
-                                            {isEng ? entry.titleEng : entry.titleCro}
-                                        </h5>
-                                        <div
-                                            style={{
-                                                display: "flex",
-                                                justifyContent: "space-between",
-                                                alignItems: "center",
-                                            }}
-                                        >
-                                            <a
-                                                className={`btn btn-outline-secondary ${isSold ? "disabled" : ""
-                                                    }`}
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    if (!isSold) handleSelectProperty(entry);
-                                                }}
-                                            >
-                                                {t("More details", "Detaljnije")}
-                                            </a>
-                                            <h2 className="card-text">
+                                        {isSold && (
+                                            <span className="re_card_sold_badge">
+                                                {t("Sold", "Prodano")}
+                                            </span>
+                                        )}
+                                    </div>
+                                    <div className="re_card_body">
+                                        <h3 className="re_card_title">{title}</h3>
+                                        <div className="re_card_footer">
+                                            <span className="re_card_price">
                                                 {priceConverter(entry.price)}€
-                                            </h2>
+                                            </span>
+                                            {!isSold && (
+                                                <span className="re_card_link">
+                                                    {t("Details", "Detaljnije")} →
+                                                </span>
+                                            )}
                                         </div>
                                     </div>
-                                </div>
+                                </article>
                             </div>
                         );
                     })}
                 </div>
-            </div>
+            )}
         </div>
     );
 };

@@ -1,84 +1,280 @@
-.card_realestate {
-  border: 2px solid var(--brand-gold) !important;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform var(--transition), box-shadow var(--transition);
-  position: relative;
+.realestate_container {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+    animation: re_appear 0.4s ease;
 }
 
-.card_realestate:not(.card_realestate--sold):hover,
-.card_realestate:not(.card_realestate--sold):focus-visible {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  outline: none;
+@keyframes re_appear {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
 }
 
-.card_realestate--sold {
-  cursor: not-allowed;
+.realestate_header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid #eee;
 }
 
-.card_realestate--sold .card-img-top {
-  filter: grayscale(0.4);
-  opacity: 0.55;
+.realestate_title {
+    color: var(--brand-slate);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 40px);
+    margin-bottom: var(--space-sm);
 }
 
-.card-img-top {
-  animation: appear 0.5s 1;
-  transition: transform 0.6s ease;
-  height: 220px;
-  object-fit: cover;
+.realestate_subtitle {
+    color: var(--text-muted);
+    font-size: 17px;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 720px;
 }
 
-.card_realestate:not(.card_realestate--sold):hover .card-img-top {
-  transform: scale(1.04);
+/* Filters */
+.filters_bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--space-sm);
+    background-color: var(--surface-alt);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--space-md);
+    align-items: end;
 }
 
-.sold_ribbon {
-  position: absolute;
-  top: 18px;
-  left: -42px;
-  transform: rotate(-35deg);
-  background-color: #c0392b;
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: 4px;
-  padding: 6px 50px;
-  font-size: 14px;
-  z-index: 3;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  text-transform: uppercase;
-  pointer-events: none;
+.filter_field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.filter_field--search {
+    grid-column: span 2;
+}
+
+.filter_field label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--brand-slate);
+}
+
+.filter_field input,
+.filter_field select {
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid #d8dde5;
+    background-color: white;
+    font-size: 14px;
+    color: #333;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    width: 100%;
+    min-width: 0;
+    height: 38px;
+}
+
+.filter_field input:focus,
+.filter_field select:focus {
+    outline: none;
+    border-color: var(--brand-gold);
+    box-shadow: 0 0 0 3px rgba(201, 155, 17, 0.18);
+}
+
+.filter_clear {
+    padding: 8px 16px;
+    background-color: var(--brand-slate);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition), transform var(--transition);
+    height: 38px;
+    align-self: end;
+}
+
+.filter_clear:hover,
+.filter_clear:focus-visible {
+    background-color: var(--brand-slate-soft);
+    transform: translateY(-1px);
+    outline: none;
+}
+
+.results_count {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: var(--space-md);
+    font-weight: 500;
 }
 
 .empty_state {
-  width: 100%;
-  text-align: center;
-  padding: var(--space-xl) var(--space-md);
-  color: var(--text-muted);
-  font-size: 18px;
-  background-color: var(--surface-alt);
-  border-radius: var(--radius-md);
-  border: 1px dashed #ccc;
+    width: 100%;
+    text-align: center;
+    padding: var(--space-xl) var(--space-md);
+    color: var(--text-muted);
+    background-color: var(--surface-alt);
+    border-radius: var(--radius-md);
+    border: 1px dashed #ccc;
 }
 
-.select_type_wrapper {
-  display: flex;
-  align-items: center;
-  margin-bottom: var(--space-md);
+.empty_state p {
+    margin-bottom: var(--space-md);
+    font-size: 16px;
 }
 
-@media (max-width: 340px) {
-  .select_type_wrapper {
-    display: inline !important;
-  }
+/* Card */
+.re_card {
+    background-color: var(--surface-alt);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition),
+        border-color var(--transition);
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    outline: none;
+    border: 1px solid transparent;
 }
 
-@keyframes appear {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.re_card:hover:not(.re_card--sold),
+.re_card:focus-visible:not(.re_card--sold) {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--brand-gold);
+}
+
+.re_card--sold {
+    cursor: not-allowed;
+}
+
+.re_card_image_wrap {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: var(--brand-slate);
+}
+
+.re_card_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.re_card:hover:not(.re_card--sold) .re_card_image {
+    transform: scale(1.05);
+}
+
+.re_card--sold .re_card_image {
+    filter: grayscale(0.5);
+    opacity: 0.6;
+}
+
+.re_card_type_badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--brand-slate);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+}
+
+.re_card_sold_badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: #c0392b;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.re_card_body {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: var(--space-sm);
+}
+
+.re_card_title {
+    color: var(--brand-slate);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.35;
+    margin: 0;
+    flex: 1;
+}
+
+.re_card_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-sm);
+    border-top: 1px solid #f0f0f0;
+}
+
+.re_card_price {
+    color: var(--brand-gold);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1;
+}
+
+.re_card_link {
+    color: var(--brand-slate);
+    font-weight: 600;
+    font-size: 14px;
+    transition: transform var(--transition), color var(--transition);
+}
+
+.re_card:hover:not(.re_card--sold) .re_card_link {
+    color: var(--brand-gold);
+    transform: translateX(2px);
+}
+
+@media (max-width: 768px) {
+    .filter_field--search {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .realestate_container {
+        padding-top: var(--space-lg);
+    }
+
+    .realestate_header {
+        margin-bottom: var(--space-md);
+        padding-bottom: var(--space-md);
+    }
+
+    .filters_bar {
+        padding: var(--space-sm);
+    }
+
+    .re_card_price {
+        font-size: 19px;
+    }
+
+    .re_card_title {
+        font-size: 16px;
+    }
 }
