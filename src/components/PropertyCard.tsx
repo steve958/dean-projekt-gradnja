@@ -1,17 +1,11 @@
 import { Carousel, Modal, Form } from "react-bootstrap";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { priceConverter } from "../helpers/priceconverter";
-import { useParams } from "react-router-dom";
-import { MapContainer, Marker, TileLayer } from "react-leaflet";
+import { useNavigate, useParams } from "react-router-dom";
 import "./PropertyCard.css";
 import emailjs from "@emailjs/browser";
 import { realestate } from "../data/realestateData";
-import "leaflet/dist/leaflet.css";
-import { LatLngTuple } from "leaflet";
-import L from "leaflet";
-import icon from "../assets/Map-Pin.svg";
 import { useLang } from "../i18n";
-import { useEffect } from "react";
 
 export interface Realestate {
     id: number;
@@ -26,33 +20,27 @@ export interface Realestate {
     descriptionEng: string;
     summaryCro: string[];
     summaryEng: string[];
-    coordinates: LatLngTuple;
+    coordinates: [number, number];
 }
+
+const PHONE_DISPLAY = "+385 95 3466323";
+const PHONE_TEL = "+385953466323";
 
 const PropertyCard = () => {
     const { isEng, t } = useLang();
+    const navigate = useNavigate();
     const [property, setProperty] = useState<Realestate | null>(null);
     const [showModal, setShowModal] = useState(false);
-    const [showMap, setShowMap] = useState<boolean>(false);
     const { id } = useParams();
     const form = useRef<HTMLFormElement | null>(null);
 
     useEffect(() => {
-        const element = document.getElementsByClassName("card-body");
-        element[0]?.scrollIntoView({ behavior: "smooth", block: "start" });
         const find = realestate?.find(
             (entry: Realestate) => entry.id.toString() === id
         );
         if (find) setProperty(find);
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }, [id]);
-
-    const handleSendMessage = () => setShowModal(true);
-    const handleCloseModal = () => setShowModal(false);
-
-    const myIcon = new L.Icon({
-        iconUrl: icon,
-        iconSize: [30, 30],
-    });
 
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -65,146 +53,185 @@ const PropertyCard = () => {
                 "YzjcisuTMf4N1ViWq"
             )
             .then(
-                (result) => {
-                    console.log(result.text);
-                    setShowModal(false);
-                },
-                (error) => {
-                    console.log(error.text);
-                }
+                () => setShowModal(false),
+                (error) => console.log(error.text)
             );
         e.currentTarget.reset();
     };
 
+    if (!property) return null;
+
+    const title = isEng ? property.titleEng : property.titleCro;
+    const description = isEng
+        ? property.descriptionEng
+        : property.descriptionCro;
+    const summary = isEng ? property.summaryEng : property.summaryCro;
+    const isSold = property.status === "sold";
+
+    const typeLabel = (() => {
+        switch (property.type) {
+            case "house":
+                return t("House", "Kuća");
+            case "apartment":
+                return t("Apartment", "Stan");
+            case "land":
+                return t("Land", "Plac");
+            default:
+                return property.type;
+        }
+    })();
+
+    const [lat, lng] = property.coordinates;
+    const mapEmbedUrl = `https://www.google.com/maps?q=${lat},${lng}&z=15&output=embed`;
+    const mapDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+
     return (
         <>
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-12">
-                        <div className="card property-card-container">
-                            <div
-                                className="property-card-image"
-                                style={{ backgroundColor: "var(--brand-slate)" }}
+            <div className="container property_page">
+                <button
+                    type="button"
+                    className="property_back"
+                    onClick={() => navigate("/realestate")}
+                >
+                    ← {t("Back to listings", "Natrag na ponudu")}
+                </button>
+
+                <div className="row g-4 property_main">
+                    <div className="col-lg-7">
+                        <div className="property_carousel_wrap">
+                            <Carousel
+                                interval={null}
+                                className="property_carousel"
                             >
-                                <Carousel>
-                                    {property?.images?.map((image, index) => (
-                                        <Carousel.Item key={image}>
-                                            <img
-                                                src={image}
-                                                className="d-block w-100 shadow-lg rounded main-image"
-                                                alt={`Slide ${index + 1}`}
-                                                style={{
-                                                    maxHeight: "565px",
-                                                    objectFit: "contain",
-                                                }}
-                                                loading="lazy"
-                                            />
-                                        </Carousel.Item>
-                                    ))}
-                                </Carousel>
-                            </div>
-                            <div className="card-body property-card-body">
-                                <h5 className="card-title" style={{ fontSize: "25px" }}>
-                                    {isEng ? property?.titleEng : property?.titleCro}
-                                </h5>
-                                <p className="card-text">
-                                    {isEng
-                                        ? property?.descriptionEng
-                                        : property?.descriptionCro}
-                                </p>
-                                {(isEng
-                                    ? property?.summaryEng
-                                    : property?.summaryCro
-                                )?.map((summary: string) => (
-                                    <p key={summary}>{summary}</p>
+                                {property.images?.map((image, idx) => (
+                                    <Carousel.Item key={image}>
+                                        <img
+                                            src={image}
+                                            className="property_carousel_image"
+                                            alt={`${title} ${idx + 1}`}
+                                            loading={idx === 0 ? "eager" : "lazy"}
+                                        />
+                                    </Carousel.Item>
                                 ))}
-                                <p>
-                                    {t("Contact:", "Kontakt:")}{" "}
-                                    <a
-                                        href="tel:+385953466323"
-                                        style={{ color: "inherit" }}
-                                    >
-                                        +385 95 3466323
-                                    </a>
-                                </p>
-                                {!showMap && (
-                                    <span style={{ display: "flex", cursor: "pointer" }}>
-                                        <p onClick={() => setShowMap(true)}>
-                                            {t("Show map", "Prikaži na mapi")}
-                                        </p>
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="16"
-                                            height="16"
-                                            fill="currentColor"
-                                            className="bi bi-geo-alt-fill"
-                                            viewBox="0 0 16 16"
-                                        >
-                                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
-                                        </svg>
-                                    </span>
-                                )}
-                                {showMap && property && (
-                                    <div className="map_container">
-                                        <MapContainer
-                                            center={property.coordinates}
-                                            zoom={15}
-                                            scrollWheelZoom={false}
-                                        >
-                                            <TileLayer
-                                                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                            />
-                                            <Marker
-                                                position={property.coordinates}
-                                                icon={myIcon}
-                                            />
-                                        </MapContainer>
-                                        <span
-                                            onClick={() => setShowMap(false)}
-                                            className="close_map"
-                                        >
-                                            X
-                                        </span>
-                                    </div>
-                                )}
-                                <p style={{ fontSize: "25px", fontWeight: "600" }}>
-                                    {t("Price:", "Cijena:")}{" "}
-                                    {property?.price && priceConverter(property.price)}€
-                                </p>
-                                <span className="button_send-message">
-                                    <a
-                                        className="btn btn-outline-secondary"
-                                        onClick={handleSendMessage}
-                                    >
-                                        {t("Send Message", "Pošaljite upit")}
-                                    </a>
-                                </span>
-                            </div>
+                            </Carousel>
                         </div>
                     </div>
+
+                    <div className="col-lg-5">
+                        <aside className="property_info">
+                            <div className="property_badges">
+                                <span className="property_badge property_badge--type">
+                                    {typeLabel}
+                                </span>
+                                {isSold && (
+                                    <span className="property_badge property_badge--sold">
+                                        {t("Sold", "Prodano")}
+                                    </span>
+                                )}
+                            </div>
+
+                            <h1 className="property_title">{title}</h1>
+
+                            <div className="property_price">
+                                {priceConverter(property.price)}€
+                            </div>
+
+                            <p className="property_description">{description}</p>
+
+                            {summary && summary.length > 0 && (
+                                <ul className="property_summary">
+                                    {summary.map((item) => (
+                                        <li key={item}>{item}</li>
+                                    ))}
+                                </ul>
+                            )}
+
+                            <div className="property_actions">
+                                <a
+                                    href={`tel:${PHONE_TEL}`}
+                                    className="property_phone"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="18"
+                                        height="18"
+                                        fill="currentColor"
+                                        viewBox="0 0 16 16"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"
+                                        />
+                                    </svg>
+                                    <span>{PHONE_DISPLAY}</span>
+                                </a>
+                                <button
+                                    type="button"
+                                    className="property_cta"
+                                    onClick={() => setShowModal(true)}
+                                    disabled={isSold}
+                                >
+                                    {t("Send inquiry", "Pošaljite upit")}
+                                </button>
+                            </div>
+                        </aside>
+                    </div>
                 </div>
+
+                <section className="property_map_section">
+                    <div className="property_map_header">
+                        <h4 className="property_map_title">
+                            {t("Location", "Lokacija")}
+                        </h4>
+                        <a
+                            href={mapDirectionsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="property_directions"
+                        >
+                            {t("Get directions", "Upute za put")} →
+                        </a>
+                    </div>
+                    <div className="property_map">
+                        <iframe
+                            src={mapEmbedUrl}
+                            title={t("Property location", "Lokacija nekretnine")}
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            allowFullScreen
+                        />
+                    </div>
+                </section>
             </div>
-            <Modal show={showModal} onHide={handleCloseModal}>
+
+            <Modal
+                show={showModal}
+                onHide={() => setShowModal(false)}
+                centered
+            >
                 <Modal.Header closeButton>
-                    <Modal.Title>{t("Send Message", "Pošaljite upit")}</Modal.Title>
+                    <Modal.Title>
+                        {t("Send inquiry", "Pošaljite upit")}
+                    </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form
-                        className="contact-form-container"
+                        className="property_inquiry_form"
                         onSubmit={sendEmail}
                         ref={form}
                     >
                         <Form.Group className="mb-3">
-                            <Form.Label>{t("Realestate", "Nekretnina")}</Form.Label>
+                            <Form.Label>
+                                {t("Property", "Nekretnina")}
+                            </Form.Label>
                             <Form.Control
                                 type="text"
                                 name="property"
-                                value={property?.titleCro ?? ""}
+                                value={property.titleCro}
                                 readOnly
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Group className="mb-3">
                             <Form.Label>{t("Name", "Ime")}</Form.Label>
                             <Form.Control
                                 type="text"
@@ -213,7 +240,7 @@ const PropertyCard = () => {
                                 required
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3">
                             <Form.Label>Email</Form.Label>
                             <Form.Control
                                 type="email"
@@ -222,8 +249,10 @@ const PropertyCard = () => {
                                 required
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicPhone">
-                            <Form.Label>{t("Phone number", "Broj telefona")}</Form.Label>
+                        <Form.Group className="mb-3">
+                            <Form.Label>
+                                {t("Phone number", "Broj telefona")}
+                            </Form.Label>
                             <Form.Control
                                 type="tel"
                                 placeholder={t(
@@ -233,7 +262,7 @@ const PropertyCard = () => {
                                 name="user_number"
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicMessage">
+                        <Form.Group className="mb-3">
                             <Form.Label>{t("Message", "Poruka")}</Form.Label>
                             <Form.Control
                                 as="textarea"
@@ -246,7 +275,10 @@ const PropertyCard = () => {
                                 )}
                             />
                         </Form.Group>
-                        <button className="btn btn-outline-secondary" type="submit">
+                        <button
+                            type="submit"
+                            className="property_modal_submit"
+                        >
                             {t("Send", "Pošalji")}
                         </button>
                     </Form>
