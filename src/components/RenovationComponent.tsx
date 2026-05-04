@@ -48,8 +48,8 @@ const RenovationComponent = () => {
                         <div className="text-center p-4 headings">
                             <h3>
                                 {selectedLanguage === "English"
-                                    ? "Renovation and Adaptation"
-                                    : "Renoviranje i adaptacija"}
+                                    ? "Renovation and Finishing Works"
+                                    : "Renoviranje i završni radovi"}
                             </h3>
                         </div>
                     </div>

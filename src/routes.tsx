@@ -7,6 +7,7 @@ import Renovation from "./pages/Renovation";
 import Construction from "./pages/Construction";
 import Realestate from "./pages/Realestate";
 import SingleRealestate from "./pages/SingleRealestate";
+import InteriorDesign from "./pages/InteriorDesign";
 
 export const router = createHashRouter([
     {
@@ -32,6 +33,10 @@ export const router = createHashRouter([
             {
                 path: '/construction',
                 element: <Construction />
+            },
+            {
+                path: '/interior-design',
+                element: <InteriorDesign />
             },
             {
                 path: '/realestate',

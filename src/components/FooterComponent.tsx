@@ -49,8 +49,8 @@ export default function Footer() {
                 onClick={() => navigate('/renovation')}
               >
                 {selectedLanguage === 'English'
-                  ? 'Renovation and adaptation'
-                  : 'Renoviranje i adaptacija'}
+                  ? 'Renovation and finishing works'
+                  : 'Renoviranje i završni radovi'}
               </span>
             </p>
             <p>
@@ -61,6 +61,16 @@ export default function Footer() {
                 {selectedLanguage === 'English'
                   ? 'Residential construction'
                   : 'Izgradnja objekata'}
+              </span>
+            </p>
+            <p>
+              <span
+                className="footer_navigation"
+                onClick={() => navigate('/interior-design')}
+              >
+                {selectedLanguage === 'English'
+                  ? 'Interior design'
+                  : 'Uređenje interijera'}
               </span>
             </p>
           </div>

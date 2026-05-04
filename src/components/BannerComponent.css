@@ -1,0 +1,25 @@
+.banner {
+    width: 100%;
+    overflow: hidden;
+    background-color: #45526E;
+}
+
+.banner_image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    max-height: 70vh;
+}
+
+@media (max-width: 900px) {
+    .banner_image {
+        max-height: 45vh;
+    }
+}
+
+@media (max-width: 600px) {
+    .banner_image {
+        max-height: 30vh;
+    }
+}

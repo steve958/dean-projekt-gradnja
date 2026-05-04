@@ -1,14 +1,14 @@
-import CarouselComponent from "../components/CarouselComponent";
+import BannerComponent from "../components/BannerComponent";
 import QuoteComponent from "../components/QuoteComponent";
-import SpecialOfferComponent from "../components/SpecialOfferComponent";
+import ServicesComponent from "../components/ServicesComponent";
 
 
 export default function HomePage() {
     return (
         <>
-            <CarouselComponent />
+            <BannerComponent />
             <QuoteComponent />
-            <SpecialOfferComponent />
+            <ServicesComponent />
         </>
     );
 }

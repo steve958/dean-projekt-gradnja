@@ -45,13 +45,18 @@ export default function NavbarComponent() {
                             </NavDropdown.Item>
                             <NavDropdown.Item onClick={() => navigate("/renovation")}>
                                 {selectedLanguage === "English"
-                                    ? "Renovation and adaptation"
-                                    : "Renoviranje i adaptacija"}
+                                    ? "Renovation and finishing works"
+                                    : "Renoviranje i završni radovi"}
                             </NavDropdown.Item>
                             <NavDropdown.Item onClick={() => navigate("/construction")}>
                                 {selectedLanguage === "English"
                                     ? "Residential construction"
                                     : "Izgradnja objekata"}
+                            </NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => navigate("/interior-design")}>
+                                {selectedLanguage === "English"
+                                    ? "Interior design"
+                                    : "Uređenje interijera"}
                             </NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link onClick={() => navigate('/contact')}>
