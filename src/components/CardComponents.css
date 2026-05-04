@@ -1,3 +1,37 @@
+.value_cards {
+    margin-top: var(--space-lg);
+    width: 100%;
+}
+
 .card_content {
     font-size: 16px !important;
+}
+
+.value_card {
+    width: 100%;
+    background-color: var(--surface-alt);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.value_card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.value_card_body {
+    display: flex;
+    padding: var(--space-md);
+    justify-content: center;
+    align-items: center;
+}
+
+.value_card_title {
+    color: var(--brand-gold);
+    margin: var(--space-sm);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0;
 }

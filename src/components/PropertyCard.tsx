@@ -1,7 +1,5 @@
 import { Carousel, Modal, Form } from "react-bootstrap";
-import { useAppSelector } from "../app/hooks";
-import { RootState } from "../app/store";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { priceConverter } from "../helpers/priceconverter";
 import { useParams } from "react-router-dom";
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
@@ -12,6 +10,8 @@ import "leaflet/dist/leaflet.css";
 import { LatLngTuple } from "leaflet";
 import L from "leaflet";
 import icon from "../assets/Map-Pin.svg";
+import { useLang } from "../i18n";
+import { useEffect } from "react";
 
 export interface Realestate {
     id: number;
@@ -30,50 +30,33 @@ export interface Realestate {
 }
 
 const PropertyCard = () => {
-    const language = useAppSelector((state: RootState) => state.language.value);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { isEng, t } = useLang();
     const [property, setProperty] = useState<Realestate | null>(null);
     const [showModal, setShowModal] = useState(false);
     const [showMap, setShowMap] = useState<boolean>(false);
     const { id } = useParams();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const form = useRef<any>(null);
-
-    useEffect(() => {
-        if (showMap) {
-            const attribution = document.querySelector(
-                ".leaflet-control-attribution"
-            ) as HTMLElement;
-            attribution.style.display = "none";
-        }
-    }, [showMap]);
+    const form = useRef<HTMLFormElement | null>(null);
 
     useEffect(() => {
         const element = document.getElementsByClassName("card-body");
         element[0]?.scrollIntoView({ behavior: "smooth", block: "start" });
         const find = realestate?.find(
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (realestate: Realestate) => realestate.id.toString() === id
+            (entry: Realestate) => entry.id.toString() === id
         );
         if (find) setProperty(find);
     }, [id]);
 
-    const handleSendMessage = () => {
-        setShowModal(true);
-    };
-
-    const handleCloseModal = () => {
-        setShowModal(false);
-    };
+    const handleSendMessage = () => setShowModal(true);
+    const handleCloseModal = () => setShowModal(false);
 
     const myIcon = new L.Icon({
         iconUrl: icon,
         iconSize: [30, 30],
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    function sendEmail(e: any) {
+    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (!form.current) return;
         emailjs
             .sendForm(
                 "service_9fb2576",
@@ -90,8 +73,8 @@ const PropertyCard = () => {
                     console.log(error.text);
                 }
             );
-        e.target.reset();
-    }
+        e.currentTarget.reset();
+    };
 
     return (
         <>
@@ -101,16 +84,20 @@ const PropertyCard = () => {
                         <div className="card property-card-container">
                             <div
                                 className="property-card-image"
-                                style={{ backgroundColor: "#45526E" }}
+                                style={{ backgroundColor: "var(--brand-slate)" }}
                             >
                                 <Carousel>
                                     {property?.images?.map((image, index) => (
-                                        <Carousel.Item key={index}>
+                                        <Carousel.Item key={image}>
                                             <img
                                                 src={image}
                                                 className="d-block w-100 shadow-lg rounded main-image"
-                                                alt={`Slide ${index}`}
-                                                style={{ maxHeight: "565px", objectFit: "contain" }}
+                                                alt={`Slide ${index + 1}`}
+                                                style={{
+                                                    maxHeight: "565px",
+                                                    objectFit: "contain",
+                                                }}
+                                                loading="lazy"
                                             />
                                         </Carousel.Item>
                                     ))}
@@ -118,31 +105,32 @@ const PropertyCard = () => {
                             </div>
                             <div className="card-body property-card-body">
                                 <h5 className="card-title" style={{ fontSize: "25px" }}>
-                                    {language === "English"
-                                        ? property?.titleEng
-                                        : property?.titleCro}
+                                    {isEng ? property?.titleEng : property?.titleCro}
                                 </h5>
                                 <p className="card-text">
-                                    {language === "English"
+                                    {isEng
                                         ? property?.descriptionEng
                                         : property?.descriptionCro}
                                 </p>
-                                {language !== "English" &&
-                                    property?.summaryCro.map((summary: string) => {
-                                        return <p key={Math.random()}>{summary}</p>;
-                                    })}
-                                {language === "English" &&
-                                    property?.summaryEng.map((summary: string) => {
-                                        return <p key={Math.random()}>{summary}</p>;
-                                    })}
+                                {(isEng
+                                    ? property?.summaryEng
+                                    : property?.summaryCro
+                                )?.map((summary: string) => (
+                                    <p key={summary}>{summary}</p>
+                                ))}
                                 <p>
-                                    {language === "English" ? "Contact:" : "Kontakt:"} +385 95
-                                    3466323
+                                    {t("Contact:", "Kontakt:")}{" "}
+                                    <a
+                                        href="tel:+385953466323"
+                                        style={{ color: "inherit" }}
+                                    >
+                                        +385 95 3466323
+                                    </a>
                                 </p>
                                 {!showMap && (
                                     <span style={{ display: "flex", cursor: "pointer" }}>
                                         <p onClick={() => setShowMap(true)}>
-                                            {language === "English" ? "Show map" : "Prikaži na mapi"}
+                                            {t("Show map", "Prikaži na mapi")}
                                         </p>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -156,18 +144,21 @@ const PropertyCard = () => {
                                         </svg>
                                     </span>
                                 )}
-                                {showMap && (
+                                {showMap && property && (
                                     <div className="map_container">
                                         <MapContainer
-                                            center={property!.coordinates}
+                                            center={property.coordinates}
                                             zoom={15}
                                             scrollWheelZoom={false}
                                         >
-                                            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                                            <TileLayer
+                                                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                            />
                                             <Marker
-                                                position={property!.coordinates}
+                                                position={property.coordinates}
                                                 icon={myIcon}
-                                            ></Marker>
+                                            />
                                         </MapContainer>
                                         <span
                                             onClick={() => setShowMap(false)}
@@ -178,18 +169,15 @@ const PropertyCard = () => {
                                     </div>
                                 )}
                                 <p style={{ fontSize: "25px", fontWeight: "600" }}>
-                                    {language === "English"
-                                        ? `Price: ${property?.price && priceConverter(property?.price)
-                                        }€`
-                                        : `Cijena: ${property?.price && priceConverter(property?.price)
-                                        }€`}
+                                    {t("Price:", "Cijena:")}{" "}
+                                    {property?.price && priceConverter(property.price)}€
                                 </p>
                                 <span className="button_send-message">
                                     <a
                                         className="btn btn-outline-secondary"
                                         onClick={handleSendMessage}
                                     >
-                                        {language === "English" ? "Send Message" : "Pošaljite upit"}
+                                        {t("Send Message", "Pošaljite upit")}
                                     </a>
                                 </span>
                             </div>
@@ -199,9 +187,7 @@ const PropertyCard = () => {
             </div>
             <Modal show={showModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton>
-                    <Modal.Title>
-                        {language === "English" ? "Send Message" : "Pošaljite upit"}
-                    </Modal.Title>
+                    <Modal.Title>{t("Send Message", "Pošaljite upit")}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form
@@ -210,21 +196,19 @@ const PropertyCard = () => {
                         ref={form}
                     >
                         <Form.Group className="mb-3">
-                            <Form.Label>
-                                {language === "English" ? "Realestate" : "Nekretnina"}
-                            </Form.Label>
+                            <Form.Label>{t("Realestate", "Nekretnina")}</Form.Label>
                             <Form.Control
                                 type="text"
                                 name="property"
-                                value={property?.titleCro}
+                                value={property?.titleCro ?? ""}
                                 readOnly
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>{language === "English" ? "Name" : "Ime"}</Form.Label>
+                        <Form.Group className="mb-3" controlId="formBasicName">
+                            <Form.Label>{t("Name", "Ime")}</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder={language === "English" ? "Your name" : "Vaše ime"}
+                                placeholder={t("Your name", "Vaše ime")}
                                 name="user_name"
                                 required
                             />
@@ -233,45 +217,37 @@ const PropertyCard = () => {
                             <Form.Label>Email</Form.Label>
                             <Form.Control
                                 type="email"
-                                placeholder={
-                                    language === "English" ? " Enter email" : "Vaš mail"
-                                }
+                                placeholder={t("Enter email", "Vaš mail")}
                                 name="user_email"
                                 required
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>
-                                {language === "English" ? "Phone number" : "Broj telefona"}
-                            </Form.Label>
+                        <Form.Group className="mb-3" controlId="formBasicPhone">
+                            <Form.Label>{t("Phone number", "Broj telefona")}</Form.Label>
                             <Form.Control
-                                type="phone"
-                                placeholder={
-                                    language === "English"
-                                        ? "Enter phone number"
-                                        : "Vaš broj telefona"
-                                }
+                                type="tel"
+                                placeholder={t(
+                                    "Enter phone number",
+                                    "Vaš broj telefona"
+                                )}
                                 name="user_number"
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicMessage">
-                            <Form.Label>
-                                {language === "English" ? "Message" : "Poruka"}
-                            </Form.Label>
+                            <Form.Label>{t("Message", "Poruka")}</Form.Label>
                             <Form.Control
                                 as="textarea"
                                 name="message"
                                 required
                                 rows={3}
-                                placeholder={
-                                    language === "English"
-                                        ? "Enter your message"
-                                        : "Unesite vašu poruku"
-                                }
+                                placeholder={t(
+                                    "Enter your message",
+                                    "Unesite vašu poruku"
+                                )}
                             />
                         </Form.Group>
                         <button className="btn btn-outline-secondary" type="submit">
-                            {language === "English" ? "Send" : "Pošalji"}
+                            {t("Send", "Pošalji")}
                         </button>
                     </Form>
                 </Modal.Body>

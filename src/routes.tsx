@@ -1,4 +1,4 @@
-import { createHashRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import HomePage from "./pages/HomePage";
 import Contact from "./pages/Contact";
@@ -9,7 +9,7 @@ import Realestate from "./pages/Realestate";
 import SingleRealestate from "./pages/SingleRealestate";
 import InteriorDesign from "./pages/InteriorDesign";
 
-export const router = createHashRouter([
+export const router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
@@ -19,34 +19,33 @@ export const router = createHashRouter([
                 element: <HomePage />,
             },
             {
-                path: '/contact',
-                element: <Contact />
+                path: "/contact",
+                element: <Contact />,
             },
             {
-                path: '/about',
-                element: <About />
+                path: "/about",
+                element: <About />,
             },
             {
-                path: '/renovation',
-                element: <Renovation />
+                path: "/renovation",
+                element: <Renovation />,
             },
             {
-                path: '/construction',
-                element: <Construction />
+                path: "/construction",
+                element: <Construction />,
             },
             {
-                path: '/interior-design',
-                element: <InteriorDesign />
+                path: "/interior-design",
+                element: <InteriorDesign />,
             },
             {
-                path: '/realestate',
-                element: <Realestate />
+                path: "/realestate",
+                element: <Realestate />,
             },
             {
-                path: '/realestate/:id',
-                element: <SingleRealestate />
-            }
-
+                path: "/realestate/:id",
+                element: <SingleRealestate />,
+            },
         ],
     },
 ]);

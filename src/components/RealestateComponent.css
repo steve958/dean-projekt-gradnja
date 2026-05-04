@@ -1,65 +1,77 @@
-#sold {
-  opacity: 0.3;
+.card_realestate {
+  border: 2px solid var(--brand-gold) !important;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+  position: relative;
+}
+
+.card_realestate:not(.card_realestate--sold):hover,
+.card_realestate:not(.card_realestate--sold):focus-visible {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  outline: none;
+}
+
+.card_realestate--sold {
+  cursor: not-allowed;
+}
+
+.card_realestate--sold .card-img-top {
+  filter: grayscale(0.4);
+  opacity: 0.55;
 }
 
 .card-img-top {
   animation: appear 0.5s 1;
+  transition: transform 0.6s ease;
+  height: 220px;
+  object-fit: cover;
 }
 
-.sold_stamp {
+.card_realestate:not(.card_realestate--sold):hover .card-img-top {
+  transform: scale(1.04);
+}
+
+.sold_ribbon {
   position: absolute;
-  color: #45526e;
-  font-weight: 600;
-  letter-spacing: 20px;
-  font-size: 55px;
-  top: 25%;
-  left: 5%;
+  top: 18px;
+  left: -42px;
+  transform: rotate(-35deg);
+  background-color: #c0392b;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 4px;
+  padding: 6px 50px;
+  font-size: 14px;
+  z-index: 3;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  pointer-events: none;
 }
 
-.card_realestate {
-  border: 2px solid #c99b11 !important;
-}
-
-@media (max-width: 1400px) {
-  .sold_stamp {
-    font-size: 40px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .sold_stamp {
-    font-size: 30px;
-  }
-}
-
-@media (max-width: 1000px) {
-  .sold_stamp {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 770px) {
-  .sold_stamp {
-    right: 0;
-    font-size: 6vh;
-  }
-}
-
-@media (max-width: 340px) {
-  .sold_stamp {
-    right: 0;
-    font-size: 4vh;
-  }
-
-  .select_type_wrapper {
-    display: inline !important;
-  }
+.empty_state {
+  width: 100%;
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+  color: var(--text-muted);
+  font-size: 18px;
+  background-color: var(--surface-alt);
+  border-radius: var(--radius-md);
+  border: 1px dashed #ccc;
 }
 
 .select_type_wrapper {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: var(--space-md);
+}
+
+@media (max-width: 340px) {
+  .select_type_wrapper {
+    display: inline !important;
+  }
 }
 
 @keyframes appear {

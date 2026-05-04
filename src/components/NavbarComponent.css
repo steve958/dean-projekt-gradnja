@@ -1,0 +1,7 @@
+.app_navbar {
+    transition: box-shadow var(--transition), background-color var(--transition);
+}
+
+.app_navbar--scrolled {
+    box-shadow: var(--shadow-sm);
+}

@@ -1,5 +1,26 @@
 @import 'bootstrap/dist/css/bootstrap.css';
 
+:root {
+    --brand-gold: #C99B11;
+    --brand-gold-soft: #e0b94a;
+    --brand-slate: #45526E;
+    --brand-slate-soft: #5b6b8a;
+    --surface: #f8f9fa;
+    --surface-alt: #ffffff;
+    --text-muted: #555;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 18px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.18);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 40px;
+    --transition: 0.25s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +34,7 @@
 .app_container {
     width: 100vw;
     height: fit-content;
-    background-color: #f8f9fa;
+    background-color: var(--surface);
 }
 
 .carousel_container {
@@ -21,7 +42,7 @@
 }
 
 .btn-outline-secondary:hover {
-    background-color: #45526E !important;
+    background-color: var(--brand-slate) !important;
 }
 
 .flag_wrapper {
@@ -36,22 +57,24 @@
 }
 
 .flag_active {
-    border: 3px solid #C99B11;
+    border: 3px solid var(--brand-gold);
 }
 
 .footer_navigation {
     cursor: pointer;
+    transition: color var(--transition), filter var(--transition);
 }
 
 .footer_navigation:hover {
-    filter: drop-shadow(0 0 0.75rem #C99B11);
+    color: var(--brand-gold);
+    filter: drop-shadow(0 0 0.75rem var(--brand-gold));
 }
 
 .realestate_footer {
-    color: #C99B11;
+    color: var(--brand-gold);
     font-weight: 600;
     padding-left: 5px;
     padding-right: 5px;
-    border-left: 1px dotted #C99B11;
-    border-right: 1px dotted #C99B11;
+    border-left: 1px dotted var(--brand-gold);
+    border-right: 1px dotted var(--brand-gold);
 }

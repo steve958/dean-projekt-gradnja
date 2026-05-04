@@ -1,18 +1,14 @@
 import { useNavigate } from 'react-router-dom';
-import { useAppSelector } from '../app/hooks';
-import { RootState } from '../app/store';
+import { useLang } from '../i18n';
 
 export default function Footer() {
-  const selectedLanguage = useAppSelector(
-    (state: RootState) => state.language.value
-  );
-
+  const { t } = useLang();
   const navigate = useNavigate();
 
   return (
     <footer
       className="text-center text-lg-start text-white footer"
-      style={{ backgroundColor: '#45526e' }}
+      style={{ backgroundColor: 'var(--brand-slate)' }}
     >
       <div className="container p-4 pb-0">
         <div className="row">
@@ -21,9 +17,10 @@ export default function Footer() {
               DEAN PROJEKT GRADNJA
             </h6>
             <p>
-              {selectedLanguage === 'English'
-                ? 'Overall, our goal is to contribute to the growth and development of the communities in which we work and to play a key role in the economy.'
-                : 'Općenito, naš je cilj pridonijeti rastu i razvoju zajednica u kojima radimo te igrati ključnu ulogu u gospodarstvu.'}
+              {t(
+                'Overall, our goal is to contribute to the growth and development of the communities in which we work and to play a key role in the economy.',
+                'Općenito, naš je cilj pridonijeti rastu i razvoju zajednica u kojima radimo te igrati ključnu ulogu u gospodarstvu.'
+              )}
             </p>
           </div>
 
@@ -31,16 +28,14 @@ export default function Footer() {
 
           <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
             <h6 className="text-uppercase mb-4 font-weight-bold">
-              {selectedLanguage === 'English' ? 'Our services' : 'Naše usluge'}
+              {t('Our services', 'Naše usluge')}
             </h6>
             <p>
               <span
                 className="footer_navigation realestate_footer"
                 onClick={() => navigate('/realestate')}
               >
-                {selectedLanguage === 'English'
-                  ? 'Real Estate sale'
-                  : 'Prodaja nekretnina'}
+                {t('Real Estate sale', 'Prodaja nekretnina')}
               </span>
             </p>
             <p>
@@ -48,9 +43,10 @@ export default function Footer() {
                 className="footer_navigation"
                 onClick={() => navigate('/renovation')}
               >
-                {selectedLanguage === 'English'
-                  ? 'Renovation and finishing works'
-                  : 'Renoviranje i završni radovi'}
+                {t(
+                  'Renovation and finishing works',
+                  'Renoviranje i završni radovi'
+                )}
               </span>
             </p>
             <p>
@@ -58,9 +54,7 @@ export default function Footer() {
                 className="footer_navigation"
                 onClick={() => navigate('/construction')}
               >
-                {selectedLanguage === 'English'
-                  ? 'Residential construction'
-                  : 'Izgradnja objekata'}
+                {t('Residential construction', 'Izgradnja objekata')}
               </span>
             </p>
             <p>
@@ -68,9 +62,7 @@ export default function Footer() {
                 className="footer_navigation"
                 onClick={() => navigate('/interior-design')}
               >
-                {selectedLanguage === 'English'
-                  ? 'Interior design'
-                  : 'Uređenje interijera'}
+                {t('Interior design', 'Uređenje interijera')}
               </span>
             </p>
           </div>
@@ -79,16 +71,14 @@ export default function Footer() {
 
           <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
             <h6 className="text-uppercase mb-4 font-weight-bold">
-              {selectedLanguage === 'English'
-                ? 'Useful links'
-                : 'Korisni linkovi'}
+              {t('Useful links', 'Korisni linkovi')}
             </h6>
             <p>
               <a
                 className="text-white"
                 href="https://lepojeziveti.com/ostrvo-vis/"
               >
-                {selectedLanguage === 'English' ? 'Island of Vis' : 'Otok Vis'}
+                {t('Island of Vis', 'Otok Vis')}
               </a>
             </p>
             <p>
@@ -96,9 +86,7 @@ export default function Footer() {
                 className="text-white"
                 href="https://holidays-in-komiza.com/plaza/srebrena/"
               >
-                {selectedLanguage === 'English'
-                  ? 'Srebrna Plaža'
-                  : 'Srebrna Plaža'}
+                {t('Srebrna Plaža', 'Srebrna Plaža')}
               </a>
             </p>
           </div>
@@ -107,18 +95,30 @@ export default function Footer() {
 
           <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
             <h6 className="text-uppercase mb-4 font-weight-bold">
-              {selectedLanguage === 'English' ? 'Contact' : 'Kontakt'}
+              {t('Contact', 'Kontakt')}
             </h6>
             <p>
-              <i className="fas fa-home mr-3"></i> Donja Pastuša 23, Petrinja,
-              HR
+              <i className="fas fa-home mr-3"></i>
+              <a
+                className="text-white"
+                href="https://www.google.com/maps/search/?api=1&query=Donja+Pastu%C5%A1a+23%2C+Petrinja"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Donja Pastuša 23, Petrinja, HR
+              </a>
             </p>
             <p>
               <i className="fas fa-envelope mr-3"></i>{' '}
-              info@deanprojektgradnja.org
+              <a className="text-white" href="mailto:info@deanprojektgradnja.org">
+                info@deanprojektgradnja.org
+              </a>
             </p>
             <p>
-              <i className="fas fa-phone mr-3"></i> +385 95 3466323
+              <i className="fas fa-phone mr-3"></i>{' '}
+              <a className="text-white" href="tel:+385953466323">
+                +385 95 3466323
+              </a>
             </p>
           </div>
         </div>
@@ -138,6 +138,7 @@ export default function Footer() {
                 href="https://www.facebook.com/profile.php?id=100090850612956"
                 className="btn btn-outline-light btn-floating m-1"
                 role="button"
+                aria-label="Facebook"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -154,6 +155,7 @@ export default function Footer() {
                 className="btn btn-outline-light btn-floating m-1"
                 role="button"
                 href="https://www.instagram.com/deanprojektgradnja/?igshid=YmMyMTA2M2Y%3D"
+                aria-label="Instagram"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

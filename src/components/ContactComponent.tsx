@@ -1,33 +1,26 @@
 import { useRef, useState } from "react";
 import "./ContactComponent.css";
-import { useAppSelector } from "../app/hooks";
-import { RootState } from "../app/store";
 import emailjs from "@emailjs/browser";
+import { useLang } from "../i18n";
 
-interface Info {
-    home: boolean;
-    mail: boolean;
-    phone: boolean;
-}
+const ADDRESS = "Donja Pastuša 23, Petrinja, HR";
+const EMAIL = "info@deanprojektgradnja.org";
+const PHONE_DISPLAY = "+385 95 3466323";
+const PHONE_TEL = "+385953466323";
+const MAPS_URL =
+    "https://www.google.com/maps/search/?api=1&query=Donja+Pastu%C5%A1a+23%2C+Petrinja";
 
 export default function ContactComponent() {
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const form = useRef<any>(null);
-
-    const selectedLanguage = useAppSelector(
-        (state: RootState) => state.language.value
+    const { t } = useLang();
+    const form = useRef<HTMLFormElement | null>(null);
+    const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+        "idle"
     );
 
-    const [infoClicked, setInfoClicked] = useState<Info>({
-        home: false,
-        mail: false,
-        phone: false,
-    });
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const handleSubmit = (e: any) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (!form.current) return;
+        setStatus("sending");
         emailjs
             .sendForm(
                 "service_9fb2576",
@@ -38,15 +31,16 @@ export default function ContactComponent() {
             .then(
                 (result) => {
                     console.log(result.text);
-                    alert('Poruka poslata')
+                    setStatus("sent");
+                    form.current?.reset();
+                    setTimeout(() => setStatus("idle"), 4000);
                 },
                 (error) => {
                     console.log(error.text);
+                    setStatus("error");
                 }
             );
-        e.target.reset();
     };
-
 
     return (
         <div className="container">
@@ -57,17 +51,14 @@ export default function ContactComponent() {
                             <div className="card-header p-0">
                                 <div
                                     className="text-white text-center p-4"
-                                    style={{ backgroundColor: "#45526E" }}
+                                    style={{ backgroundColor: "var(--brand-slate)" }}
                                 >
-                                    <h3>
-                                        {selectedLanguage === "English"
-                                            ? "Contact Us"
-                                            : "Kontaktirajte nas"}
-                                    </h3>
+                                    <h3>{t("Contact Us", "Kontaktirajte nas")}</h3>
                                     <p className="m-0">
-                                        {selectedLanguage === "English"
-                                            ? "We will be glad to assist you"
-                                            : "Rado ćemo vam pomoći"}
+                                        {t(
+                                            "We will be glad to assist you",
+                                            "Rado ćemo vam pomoći"
+                                        )}
                                     </p>
                                 </div>
                             </div>
@@ -80,7 +71,7 @@ export default function ContactComponent() {
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     width="30"
                                                     height="30"
-                                                    fill="#45526E"
+                                                    fill="var(--brand-slate)"
                                                     className="bi bi-person-fill"
                                                     viewBox="0 0 16 16"
                                                 >
@@ -93,11 +84,10 @@ export default function ContactComponent() {
                                             className="form-control"
                                             id="user_name"
                                             name="user_name"
-                                            placeholder={
-                                                selectedLanguage === "English"
-                                                    ? "Name and surname"
-                                                    : "Ime i prezime"
-                                            }
+                                            placeholder={t(
+                                                "Name and surname",
+                                                "Ime i prezime"
+                                            )}
                                             required
                                         />
                                     </div>
@@ -110,7 +100,7 @@ export default function ContactComponent() {
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     width="30"
                                                     height="30"
-                                                    fill="#45526E"
+                                                    fill="var(--brand-slate)"
                                                     className="bi bi-envelope-fill"
                                                     viewBox="0 0 16 16"
                                                 >
@@ -123,9 +113,7 @@ export default function ContactComponent() {
                                             className="form-control"
                                             id="email"
                                             name="user_email"
-                                            placeholder={
-                                                selectedLanguage === "English" ? " Enter email" : "Vaš mail"
-                                            }
+                                            placeholder={t("Enter email", "Vaš mail")}
                                             required
                                         />
                                     </div>
@@ -138,7 +126,7 @@ export default function ContactComponent() {
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     width="30"
                                                     height="30"
-                                                    fill="#45526E"
+                                                    fill="var(--brand-slate)"
                                                     className="bi bi-chat-fill"
                                                     viewBox="0 0 16 16"
                                                 >
@@ -149,109 +137,107 @@ export default function ContactComponent() {
                                         <textarea
                                             className="form-control"
                                             name="message"
-                                            placeholder={
-                                                selectedLanguage === "English"
-                                                    ? "Your message"
-                                                    : "Vaša poruka"
-                                            }
-                                            rows={1}
+                                            placeholder={t(
+                                                "Your message",
+                                                "Vaša poruka"
+                                            )}
+                                            rows={3}
                                             required
                                         ></textarea>
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                    <input
+                                    <button
                                         type="submit"
-                                        value={selectedLanguage === "English" ? "Send" : "Pošalji"}
-                                        className="btn btn-block rounded-2 py-2 text-white"
-                                        style={{ backgroundColor: "#45526E" }}
-                                    />
+                                        disabled={status === "sending"}
+                                        className="btn btn-block rounded-2 py-2 text-white px-4"
+                                        style={{
+                                            backgroundColor: "var(--brand-slate)",
+                                        }}
+                                    >
+                                        {status === "sending"
+                                            ? t("Sending…", "Šaljem…")
+                                            : t("Send", "Pošalji")}
+                                    </button>
                                 </div>
+                                {status === "sent" && (
+                                    <p className="text-center mt-3 text-success">
+                                        {t(
+                                            "Message sent. Thank you!",
+                                            "Poruka je poslana. Hvala!"
+                                        )}
+                                    </p>
+                                )}
+                                {status === "error" && (
+                                    <p className="text-center mt-3 text-danger">
+                                        {t(
+                                            "Sending failed, please try again.",
+                                            "Slanje nije uspjelo, pokušajte ponovno."
+                                        )}
+                                    </p>
+                                )}
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
             <div className="contact_icons_container">
-                <span
+                <a
                     className="contact_icon_wrapper"
-                    title="Donja Pastuša 23, Petrinja, HR"
-                    onClick={() =>
-                        setInfoClicked({
-                            home: !infoClicked.home,
-                            mail: false,
-                            phone: false,
-                        })
-                    }
+                    title={ADDRESS}
+                    href={MAPS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="50"
                         height="50"
-                        fill="#45526E"
+                        fill="var(--brand-slate)"
                         className="bi bi-house"
                         viewBox="0 0 16 16"
                     >
                         <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z" />
                     </svg>
-                    <p>Donja Pastuša 23, Petrinja, HR</p>
-                    {infoClicked.home && (
-                        <p className="info">Donja Pastuša 23, Petrinja, HR</p>
-                    )}
-                </span>
-                <span
+                    <p>{ADDRESS}</p>
+                </a>
+                <a
                     className="contact_icon_wrapper"
-                    title="info@deanprojektgradnja.org"
-                    onClick={() =>
-                        setInfoClicked({
-                            home: false,
-                            mail: !infoClicked.mail,
-                            phone: false,
-                        })
-                    }
+                    title={EMAIL}
+                    href={`mailto:${EMAIL}`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="50"
                         height="50"
-                        fill="#45526E"
+                        fill="var(--brand-slate)"
                         className="bi bi-envelope-fill"
                         viewBox="0 0 16 16"
                     >
                         <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
                     </svg>
-                    <p>info@deanprojektgradnja.org</p>
-                    {infoClicked.mail && (
-                        <p className="info">info@deanprojektgradnja.org</p>
-                    )}
-                </span>
-                <span
+                    <p>{EMAIL}</p>
+                </a>
+                <a
                     className="contact_icon_wrapper"
-                    title="+385 95 3466323"
-                    onClick={() =>
-                        setInfoClicked({
-                            home: false,
-                            mail: false,
-                            phone: !infoClicked.phone,
-                        })
-                    }
+                    title={PHONE_DISPLAY}
+                    href={`tel:${PHONE_TEL}`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="40"
                         height="40"
-                        fill="#45526E"
+                        fill="var(--brand-slate)"
                         className="bi bi-telephone-fill"
                         viewBox="0 0 16 16"
                     >
                         <path
-                            fill-rule="evenodd"
+                            fillRule="evenodd"
                             d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"
                         />
                     </svg>
-                    <p>+385 95 3466323</p>
-                    {infoClicked.phone && <p className="info">+385 95 3466323</p>}
-                </span>
+                    <p>{PHONE_DISPLAY}</p>
+                </a>
             </div>
         </div>
     );

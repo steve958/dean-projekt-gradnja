@@ -1,7 +1,6 @@
 import "./ServicesComponent.css";
 import { useNavigate } from "react-router-dom";
-import { useAppSelector } from "../app/hooks";
-import { RootState } from "../app/store";
+import { useLang } from "../i18n";
 import realestateImg from "../assets/realestate.jpg";
 import renovationImg from "../assets/renovation1.jpg";
 import constructionImg from "../assets/construction.jpg";
@@ -60,13 +59,12 @@ const services: Service[] = [
 ];
 
 export default function ServicesComponent() {
-    const selectedLanguage = useAppSelector((s: RootState) => s.language.value);
+    const { isEng, t } = useLang();
     const navigate = useNavigate();
-    const isEng = selectedLanguage === "English";
 
     return (
         <div className="container services_container">
-            <div className="divider">{isEng ? "OUR SERVICES" : "NAŠE USLUGE"}</div>
+            <div className="divider">{t("OUR SERVICES", "NAŠE USLUGE")}</div>
             <div className="row services_row">
                 {services.map((service) => (
                     <div
@@ -94,7 +92,7 @@ export default function ServicesComponent() {
                                     {isEng ? service.descEng : service.descCro}
                                 </p>
                                 <span className="service_card_link">
-                                    {isEng ? "Learn more →" : "Saznajte više →"}
+                                    {t("Learn more →", "Saznajte više →")}
                                 </span>
                             </div>
                         </div>
