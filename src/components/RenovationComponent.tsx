@@ -1,4 +1,7 @@
 import ServicePage from "./ServicePage";
+import drone1 from "../assets/finish-work/dji_fly_20260407_120504_148_1775555494550_photo_optimized.jpg";
+import drone2 from "../assets/finish-work/dji_fly_20260407_120648_154_1775555473746_photo_optimized.jpg";
+import drone3 from "../assets/finish-work/dji_fly_20260407_120738_158_1775555455925_photo_optimized.jpg";
 import img1 from "../assets/finish-work/20250113_113539.jpg";
 import img2 from "../assets/finish-work/20250224_131417.jpg";
 import img3 from "../assets/finish-work/476634867_573858305652518_80779812425899159_n.jpg";
@@ -15,9 +18,6 @@ import img13 from "../assets/finish-work/477742074_573858518985830_8694855423202
 import img14 from "../assets/finish-work/477787306_573858272319188_8447349680735867555_n.jpg";
 import img15 from "../assets/finish-work/478322421_573858455652503_4877910028552635352_n.jpg";
 import img16 from "../assets/finish-work/496003760_653766047661743_99175368717907088_n.jpg";
-import img17 from "../assets/finish-work/dji_fly_20260407_120504_148_1775555494550_photo_optimized.jpg";
-import img18 from "../assets/finish-work/dji_fly_20260407_120648_154_1775555473746_photo_optimized.jpg";
-import img19 from "../assets/finish-work/dji_fly_20260407_120738_158_1775555455925_photo_optimized.jpg";
 import img20 from "../assets/finish-work/20230123_095016.jpg";
 import img21 from "../assets/finish-work/20240614_175157.jpg";
 import img22 from "../assets/finish-work/20240618_054926.jpg";
@@ -39,6 +39,9 @@ import img37 from "../assets/finish-work/Screenshot_20220202-150847_Facebook.jpg
 import img38 from "../assets/finish-work/Screenshot_20230117_214131_Facebook.jpg";
 
 const images = [
+    drone1,
+    drone2,
+    drone3,
     img1,
     img2,
     img3,
@@ -55,9 +58,6 @@ const images = [
     img14,
     img15,
     img16,
-    img17,
-    img18,
-    img19,
     img20,
     img21,
     img22,
