@@ -101,11 +101,11 @@ export default function Footer() {
               <i className="fas fa-home mr-3"></i>
               <a
                 className="text-white"
-                href="https://www.google.com/maps/search/?api=1&query=Donja+Pastu%C5%A1a+23%2C+Petrinja"
+                href="https://www.google.com/maps/search/?api=1&query=Petra+Sva%C4%8Di%C4%87a+27%2C+21480+Vis%2C+HR"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Donja Pastuša 23, Petrinja, HR
+                Petra Svačića 27, 21480 Vis, HR
               </a>
             </p>
             <p>

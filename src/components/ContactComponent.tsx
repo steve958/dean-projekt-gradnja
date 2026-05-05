@@ -3,14 +3,14 @@ import "./ContactComponent.css";
 import emailjs from "@emailjs/browser";
 import { useLang } from "../i18n";
 
-const ADDRESS = "Donja Pastuša 23, Petrinja, HR";
+const ADDRESS = "Petra Svačića 27, 21480 Vis, HR";
 const EMAIL = "info@deanprojektgradnja.org";
 const PHONE_DISPLAY = "+385 95 3466323";
 const PHONE_TEL = "+385953466323";
 const MAPS_URL =
-    "https://www.google.com/maps/search/?api=1&query=Donja+Pastu%C5%A1a+23%2C+Petrinja";
+    "https://www.google.com/maps/search/?api=1&query=Petra+Sva%C4%8Di%C4%87a+27%2C+21480+Vis%2C+HR";
 const MAPS_EMBED =
-    "https://www.google.com/maps?q=Donja+Pastu%C5%A1a+23%2C+Petrinja&output=embed";
+    "https://www.google.com/maps?q=Petra+Sva%C4%8Di%C4%87a+27%2C+21480+Vis%2C+HR&output=embed";
 
 export default function ContactComponent() {
     const { t } = useLang();
