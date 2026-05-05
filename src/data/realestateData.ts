@@ -39,22 +39,10 @@ import threeimg10 from "../assets/realestate/3-Stan-Hvar/img10.jpg";
 import threeimg11 from "../assets/realestate/3-Stan-Hvar/img11.jpg";
 import threeimg12 from "../assets/realestate/3-Stan-Hvar/img12.jpg";
 import threeimg13 from "../assets/realestate/3-Stan-Hvar/img13.jpg";
-//object 4
-// import fourmain from '../assets/realestate/4-Stan-Split-Riva/main.jpg';
-// import fourimg1 from '../assets/realestate/4-Stan-Split-Riva/img1.jpg';
-// import fourimg2 from '../assets/realestate/4-Stan-Split-Riva/img2.jpg';
-// import fourimg3 from '../assets/realestate/4-Stan-Split-Riva/img3.jpg';
-// import fourimg4 from '../assets/realestate/4-Stan-Split-Riva/img4.jpg';
-// import fourimg5 from '../assets/realestate/4-Stan-Split-Riva/img5.jpg';
-// import fourimg6 from '../assets/realestate/4-Stan-Split-Riva/img6.jpg';
-// import fourimg7 from '../assets/realestate/4-Stan-Split-Riva/img7.jpg';
-// import fourimg8 from '../assets/realestate/4-Stan-Split-Riva/img8.jpg';
 //object 5
 import fivemain from "../assets/realestate/5-Stan-Vis/main.jpg";
 //object 6
 import sixmain from "../assets/realestate/6-Stan-Hvar-2/main.jpg";
-//obejct 7
-// import sevenmain from "../assets/realestate/7-Kuca-Apartmani/main.jpg";
 //object 8
 import eightmain from "../assets/realestate/8-Kuca-Komiza/main.jpg";
 import eightimg3 from "../assets/realestate/8-Kuca-Komiza/img1.jpg";
@@ -114,13 +102,6 @@ import fiftteenimg5 from "../assets/realestate/15-Plac-Uvala-Stoncica/img5.jpg";
 import fiftteenimg6 from "../assets/realestate/15-Plac-Uvala-Stoncica/img6.jpg";
 import fiftteenimg7 from "../assets/realestate/15-Plac-Uvala-Stoncica/img7.jpg";
 import fiftteenimg8 from "../assets/realestate/15-Plac-Uvala-Stoncica/img8.jpg";
-//object 16
-import sixteenmain from "../assets/realestate/16-Plac-Vis-Poljicka/main.jpg";
-import sixteenimg1 from "../assets/realestate/16-Plac-Vis-Poljicka/img1.jpg";
-import sixteenimg2 from "../assets/realestate/16-Plac-Vis-Poljicka/img2.jpg";
-import sixteenimg3 from "../assets/realestate/16-Plac-Vis-Poljicka/img3.jpg";
-import sixteenimg4 from "../assets/realestate/16-Plac-Vis-Poljicka/img4.jpg";
-import sixteenimg5 from "../assets/realestate/16-Plac-Vis-Poljicka/img5.jpg";
 //object 17
 import seventeenmain from "../assets/realestate/17-Plac-Podspilje/main.jpg";
 import seventeenimg1 from "../assets/realestate/17-Plac-Podspilje/img1.jpg";
@@ -136,11 +117,7 @@ import seventeenimg10 from "../assets/realestate/17-Plac-Podspilje/img10.jpg";
 import seventeenimg11 from "../assets/realestate/17-Plac-Podspilje/img11.jpg";
 import seventeenimg12 from "../assets/realestate/17-Plac-Podspilje/img12.jpg";
 import seventeenimg13 from "../assets/realestate/17-Plac-Podspilje/img13.jpg";
-//object 18
-import eightteenmain from "../assets/realestate/18-Plac-Poljoprivredno/main.jpg";
-import eightteenimg1 from "../assets/realestate/18-Plac-Poljoprivredno/img1.jpg";
-import eightteenimg2 from "../assets/realestate/18-Plac-Poljoprivredno/img2.jpg";
-import eightteenimg3 from "../assets/realestate/18-Plac-Poljoprivredno/img3.jpg";
+
 
 export const realestate = [
   {
@@ -184,7 +161,7 @@ export const realestate = [
       twoimg15,
       twoimg16,
     ],
-    status: "active",
+    status: "sold",
     type: "house",
     descriptionCro:
       "Kad može Hollywood, možete i Vi!!! Ostvarite svoj san o sopstvenoj nekretnini na moru, po još uvijek dobrim cijenama odaberite za sebe stan ili kuću na Otoku Visu, u oazi netaknute prirode sa mnogobrojnim plažama, sa jedni.  Od najljepših na svijetu. Plaža Srebrna je 2006. godine izabrana za najljepšu plažu u Europi. Kada je filmska industrija prepoznala potencijal,što ne biste i Vi?  Na Otoku su se snimali razni filmovi medju kojima je i 'Mamma mia'. Neuseljavana Četvorosobna kuća. Površina 130m². Mogućnost bazena. Pogled na more i luku, na grad Vis. Miran dio Visa u kom nema prometa.",
@@ -225,32 +202,6 @@ export const realestate = [
     summaryEng: ["-37m²"],
     coordinates: [43.0553687, 16.1984158],
   },
-  // {
-  //   id: 4,
-  //   mainImage: fourmain,
-  //   titleCro: 'Split - Riva, Varoš 50m²',
-  //   titleEng: 'Split - Riva, Varoš 50m²',
-  //   price: 310000,
-  //   images: [
-  //     fourimg1,
-  //     fourimg2,
-  //     fourimg3,
-  //     fourimg4,
-  //     fourimg5,
-  //     fourimg6,
-  //     fourimg7,
-  //     fourimg8,
-  //   ],
-  //   status: 'active',
-  //   type: 'apartment',
-  //   descriptionCro:
-  //     'Kompletno sređen i renoviran stan u samom jezgru grada Splita. Nove instalacije, nova stolarija, apsolutno sve novo. Svaka prostorija i soba imaju prozore i prirodnu ventilaciju. Ulica Kovačića 18. Dvoiposoban stan od 50m². Dobro uhodan na Booking-u. Savršen stan kao i investicija!',
-  //   descriptionEng:
-  //     'Completely arranged and renovated apartment in the very core of the city of Split. New installations, new carpentry, absolutely everything new. Every room and room has windows and natural ventilation. Street Kovačića 18. Two and a half room apartment of 50m². Excellent attendance at Booking. A perfect apartment as well as an investment!',
-  //   summaryCro: ['-2,5 sobe', '-50m²', '-Kompletno renoviran', '-Prvi kat'],
-  //   summaryEng: ['-2,5 sobe', '-50m²', '-Completely renovated', '-First floor'],
-  //   coordinates: [43.5108942, 16.435227],
-  // },
   {
     id: 5,
     mainImage: fivemain,
@@ -281,20 +232,6 @@ export const realestate = [
     summaryEng: [],
     coordinates: [43.1699256, 16.4446506],
   },
-  // {
-  //   id: 7,
-  //   mainImage: sevenmain,
-  //   titleCro: "Vis - Srebrna plaža, 7 apartmana",
-  //   titleEng: "Island of Vis-Srebrna plaža, 7 apartments",
-  //   price: 399000,
-  //   images: [sevenmain],
-  //   status: "sold",
-  //   type: "house",
-  //   descriptionCro: "",
-  //   descriptionEng: "",
-  //   summaryCro: [],
-  //   summaryEng: [],
-  // },
   {
     id: 8,
     mainImage: eightmain,
@@ -559,33 +496,6 @@ export const realestate = [
     coordinates: [43.0645834, 16.2415789],
   },
   {
-    id: 16,
-    mainImage: sixteenmain,
-    titleCro: "Plac - Vis - Poljička ulica",
-    titleEng: "Land plot - Vis - street Poljička",
-    price: 175000,
-    images: [sixteenimg1, sixteenimg2, sixteenimg3, sixteenimg4, sixteenimg5],
-    status: "active",
-    type: "land",
-    descriptionCro:
-      "Na prodaju lokacija sa postojećim zidovima, gotovim projektom odobrenim od strane konzervatora.",
-    descriptionEng:
-      "Site for sale with existing walls, finished project approved by conservator.",
-    summaryCro: [
-      "-Predato za gradjevinsku dozvolu",
-      "-Lokacija savršena / Centar Otoka Visa",
-      "-Blizina mora",
-      "-Hitna prodaja !!!",
-    ],
-    summaryEng: [
-      "-Submitted for building permit",
-      "-Perfect location / Center of Vis island",
-      "-Near the sea",
-      "-Urgent sale !!!",
-    ],
-    coordinates: [43.0609516, 16.1821207],
-  },
-  {
     id: 17,
     mainImage: seventeenmain,
     titleCro: "Plac - Otok Vis - Podšpilje",
@@ -628,33 +538,6 @@ export const realestate = [
       "-Proximity to infrastructure",
       "-Ideal for building a house or investment in tourism",
       "-This property offers the perfect balance between tranquility, privacy, and all the amenities that the island of Vis has to offer. Don't miss out on this opportunity!",
-    ],
-    coordinates: [43.029007, 16.136838],
-  },
-  {
-    id: 18,
-    mainImage: eightteenmain,
-    titleCro: "Plac - Otok Vis - Poljoprivredna parcela",
-    titleEng: "Land plot - Vis - Agricultural plot",
-    price: 11835,
-    images: [
-      eightteenimg1,
-      eightteenimg2,
-      eightteenimg3,
-    ],
-    status: "active",
-    type: "land",
-    descriptionCro:
-      "Prodaje se poljoprivredna parcela na otoku Visu, površine 2.630 m². Parcela je jugozapadno orijentirana, smještena uz cestu, s pristupnim putem ucrtanom u katastar (potrebno ga je očistiti).",
-    descriptionEng:
-      "For Sale: Agricultural Land, Island of Vis Agricultural land for sale on the island of Vis, covering an area of 2, 630 m².The plot is southwest- oriented, located next to a road, with an access path recorded in the cadastral map(requires clearing with a chainsaw).",
-    summaryCro: [
-      "4,5€ / m²",
-      "Papiri: Vlasništvo uredno, 1/1",
-    ],
-    summaryEng: [
-      "4,5€ / m²",
-      "Documents: Ownership clear, 1/1.",
     ],
     coordinates: [43.029007, 16.136838],
   },
