@@ -34,23 +34,15 @@ const title = {
     cro: "Izgradnja objekata",
 };
 
-const paragraphs = [
-    {
-        eng: "Our company is dedicated to delivering high-quality residential construction services, tailored to meet the unique needs and aspirations of our clients. With a passion for crafting exceptional living spaces, we combine innovative design, superior craftsmanship, and attention to detail to bring your dream home to life.",
-        cro: "Naša tvrtka posvećena je pružanju visokokvalitetnih usluga stambene izgradnje, prilagođenih jedinstvenim potrebama i težnjama naših klijenata. Sa strašću za stvaranjem iznimnih životnih prostora, kombiniramo inovativni dizajn, vrhunsku izradu i pažnju posvećenu detaljima kako bismo oživjeli vaš dom iz snova.",
-    },
-    {
-        eng: "From custom-built homes to renovations and additions, we offer a comprehensive range of residential construction solutions. Our experienced team of architects, engineers, and builders collaborates closely with clients to ensure that every aspect of the project aligns with their vision and budget. We prioritize open communication and transparency, keeping our clients informed at every stage of the construction process.",
-        cro: "Od kuća izgrađenih po narudžbi do renoviranja i dogradnje, nudimo sveobuhvatan raspon rješenja za stambenu izgradnju. Naš iskusni tim arhitekata, inženjera i građevinara blisko surađuje s klijentima kako bi osigurali da je svaki aspekt projekta usklađen s njihovom vizijom i proračunom. Prioritet nam je otvorena komunikacija i transparentnost, obavještavajući naše klijente u svakoj fazi procesa izgradnje.",
-    },
-    {
-        eng: "With a commitment to using the finest materials and the latest construction techniques, we strive to create homes that are not only aesthetically stunning but also structurally sound and built to last. Our dedication to excellence and customer satisfaction has established us as a trusted partner for realizing your residential construction dreams.",
-        cro: "Uz predanost korištenju najfinijih materijala i najnovijih tehnika gradnje, nastojimo stvoriti domove koji nisu samo estetski zadivljujući, već su i strukturno zdravi i izgrađeni da traju. Naša predanost izvrsnosti i zadovoljstvu kupaca postavila nas je kao pouzdanog partnera za ostvarenje vaših snova o stambenoj izgradnji.",
-    },
+const bullets = [
+    { eng: "Rough construction (Roh-bau)", cro: "Roh-bau – siva faza" },
+    { eng: "Extended shell construction", cro: "Visoka siva faza" },
+    { eng: "Turn-key", cro: "Ključ u ruke" },
+    { eng: "Roofing works", cro: "Krovopokrivački poslovi" },
 ];
 
 const ConstructionComponent = () => (
-    <ServicePage title={title} paragraphs={paragraphs} images={images} />
+    <ServicePage title={title} bullets={bullets} images={images} />
 );
 
 export default ConstructionComponent;
