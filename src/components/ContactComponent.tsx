@@ -50,8 +50,8 @@ export default function ContactComponent() {
                 </h1>
                 <p className="contact_subtitle">
                     {t(
-                        "We will be glad to assist you",
-                        "Rado ćemo vam pomoći"
+                        "We will be glad to assist You",
+                        "Rado ćemo Vam pomoći"
                     )}
                 </p>
             </header>

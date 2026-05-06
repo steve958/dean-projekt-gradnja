@@ -13,17 +13,30 @@
     overflow: hidden;
     cursor: pointer;
     height: 100%;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-sm), 0 0 0 1px rgba(201, 155, 17, 0.25);
     transition: transform var(--transition), box-shadow var(--transition);
     display: flex;
     flex-direction: column;
     outline: none;
+    border: 2px solid var(--brand-gold);
+    position: relative;
+}
+
+.service_card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+    z-index: 1;
 }
 
 .service_card:hover,
 .service_card:focus-visible {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-md), 0 12px 28px rgba(201, 155, 17, 0.28);
+    border-color: var(--brand-gold-soft);
 }
 
 .service_card_image {
