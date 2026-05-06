@@ -84,23 +84,16 @@ const title = {
     cro: "Renoviranje i završni radovi",
 };
 
-const paragraphs = [
-    {
-        eng: "Our company specializes in providing comprehensive renovation and finishing services tailored to meet the evolving needs of our clients. With a focus on both residential and commercial properties, we combine innovation and expertise to breathe new life into existing spaces.",
-        cro: "Naša tvrtka specijalizirana je za pružanje sveobuhvatnih usluga obnove i završnih radova prilagođenih rastućim potrebama naših klijenata. S fokusom na stambene i poslovne nekretnine, kombiniramo inovacije i stručnost kako bismo udahnuli novi život postojećim prostorima.",
-    },
-    {
-        eng: "Whether it's a complete overhaul of a property or a selective adaptation to accommodate specific requirements, our team of skilled professionals works diligently to ensure that every project is executed with precision and attention to detail. We understand the importance of maintaining the structural integrity of buildings while incorporating modern design elements and functionality.",
-        cro: "Bilo da se radi o kompletnom remontu nekretnine ili selektivnoj prilagodbi specifičnim zahtjevima, naš tim vještih profesionalaca marljivo radi kako bi osigurao da je svaki projekt izveden s preciznošću i pažnjom za detalje. Razumijemo važnost održavanja strukturalnog integriteta zgrada uz uključivanje elemenata modernog dizajna i funkcionalnosti.",
-    },
-    {
-        eng: "From concept development to the final execution, we collaborate closely with our clients to understand their vision and deliver results that exceed expectations. Our commitment to quality craftsmanship, adherence to timelines, and transparent communication sets us apart as a trusted partner in realizing your renovation goals.",
-        cro: "Od razvoja koncepta do konačne izvedbe, surađujemo blisko s našim klijentima kako bismo razumjeli njihovu viziju i isporučili rezultate koji premašuju očekivanja. Naša predanost kvalitetnom majstorstvu, poštivanju rokova i transparentnoj komunikaciji izdvaja nas kao pouzdanog partnera u realizaciji vaših ciljeva obnove.",
-    },
+const bullets = [
+    { eng: "Facades", cro: "Fasade" },
+    { eng: "Tiling", cro: "Keramika" },
+    { eng: "Drywall (Knauf)", cro: "Knauf" },
+    { eng: "Stonework", cro: "Kamen" },
+    { eng: "Painting", cro: "Soboslikarstvo" },
 ];
 
 const RenovationComponent = () => (
-    <ServicePage title={title} paragraphs={paragraphs} images={images} />
+    <ServicePage title={title} bullets={bullets} images={images} />
 );
 
 export default RenovationComponent;

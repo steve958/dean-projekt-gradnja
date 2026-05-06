@@ -10,11 +10,17 @@ export interface BilingualText {
 
 interface ServicePageProps {
     title: BilingualText;
-    paragraphs: BilingualText[];
+    paragraphs?: BilingualText[];
+    bullets?: BilingualText[];
     images: string[];
 }
 
-const ServicePage = ({ title, paragraphs, images }: ServicePageProps) => {
+const ServicePage = ({
+    title,
+    paragraphs,
+    bullets,
+    images,
+}: ServicePageProps) => {
     const { isEng, t } = useLang();
     const [lightbox, setLightbox] = useState<number | null>(null);
 
@@ -53,9 +59,16 @@ const ServicePage = ({ title, paragraphs, images }: ServicePageProps) => {
                             <h3>{isEng ? title.eng : title.cro}</h3>
                         </div>
                     </div>
-                    {paragraphs.map((p) => (
+                    {paragraphs?.map((p) => (
                         <p key={p.eng}>{isEng ? p.eng : p.cro}</p>
                     ))}
+                    {bullets && bullets.length > 0 && (
+                        <ul className="service_page_bullets">
+                            {bullets.map((b) => (
+                                <li key={b.eng}>{isEng ? b.eng : b.cro}</li>
+                            ))}
+                        </ul>
+                    )}
                 </Col>
             </Row>
             <Row>
