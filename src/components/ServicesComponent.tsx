@@ -17,6 +17,16 @@ interface Service {
 
 const services: Service[] = [
     {
+        image: interiorImg,
+        titleEng: "Interior Design",
+        titleCro: "Uređenje interijera",
+        descEng:
+            "Tailored interior design that turns every space into a reflection of your style and lifestyle.",
+        descCro:
+            "Uređenje interijera prilagođeno vama, koje svaki prostor pretvara u odraz vašeg stila i načina života.",
+        path: "/interior-design",
+    },
+    {
         image: realestateImg,
         titleEng: "Real Estate Sale",
         titleCro: "Prodaja nekretnina",
@@ -45,16 +55,6 @@ const services: Service[] = [
         descCro:
             "Gradnja kuća i objekata po mjeri od temelja do predaje ključeva, uz preciznost i pažnju.",
         path: "/construction",
-    },
-    {
-        image: interiorImg,
-        titleEng: "Interior Design",
-        titleCro: "Uređenje interijera",
-        descEng:
-            "Tailored interior design that turns every space into a reflection of your style and lifestyle.",
-        descCro:
-            "Uređenje interijera prilagođeno vama, koje svaki prostor pretvara u odraz vašeg stila i načina života.",
-        path: "/interior-design",
     },
 ];
 

@@ -53,6 +53,9 @@ export default function NavbarComponent() {
                             title={t("Our services", "Naše usluge")}
                             id="basic-nav-dropdown"
                         >
+                            <NavDropdown.Item onClick={() => navigate("/interior-design")}>
+                                {t("Interior design", "Uređenje interijera")}
+                            </NavDropdown.Item>
                             <NavDropdown.Item onClick={() => navigate("/realestate")}>
                                 {t("Real Estate sale", "Prodaja nekretnina")}
                             </NavDropdown.Item>
@@ -64,9 +67,6 @@ export default function NavbarComponent() {
                             </NavDropdown.Item>
                             <NavDropdown.Item onClick={() => navigate("/construction")}>
                                 {t("Residential construction", "Izgradnja objekata")}
-                            </NavDropdown.Item>
-                            <NavDropdown.Item onClick={() => navigate("/interior-design")}>
-                                {t("Interior design", "Uređenje interijera")}
                             </NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link onClick={() => navigate("/contact")}>
