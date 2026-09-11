@@ -13,8 +13,8 @@ export const interiorProjects = [
     "images": [
       {
         "src": "/images/interior-design/project-03-1.jpg",
-        "width": 370,
-        "height": 520,
+        "width": 1080,
+        "height": 1348,
         "label": {
           "eng": "Before",
           "cro": "Prije"
@@ -22,8 +22,8 @@ export const interiorProjects = [
       },
       {
         "src": "/images/interior-design/project-03-2.jpg",
-        "width": 375,
-        "height": 500,
+        "width": 1086,
+        "height": 1448,
         "label": {
           "eng": "After",
           "cro": "Poslije"
@@ -31,8 +31,8 @@ export const interiorProjects = [
       },
       {
         "src": "/images/interior-design/project-03-3.jpg",
-        "width": 375,
-        "height": 500,
+        "width": 1086,
+        "height": 1448,
         "label": {
           "eng": "Mood",
           "cro": "Ambijent"
@@ -40,8 +40,8 @@ export const interiorProjects = [
       },
       {
         "src": "/images/interior-design/project-03-4.jpg",
-        "width": 362,
-        "height": 482,
+        "width": 1086,
+        "height": 1448,
         "label": {
           "eng": "Night",
           "cro": "Večer"
@@ -62,8 +62,8 @@ export const interiorProjects = [
     "images": [
       {
         "src": "/images/interior-design/project-04-1.jpg",
-        "width": 510,
-        "height": 382,
+        "width": 1448,
+        "height": 1086,
         "label": {
           "eng": "Living room",
           "cro": "Dnevni boravak"
@@ -71,8 +71,8 @@ export const interiorProjects = [
       },
       {
         "src": "/images/interior-design/project-04-2.jpg",
-        "width": 510,
-        "height": 382,
+        "width": 1448,
+        "height": 1086,
         "label": {
           "eng": "Kitchen and dining",
           "cro": "Kuhinja i blagovaonica"
@@ -111,8 +111,8 @@ export const interiorProjects = [
       },
       {
         "src": "/images/interior-design/project-05-2.jpg",
-        "width": 382,
-        "height": 510,
+        "width": 1086,
+        "height": 1448,
         "label": {
           "eng": "Living room",
           "cro": "Dnevni boravak"
@@ -120,8 +120,8 @@ export const interiorProjects = [
       },
       {
         "src": "/images/interior-design/project-05-3.jpg",
-        "width": 570,
-        "height": 428,
+        "width": 1448,
+        "height": 1086,
         "label": {
           "eng": "Kitchen and dining",
           "cro": "Kuhinja i blagovaonica"
@@ -173,8 +173,8 @@ export const interiorProjects = [
     "images": [
       {
         "src": "/images/interior-design/project-07-1.jpg",
-        "width": 515,
-        "height": 687,
+        "width": 1086,
+        "height": 1448,
         "label": {
           "eng": "View 1",
           "cro": "Pogled 1"
@@ -195,8 +195,8 @@ export const interiorProjects = [
     "images": [
       {
         "src": "/images/interior-design/project-08-1.jpg",
-        "width": 843,
-        "height": 562,
+        "width": 1536,
+        "height": 1024,
         "label": {
           "eng": "View 1",
           "cro": "Pogled 1"
@@ -217,8 +217,8 @@ export const interiorProjects = [
     "images": [
       {
         "src": "/images/interior-design/project-09-1.jpg",
-        "width": 1149,
-        "height": 812,
+        "width": 2000,
+        "height": 1413,
         "label": {
           "eng": "View 1",
           "cro": "Pogled 1"
@@ -261,8 +261,8 @@ export const interiorProjects = [
     "images": [
       {
         "src": "/images/interior-design/project-11-1.jpg",
-        "width": 902,
-        "height": 677,
+        "width": 1448,
+        "height": 1086,
         "label": {
           "eng": "View 1",
           "cro": "Pogled 1"
@@ -283,11 +283,20 @@ export const interiorProjects = [
     "images": [
       {
         "src": "/images/interior-design/project-12-1.jpg",
-        "width": 507,
-        "height": 677,
+        "width": 1086,
+        "height": 1448,
         "label": {
-          "eng": "View 1",
-          "cro": "Pogled 1"
+          "eng": "Day",
+          "cro": "Dan"
+        }
+      },
+      {
+        "src": "/images/interior-design/project-12-2.jpg",
+        "width": 1122,
+        "height": 1402,
+        "label": {
+          "eng": "Evening",
+          "cro": "Večer"
         }
       }
     ]
@@ -305,8 +314,8 @@ export const interiorProjects = [
     "images": [
       {
         "src": "/images/interior-design/project-13-1.jpg",
-        "width": 381,
-        "height": 677,
+        "width": 941,
+        "height": 1672,
         "label": {
           "eng": "View 1",
           "cro": "Pogled 1"
@@ -371,8 +380,8 @@ export const interiorProjects = [
     "images": [
       {
         "src": "/images/interior-design/project-16-1.jpg",
-        "width": 1015,
-        "height": 677,
+        "width": 1536,
+        "height": 1024,
         "label": {
           "eng": "View 1",
           "cro": "Pogled 1"
@@ -393,8 +402,8 @@ export const interiorProjects = [
     "images": [
       {
         "src": "/images/interior-design/project-17-1.jpg",
-        "width": 351,
-        "height": 625,
+        "width": 1125,
+        "height": 2000,
         "label": {
           "eng": "View 1",
           "cro": "Pogled 1"
@@ -402,8 +411,8 @@ export const interiorProjects = [
       },
       {
         "src": "/images/interior-design/project-17-2.jpg",
-        "width": 724,
-        "height": 543,
+        "width": 1894,
+        "height": 1420,
         "label": {
           "eng": "View 2",
           "cro": "Pogled 2"
@@ -424,8 +433,8 @@ export const interiorProjects = [
     "images": [
       {
         "src": "/images/interior-design/project-18-1.jpg",
-        "width": 525,
-        "height": 656,
+        "width": 1122,
+        "height": 1402,
         "label": {
           "eng": "View 1",
           "cro": "Pogled 1"
@@ -433,8 +442,8 @@ export const interiorProjects = [
       },
       {
         "src": "/images/interior-design/project-18-2.jpg",
-        "width": 492,
-        "height": 656,
+        "width": 1086,
+        "height": 1448,
         "label": {
           "eng": "View 2",
           "cro": "Pogled 2"
@@ -455,8 +464,8 @@ export const interiorProjects = [
     "images": [
       {
         "src": "/images/interior-design/project-19-1.jpg",
-        "width": 462,
-        "height": 656,
+        "width": 1052,
+        "height": 1494,
         "label": {
           "eng": "View 1",
           "cro": "Pogled 1"
@@ -464,8 +473,8 @@ export const interiorProjects = [
       },
       {
         "src": "/images/interior-design/project-19-2.jpg",
-        "width": 492,
-        "height": 656,
+        "width": 1086,
+        "height": 1448,
         "label": {
           "eng": "View 2",
           "cro": "Pogled 2"
@@ -486,8 +495,8 @@ export const interiorProjects = [
     "images": [
       {
         "src": "/images/interior-design/project-20-1.jpg",
-        "width": 944,
-        "height": 708,
+        "width": 1448,
+        "height": 1086,
         "label": {
           "eng": "View 1",
           "cro": "Pogled 1"
@@ -508,8 +517,8 @@ export const interiorProjects = [
     "images": [
       {
         "src": "/images/interior-design/project-21-1.jpg",
-        "width": 500,
-        "height": 625,
+        "width": 1122,
+        "height": 1402,
         "label": {
           "eng": "View 1",
           "cro": "Pogled 1"
@@ -517,8 +526,8 @@ export const interiorProjects = [
       },
       {
         "src": "/images/interior-design/project-21-2.jpg",
-        "width": 750,
-        "height": 431,
+        "width": 1653,
+        "height": 951,
         "label": {
           "eng": "View 2",
           "cro": "Pogled 2"
@@ -539,8 +548,8 @@ export const interiorProjects = [
     "images": [
       {
         "src": "/images/interior-design/project-22-1.jpg",
-        "width": 542,
-        "height": 724,
+        "width": 1085,
+        "height": 1449,
         "label": {
           "eng": "View 1",
           "cro": "Pogled 1"
